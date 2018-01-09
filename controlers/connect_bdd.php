@@ -2,8 +2,8 @@
 
 	$Network = 'db710644193.db.1and1.com';
 	$BDname = 'db710644193';
-	$UserName = 'db710644193';
-	$Password = '5P%ri$6bf4E&&8WE';
+	$UserName = 'dbo710644193';
+	$Password = 'ProjetFJM2017';
 
 	try {
     	$strConnection = 'mysql:host='.$Network.';dbname='.$BDname; 

@@ -11,16 +11,16 @@
 
 <body>
 
-<nav><a href="#" class="focus">CONNEXION</a> | <a href="register.html">INSCRIPTION</a></nav>
+<nav><a href="#" class="focus">CONNEXION</a></nav>
 
-<form>
+<form action="../../controlers/connect.php" method="post">
 
     <h2>CONNEXION</h2>
 
-    <input name="text" type="text" class="text-field" placeholder="Identifiant"/>
-    <input type="password" class="text-field" placeholder="Mot de passe"/>
-    <input type="button" value="connexion" class="button"/>
-
+    <input name="id" type="text" class="text-field" placeholder="Identifiant"/>
+    <input name="pwd" type="password" class="text-field" placeholder="Mot de passe"/>
+    <input type="submit" value="Connexion" class="button"/>
+    
 </form>
 
 <script type="text/javascript" src="../../assets/javascript/jquery.js"></script>
