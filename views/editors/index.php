@@ -57,13 +57,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -79,7 +79,7 @@
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.html">
+                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.php">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -112,7 +112,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                    include ('../../controlers/connect_bdd.php');
+                                                    include ('connect_bdd.php');
                                                     
                                                     $result = $bdd->query('SELECT ID_Editor, Name, Email, Phone FROM editor');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -135,9 +135,9 @@
                                 </div>
                                 <div class="cell shrink">
                                     <div class="button-group stacked">
-                                        <a class="button" href="show.html">Consulter</a>
-                                        <a class="button" href="edit.html">Modifier</a>
-                                        <a class="button" href="new.html">Creer</a>
+                                        <a class="button" href="show.php">Consulter</a>
+                                        <a class="button" href="edit.php">Modifier</a>
+                                        <a class="button" href="new.php">Creer</a>
                                         <a class="button alert" id="delete-editor-btn">Supprimer</a>
                                     </div>
                                 </div>

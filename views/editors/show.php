@@ -57,13 +57,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -95,12 +95,27 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Consultation Editeur</h5>
+                        <h5 style="margin: 0">
+                            Consultation
+                            <?php
+                                include ('connect_bdd.php');
+
+                                $result = $bdd->query('SELECT Name FROM editor WHERE ID_Editor = "1"');
+                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                foreach ($data as $value) {
+                                    echo $value['Name'];
+                                }
+
+                                $result->closeCursor();
+                                unset($result);
+                            ?>
+                        </h5>
                         <!-- Comment faire pour modifier le titre en fonction du nom de l'éditeur ?-->
                     </div>
                     <div class="cell auto content-cell">
                         <div class="button-group">
-                            <a class="button" href="edit.html">Modifier</a>
+                            <a class="button" href="edit.php">Modifier</a>
                             <a class="button alert" id="delete-editor-btn">Supprimer</a>
                         </div>
 
@@ -113,7 +128,22 @@
                                             <h4>Editeur</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Infos à propos de l'éditeur</p>
+                                            <?php
+                                                require('connect_bdd.php');
+
+                                                $result = $bdd->query('SELECT * FROM editor WHERE ID_Editor = "1"');
+                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                foreach ($data as $value) {
+                                                    echo '<p>Nom : '.$value['Name'].'</p>';
+                                                    echo '<p>Email : '.$value['Email'].'</p>';
+                                                    echo '<p>Téléphone : '.$value['Phone'].'</p>';
+                                                    echo '<p>Adresse : '.$value['Address'].' '.$value['Postal_Code'].' '.$value['Town'].'</p>';
+                                                }
+
+                                                $result->closeCursor();
+                                                unset($result);
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="card">
@@ -131,7 +161,21 @@
                                             <h4>Contacts</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Dates de contacts avec l'édtieur</p>
+                                            <?php
+                                                include ('connect_bdd.php');
+
+                                                $result = $bdd->query('SELECT t.Date_First_Contact, t.Date_Second_Contact, t.Replied FROM trace t INNER JOIN editor e ON (t.ID_Editor = e.ID_Editor) WHERE e.Name = "Ankama"');
+                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                foreach ($data as $value) {
+                                                    echo '<p>Date premier contact : '.$value['Date_First_Contact'].'</p>';
+                                                    echo '<p>Date second contact : '.$value['Date_Second_Contact'].'</p>';
+                                                    echo '<p>Date réponse : '.$value['Replied'].'</p>';
+                                                }
+
+                                                $result->closeCursor();
+                                                unset($result);
+                                            ?>
                                         </div>
                                     </div>
 
@@ -140,7 +184,46 @@
                                             <h4>Jeux</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Infos à propos des jeux</p>
+                                            <table>
+                                                <thead>
+                                                    <th>Nom</th>
+                                                    <th>Quantité</th>
+                                                    <th>Taille</th>
+                                                    <th>Type</th>
+                                                    <th>Dotation</th>
+                                                    <th>Prototype</th>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        include ('connect_bdd.php');
+
+                                                        $result = $bdd->query('SELECT g.Name, g.Quantity, g.IsEndowment, g.IsPrototype, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "1"');
+                                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                        foreach ($data as $value) {
+                                                            echo '<tr>';
+                                                            echo '<td>'.$value['Name'].'</td>';
+                                                            echo '<td>'.$value['Quantity'].'</td>';
+                                                            echo '<td>'.$value['Size'].'</td>';
+                                                            echo '<td>'.$value['Type'].'</td>';
+                                                            if ($value['IsEndowment'] == TRUE) {
+                                                                echo '<td>Oui</td>';
+                                                            } else {
+                                                                echo '<td>Non</td>';
+                                                            }
+                                                            if ($value['IsPrototype'] == TRUE) {
+                                                                echo '<td>Oui</td>';
+                                                            } else {
+                                                                echo '<td>Non</td>';
+                                                            }
+                                                            echo '</tr>';
+                                                        }
+
+                                                        $result->closeCursor();
+                                                        unset($result);
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

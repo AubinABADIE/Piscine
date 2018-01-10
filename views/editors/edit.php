@@ -57,13 +57,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -102,7 +102,7 @@
 
                     <div class="cell auto content-cell">
                         <div class="grid-container full">
-                            <a class="button" href="../games/new.html">Créer un jeu...</a> 
+                            <a class="button" href="../games/new.php">Créer un jeu...</a> 
                             <div class="grid-x">
                                 <div class="cell auto">
                                     <form id = "FormEditEditor">
