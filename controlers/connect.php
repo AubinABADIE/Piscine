@@ -21,12 +21,11 @@
 		} 
 		else {
 			$_SESSION['ID'] = $row['ID_User'];
-            $_SESSION['Pseudo'] = $row['Pseudo'];
 			$_SESSION['Nom'] = $row['Name'];
 			$_SESSION['Phone'] = $row['Phone'];
 			$_SESSION['Email'] = $row['Email'];
             
-			//header('Location: ../views/editors/index.html');
+			header('Location: ../views/editors/index.html');
 			exit();
 		}
 	}

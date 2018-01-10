@@ -28,8 +28,11 @@
 
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
+                        <?php
+                            session_start();
+                            echo $_SESSION['Nom'];
+                        ?>
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        Nom Utilisateur
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
