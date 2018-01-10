@@ -100,7 +100,9 @@
                             <?php
                                 include ('connect_bdd.php');
 
-                                $result = $bdd->query('SELECT Name FROM editor WHERE ID_Editor = "1"');
+                                $id = $_GET['id'];
+                                $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
+                                $result = $bdd->query($query);
                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                 foreach ($data as $value) {
@@ -115,8 +117,22 @@
                     </div>
                     <div class="cell auto content-cell">
                         <div class="button-group">
-                            <a class="button" href="edit.php">Modifier</a>
-                            <a class="button alert" id="delete-editor-btn">Supprimer</a>
+                            <?php
+                            include ('connect_bdd.php');
+
+                            $id = $_GET['id'];
+                            $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
+                            $result = $bdd->query($query);
+                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                            foreach ($data as $value) {
+                                echo '<a class="button" href="edit.php?id='.$id.'">Modifier</a>';
+                                echo '<a class="button alert" id="delete-editor-btn">Supprimer</a>';
+                            }
+
+                            $result->closeCursor();
+                            unset($result);
+                            ?>
                         </div>
 
                         <div class="grid-container full">

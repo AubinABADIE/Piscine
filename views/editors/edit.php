@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--https://foundation.zurb.com/sites/docs/ --> 
+<!--https://foundation.zurb.com/sites/docs/ -->
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
@@ -23,15 +23,16 @@
                 </div>
 
                 <div class="cell auto topbar-center">
-                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn" aria-hidden="true"></i></div>
+                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn"
+                                                                      aria-hidden="true"></i></div>
                 </div>
 
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
                         <?php
-                            session_start();
-                            echo $_SESSION['Nom'];
+                        session_start();
+                        echo $_SESSION['Nom'];
                         ?>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
@@ -95,19 +96,48 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Modification de l'éditeur</h5>
+                        <h5 style="margin: 0">
+                            Modification
+                            <?php
+                            include ('connect_bdd.php');
+
+                            $id = $_GET['id'];
+                            $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
+                            $result = $bdd->query($query);
+                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                            foreach ($data as $value) {
+                                echo $value['Name'];
+                            }
+
+                            $result->closeCursor();
+                            unset($result);
+                            ?>
+                        </h5>
                         <!-- Titre modifiable en fonction du nom de l'éditeur ? -->
                     </div>
-                   
+
 
                     <div class="cell auto content-cell">
                         <div class="grid-container full">
-                            <a class="button" href="../games/new.php">Créer un jeu...</a> 
+                            <a class="button" href="../games/new.php">Créer un jeu...</a>
                             <div class="grid-x">
                                 <div class="cell auto">
-                                    <form id = "FormEditEditor">
+                                    <form id="FormEditEditor">
                                         <div class="grid-x grid-margin-x">
-                                            <div class="cell auto">
+                                            <?php
+                                            require('connect_bdd.php');
+
+                                            $id = $_GET['id'];
+                                            $query = 'SELECT * FROM editor WHERE ID_Editor = "' . $id . '"';
+                                            $result = $bdd->query($query);
+                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                            $result->closeCursor();
+                                            unset($result);
+
+
+                                            echo '<div class="cell auto">
                                                 <h3>Ajouter une nouvelle prise de contact</h3>
                                                 <label>Date :
                                                     <input id="DateRDVEdit" type="date" placeholder=".medium-6.cell" required>
@@ -117,12 +147,12 @@
                                                 <h3>Informtions du contact prioritaire</h3>
                                                 <label>Nom du responsable :
                                                     <input id="NomRespEdit" type="text" placeholder="Nom" required>
-                                                </label>  
+                                                </label>
                                                 <label>Prénom :
                                                     <input id="PrenomRespEdit" type="text" placeholder="Prénom" required>
                                                 </label>
-                                                
-                                                <label>Poste dans l'entreprise :
+
+                                                <label>Poste dans l\'entreprise :
                                                     <input id="PosteRespEdit" type="text", placeholder="Poste" required>
                                                 </label>
                                                 <label>Mail :
@@ -133,36 +163,37 @@
                                                 </label>
                                             </div>
                                             <div class="cell auto">
-                                                <h3>Informations de l'éditeur</h3>
-                                                <label>Nom de l'éditeur :
-                                                    <input id="NomEdEdit" type="text" placeholder="Nom" required>
+                                                <h3>Informations de l\'éditeur</h3>
+                                                <label>Nom de l\'éditeur :
+                                                    <input id="NomEdEdit" type="text" placeholder="Nom" value="' . $data[0]['Name'] . '" required>
                                                 </label>
                                                 <label>Adresse :
-                                                    <input id="AdrEdEdit" type = "text" placeholder="N°Rue, rue" required>
+                                                    <input id="AdrEdEdit" type = "text" placeholder="N°Rue, rue" value="' . $data[0]['Address'] . '" required>
                                                 </label>
                                                 <label>Code Postal :
-                                                    <input id="CPEdEdit" type="number" placeholder="CP" required>
+                                                    <input id="CPEdEdit" type="number" placeholder="CP" value="' . $data[0]['Postal_Code'] . '" required>
                                                 </label>
                                                 <label>Ville :
-                                                    <input id="VilleEdEdit" type="text" placeholder="Ville" required>
+                                                    <input id="VilleEdEdit" type="text" placeholder="Ville" value="' . $data[0]['Town'] . '" required>
                                                 </label>
 
                                                 <label>Mail :
-                                                    <input id="MailEdEdit" type="email" placeholder="email" required>
+                                                    <input id="MailEdEdit" type="email" placeholder="email" value="' . $data[0]['Email'] . '" required>
                                                 </label>
 
                                                 <label>Téléphone :
-                                                    <input id="TelEdEdit" type="text" placeholder="Téléphone" required>
+                                                    <input id="TelEdEdit" type="text" placeholder="Téléphone" value="' . $data[0]['Phone'] . '" required>
                                                 </label>
-                                            </div>
+                                            </div>';
+                                            ?>
                                         </div>
-                                        
-                                        <input type="submit" class="button" value="Enregistrer">  
-                                    </form> 
-                                                    
+
+                                        <input type="submit" class="button" value="Enregistrer">
+                                    </form>
+
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
 
                 </div>
