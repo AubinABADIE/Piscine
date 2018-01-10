@@ -113,12 +113,12 @@
                                             <tbody>
                                                 <?php
                                                     include ('connect_bdd.php');
-                                                    
+
                                                     $result = $bdd->query('SELECT ID_Editor, Name, Email, Phone FROM editor');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                     foreach ($data as $value) {
-                                                        echo '<tr>';
+                                                        echo '<tr id="'.$value['ID_Editor'].'">';
                                                         echo '<td>'.$value['ID_Editor'].'</td>';
                                                         echo '<td>'.$value['Name'].'</td>';
                                                         echo '<td>'.$value['Email'].'</td>';
@@ -135,8 +135,8 @@
                                 </div>
                                 <div class="cell shrink">
                                     <div class="button-group stacked">
-                                        <a class="button" href="show.php">Consulter</a>
-                                        <a class="button" href="edit.php">Modifier</a>
+                                        <a class="button" id="show-editor-btn">Consulter</a>
+                                        <a class="button" id="edit-editor-btn">Modifier</a>
                                         <a class="button" href="new.php">Creer</a>
                                         <a class="button alert" id="delete-editor-btn">Supprimer</a>
                                     </div>

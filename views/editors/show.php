@@ -131,7 +131,8 @@
                                             <?php
                                                 require('connect_bdd.php');
 
-                                                $result = $bdd->query('SELECT * FROM editor WHERE ID_Editor = "1"');
+                                                $id = $_GET["id"];
+                                                $result = $bdd->query('SELECT * FROM editor WHERE ID_Editor = "'.mysql_real_escape_string($id).'"');
                                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                 foreach ($data as $value) {
