@@ -6,7 +6,7 @@ $("#delete-editor-btn").click(function () {
     }
 });
 
-$("tr").click(function () {
+$("tbody tr").click(function () {
     $("#" + selected_id).removeClass("selected");
     selected_id = $(this).attr('id');
     $(this).addClass("selected");
