@@ -29,7 +29,10 @@
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        Nom Utilisateur
+                        <?php
+                            session_start();
+                            echo $_SESSION['Nom'];
+                        ?>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
@@ -54,7 +57,7 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.html">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
@@ -73,11 +76,10 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn active" id="infos-btn" href="../infos/show.html">
+                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.html">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -92,14 +94,55 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Infos</h5>
+                        <h5 style="margin: 0">Editeurs</h5>
                     </div>
 
 
                     <div class="cell auto content-cell">
+                        <div class="grid-container full">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell auto">
+                                    <div class="table-scroll">
+                                        <table style="width: 100%">
+                                            <thead>
+                                                <th>N°</th>
+                                                <th>Nom</th>
+                                                <th>Email</th>
+                                                <th>Téléphone</th>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    include ('../../controlers/connect_bdd.php');
+                                                    
+                                                    $result = $bdd->query('SELECT ID_Editor, Name, Email, Phone FROM editor');
+                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                        Projet piscine
+                                                    foreach ($data as $value) {
+                                                        echo '<tr>';
+                                                        echo '<td>'.$value['ID_Editor'].'</td>';
+                                                        echo '<td>'.$value['Name'].'</td>';
+                                                        echo '<td>'.$value['Email'].'</td>';
+                                                        echo '<td>'.$value['Phone'].'</td>';
+                                                        echo '</tr>';
+                                                    }
 
+                                                    $result->closeCursor();
+                                                    unset($result);
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="cell shrink">
+                                    <div class="button-group stacked">
+                                        <a class="button" href="show.html">Consulter</a>
+                                        <a class="button" href="edit.html">Modifier</a>
+                                        <a class="button" href="new.html">Creer</a>
+                                        <a class="button alert" id="delete-editor-btn">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

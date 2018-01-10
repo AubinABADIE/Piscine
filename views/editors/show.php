@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/games.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/editors.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -29,7 +29,10 @@
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        Nom Utilisateur
+                        <?php
+                            session_start();
+                            echo $_SESSION['Nom'];
+                        ?>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
@@ -73,6 +76,7 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
@@ -91,40 +95,52 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Consultation du jeu</h5>
+                        <h5 style="margin: 0">Consultation Editeur</h5>
+                        <!-- Comment faire pour modifier le titre en fonction du nom de l'éditeur ?-->
                     </div>
                     <div class="cell auto content-cell">
-
                         <div class="button-group">
-                            <a class="button alert" id="delete-game-btn">Supprimer</a>
+                            <a class="button" href="edit.html">Modifier</a>
+                            <a class="button alert" id="delete-editor-btn">Supprimer</a>
                         </div>
+
                         <div class="grid-container full">
                             <div class="grid-x grid-margin-x">
+
                                 <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Titre du jeu</h4>
+                                            <h4>Editeur</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Titre du jeu</p>
+                                            <p>Infos à propos de l'éditeur</p>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Description</h4>
+                                            <h4>Réservations enregistrées</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Infos à propos du jeu</p>
+                                            <p>Infos à propos des réservations</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Taille</h4>
+                                            <h4>Contacts</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Infos à propos de la taille</p>
+                                            <p>Dates de contacts avec l'édtieur</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">  
+                                        <div class="card-divider">
+                                            <h4>Jeux</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>Infos à propos des jeux</p>
                                         </div>
                                     </div>
                                 </div>
@@ -133,6 +149,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -141,6 +158,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/games.js"></script>
+<script type="text/javascript" src="../../assets/javascript/editors.js"></script>
 </body>
 </html>
