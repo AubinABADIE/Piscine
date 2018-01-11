@@ -182,7 +182,7 @@
                                             <?php
                                                 require ('../../controlers/connect_bdd.php');
 
-                                                $result = $bdd->query('SELECT t.Date_First_Contact, t.Date_Second_Contact, t.Replied FROM trace t INNER JOIN editor e ON (t.ID_Editor = e.ID_Editor) WHERE e.Name = "Ankama"');
+                                                $result = $bdd->query('SELECT t.Date_First_Contact, t.Date_Second_Contact, t.Replied FROM trace t INNER JOIN editor e ON (t.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
                                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                 foreach ($data as $value) {
@@ -215,7 +215,7 @@
                                                     <?php
                                                         require ('../../controlers/connect_bdd.php');
 
-                                                        $result = $bdd->query('SELECT g.Name, g.Quantity, g.IsEndowment, g.IsPrototype, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "1"');
+                                                        $result = $bdd->query('SELECT g.Name, g.Quantity, g.IsEndowment, g.IsPrototype, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "'.$id.'"');
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
