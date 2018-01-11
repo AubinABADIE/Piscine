@@ -98,7 +98,7 @@
                         <h5 style="margin: 0">
                             Consultation
                             <?php
-                                include ('connect_bdd.php');
+                                require ('../../controlers/connect_bdd.php');
 
                                 $id = $_GET['id'];
                                 $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
@@ -118,7 +118,7 @@
                     <div class="cell auto content-cell">
                         <div class="button-group">
                             <?php
-                            include ('connect_bdd.php');
+                            require ('../../controlers/connect_bdd.php');
 
                             $id = $_GET['id'];
                             $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
@@ -145,7 +145,7 @@
                                         </div>
                                         <div class="card-section">
                                             <?php
-                                                require('connect_bdd.php');
+                                                require ('../../controlers/connect_bdd.php');
 
                                                 $id = $_GET['id'];
                                                 $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
@@ -180,7 +180,7 @@
                                         </div>
                                         <div class="card-section">
                                             <?php
-                                                include ('connect_bdd.php');
+                                                require ('../../controlers/connect_bdd.php');
 
                                                 $result = $bdd->query('SELECT t.Date_First_Contact, t.Date_Second_Contact, t.Replied FROM trace t INNER JOIN editor e ON (t.ID_Editor = e.ID_Editor) WHERE e.Name = "Ankama"');
                                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -213,7 +213,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                        include ('connect_bdd.php');
+                                                        require ('../../controlers/connect_bdd.php');
 
                                                         $result = $bdd->query('SELECT g.Name, g.Quantity, g.IsEndowment, g.IsPrototype, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "1"');
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);

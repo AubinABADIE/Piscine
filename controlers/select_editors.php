@@ -5,7 +5,7 @@
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($data as $value) {
-        echo '<tr>';
+        echo '<tr id="'.$value['ID_Editor'].'">';
         echo '<td>'.$value['ID_Editor'].'</td>';
         echo '<td>'.$value['Name'].'</td>';
         echo '<td>'.$value['Email'].'</td>';

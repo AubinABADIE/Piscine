@@ -99,7 +99,7 @@
                         <h5 style="margin: 0">
                             Modification
                             <?php
-                            include ('connect_bdd.php');
+                            require ('../../controlers/connect_bdd.php');
 
                             $id = $_GET['id'];
                             $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
@@ -126,7 +126,7 @@
                                     <form id="FormEditEditor">
                                         <div class="grid-x grid-margin-x">
                                             <?php
-                                            require('connect_bdd.php');
+                                            require ('../../controlers/connect_bdd.php');
 
                                             $id = $_GET['id'];
                                             $query = 'SELECT * FROM editor WHERE ID_Editor = "' . $id . '"';
