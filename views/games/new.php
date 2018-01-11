@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--https://foundation.zurb.com/sites/docs/ --> 
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/reservations.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/games.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -28,7 +29,10 @@
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        Nom Utilisateur
+                        <?php
+                            session_start();
+                            echo $_SESSION['Nom'];
+                        ?>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
@@ -53,13 +57,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -72,11 +76,10 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.html">
+                                <a class="sidebar-btn" id="infos-btn">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -91,64 +94,44 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Réservation</h5>
+                        <h5 style="margin: 0">Création d'un nouveau jeu</h5>
                     </div>
-
                     <div class="cell auto content-cell">
-
-                        <div class="button-group">
-                            <a class="button" href="edit.html">Modifier</a>
-                            <a class="button alert" id="delete-reservation-btn">Supprimer</a>
-                        </div>
-
-                        <div class="grid-container full">
-                            <div class="grid-x grid-margin-x">
-
-                                <div class="cell auto">
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Editeur</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos à propos de l'éditeur</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Logement</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos à propos du logement</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell auto">
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Jeux</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos à propos des jeux</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Autres infos</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos autres</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
+                        <form id="FormNewGame">
+                            <label>Titre du jeu :
+                                <input id="GameTitleNew" type="text" placeholder="Titre" required>
+                            </label>
+                            <fieldset>
+                                <legend>Taille du jeu :</legend>
+                                <input type="radio" name="taille" id="GameSmallNew" value="Moyen" required><label>Moyen</label>
+                                <input type="radio" name="taille" id="GameBigNew" value="Grand" required><label>Grand</label>
+                            </fieldset>
+                            <label>Description :</label>
+                            <textarea type="textfield" id="GameDescNew" placeholder="Description du jeu" required></textarea>
+                            <input type="submit" class="button" value="Enregistrer">
+                            <label>Type :
+                                <select required>
+                                    <option value="Occasionnel/Famille">Occasionnel/Famille</option>
+                                    <option value="Ambiance">Ambiance</option>
+                                    <option value="Expert">Expert</option>
+                                    <option value="Enfant">Enfant</option>
+                                    <option value="Classique">Classique</option>
+                                </select>
+                            </label>
+                            <fieldset>
+                                <legend>Dotation ?</legend>
+                                <input type="radio" name="dotation" id="DotYes" value="Oui" required><label>Oui</label>
+                                <input type="radio" name="dotation" id="DotNo" value="Non" required><label>Non</label>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Prototype ?</legend>
+                                <input type="radio" name="prototype" id="ProtYes" value="Oui" required><label>Oui</label>
+                                <input type="radio" name="prototype" id="ProtNo" value="Non" required><label>Non</label>
+                            </fieldset>
+                        </form>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -157,6 +140,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/reservations.js"></script>
+<script type="text/javascript" src="../../assets/javascript/games.js"></script>
 </body>
 </html>

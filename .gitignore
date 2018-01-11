@@ -1,0 +1,5 @@
+
+.idea
+/controlers/connect_bdd.php
+/views/editors/connect_bdd.php
+/template.html

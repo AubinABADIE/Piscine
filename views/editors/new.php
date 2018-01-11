@@ -29,7 +29,10 @@
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        Nom Utilisateur
+                        <?php
+                            session_start();
+                            echo $_SESSION['Nom'];
+                        ?>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
@@ -54,13 +57,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -73,7 +76,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
@@ -92,71 +94,61 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Modification de l'éditeur</h5>
-                        <!-- Titre modifiable en fonction du nom de l'éditeur ? -->
+                        <h5 style="margin: 0">Création d'un nouvel éditeur</h5>
+                        
                     </div>
-                   
-
                     <div class="cell auto content-cell">
                         <div class="grid-container full">
-                            <a class="button" href="../games/new.html">Créer un jeu...</a> 
                             <div class="grid-x">
                                 <div class="cell auto">
-                                    <form id = "FormEditEditor">
+                                    <form id = "FormNewEditor">
                                         <div class="grid-x grid-margin-x">
-                                            <div class="cell auto">
-                                                <h3>Ajouter une nouvelle prise de contact</h3>
-                                                <label>Date :
-                                                    <input id="DateRDVEdit" type="date" placeholder=".medium-6.cell" required>
-                                                </label>
-                                            </div>
                                             <div class="cell auto">
                                                 <h3>Informtions du contact prioritaire</h3>
                                                 <label>Nom du responsable :
-                                                    <input id="NomRespEdit" type="text" placeholder="Nom" required>
+                                                    <input id="NomRespNew" type="text" placeholder="Nom" required>
                                                 </label>  
                                                 <label>Prénom :
-                                                    <input id="PrenomRespEdit" type="text" placeholder="Prénom" required>
+                                                    <input id="PrenomRespNew" type="text" placeholder="Prénom" required>
                                                 </label>
                                                 
                                                 <label>Poste dans l'entreprise :
-                                                    <input id="PosteRespEdit" type="text", placeholder="Poste" required>
+                                                    <input id="PosteRespNew" type="text", placeholder="Poste" required>
                                                 </label>
                                                 <label>Mail :
-                                                    <input id="MailRespEdit" type="email", placeholder="email" required>
+                                                    <input id="MailRespNew" type="email", placeholder="email" required>
                                                 </label>
                                                 <label>Téléphone :
-                                                    <input id="TelRespEdit" type="text", placeholder="Téléphone" required>
+                                                    <input id="TelRespNew" type="number", placeholder="Téléphone" required>
                                                 </label>
                                             </div>
                                             <div class="cell auto">
                                                 <h3>Informations de l'éditeur</h3>
                                                 <label>Nom de l'éditeur :
-                                                    <input id="NomEdEdit" type="text" placeholder="Nom" required>
+                                                    <input id="NomEdNew" type="text" placeholder="Nom" required>
                                                 </label>
                                                 <label>Adresse :
-                                                    <input id="AdrEdEdit" type = "text" placeholder="N°Rue, rue" required>
+                                                    <input id="AdrEdNew" type = "text" placeholder="N°Rue, rue" required>
                                                 </label>
                                                 <label>Code Postal :
-                                                    <input id="CPEdEdit" type="number" placeholder="CP" required>
+                                                    <input id="CPEdNew" type="number", placeholder="CP" required>
                                                 </label>
                                                 <label>Ville :
-                                                    <input id="VilleEdEdit" type="text" placeholder="Ville" required>
+                                                    <input id="VilleEdNew" type="text", placeholder="Ville" required>
                                                 </label>
 
                                                 <label>Mail :
-                                                    <input id="MailEdEdit" type="email" placeholder="email" required>
+                                                    <input id="MailEdNew" type="email", placeholder="email" required>
                                                 </label>
 
                                                 <label>Téléphone :
-                                                    <input id="TelEdEdit" type="text" placeholder="Téléphone" required>
+                                                    <input id="TelEdNew" type="number", placeholder="Téléphone" required>
                                                 </label>
                                             </div>
                                         </div>
+                                        <input type="submit" class="button" value="Enregistrer">
                                         
-                                        <input type="submit" class="button" value="Enregistrer">  
-                                    </form> 
-                                                    
+                                    </form>
                                 </div>
                             </div>
                         </div>  

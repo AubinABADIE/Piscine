@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/editors.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/reservations.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -22,17 +22,16 @@
                 </div>
 
                 <div class="cell auto topbar-center">
-                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn"
-                                                                      aria-hidden="true"></i></div>
+                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn" aria-hidden="true"></i></div>
                 </div>
 
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
                         <?php
                             session_start();
                             echo $_SESSION['Nom'];
                         ?>
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
@@ -57,13 +56,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn active" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -76,10 +75,11 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.html">
+                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.php">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -94,39 +94,60 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Editeurs</h5>
+                        <h5 style="margin: 0">Editer réservation</h5>
                     </div>
 
-
                     <div class="cell auto content-cell">
-                        <div class="grid-container full">
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell auto">
-                                    <div class="table-scroll">
-                                        <table style="width: 100%">
-                                            <thead>
-                                            <th>N°</th>
-                                            <th>Nom</th>
-                                            <th>Nombre de jeux</th>
-                                            <th>Contact prioritaire</th>
-                                            </thead>
-                                            <tbody>
 
-
-                                            </tbody>
-                                        </table>
-                                    </div>
+                        <form>
+                            <label>
+                                Editeur
+                                <select>
+                                    <option value="editeur1">editeur 1</option>
+                                    <option value="editeur2">editeur 2</option>
+                                    <option value="editeur3">editeur 3</option>
+                                    <option value="editeur4">editeur 4</option>
+                                </select>
+                            </label>
+                            <label>
+                                Jeux
+                                <select multiple="multiple">
+                                    <option value="jeu1">jeu 1</option>
+                                    <option value="jeu2">jeu 2</option>
+                                </select>
+                            </label>
+                            <label>
+                                Nombre d'emplacements
+                                <input id="emplacement-number" type="number" value="1" min="0">
+                            </label>
+                            <label>
+                                Logement ?
+                                <div class="switch small">
+                                    <input class="switch-input" id="logement-switch" type="checkbox">
+                                    <label class="switch-paddle" for="logement-switch">
+                                        <span class="switch-active" aria-hidden="true">Oui</span>
+                                        <span class="switch-inactive" aria-hidden="true">Non</span>
+                                    </label>
                                 </div>
-                                <div class="cell shrink">
-                                    <div class="button-group stacked">
-                                        <a class="button" href="show.html">Consulter</a>
-                                        <a class="button" href="edit.html">Modifier</a>
-                                        <a class="button" href="new.html">Creer</a>
-                                        <a class="button alert" id="delete-editor-btn">Supprimer</a>
-                                    </div>
-                                </div>
+                            </label>
+                            <div class="hide" id="logement-form">
+                                <label>
+                                    Nombre de places
+                                    <input id="logement-number" type="number" value="1" min="0">
+                                </label>
+                                <label>
+                                    Logement
+                                    <select>
+                                        <option value="logement1">logement 1</option>
+                                        <option value="logement2">logement 2</option>
+                                        <option value="logement3">logement 3</option>
+                                        <option value="logement4">logement 4</option>
+                                    </select>
+                                </label>
                             </div>
-                        </div>
+                            <input type="submit" class="button" value="Enregistrer">
+                        </form>
+
                     </div>
 
                 </div>
@@ -140,6 +161,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/editors.js"></script>
+<script type="text/javascript" src="../../assets/javascript/reservations.js"></script>
 </body>
 </html>

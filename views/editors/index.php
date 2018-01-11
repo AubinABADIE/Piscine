@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--https://foundation.zurb.com/sites/docs/ --> 
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
@@ -9,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/games.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/editors.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -23,13 +22,17 @@
                 </div>
 
                 <div class="cell auto topbar-center">
-                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn" aria-hidden="true"></i></div>
+                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn"
+                                                                      aria-hidden="true"></i></div>
                 </div>
 
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        Nom Utilisateur
+                        <?php
+                            session_start();
+                            echo $_SESSION['Nom'];
+                        ?>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
@@ -54,13 +57,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -76,7 +79,7 @@
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="infos-btn">
+                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.php">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -91,44 +94,45 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Création d'un nouveau jeu</h5>
+                        <h5 style="margin: 0">Editeurs</h5>
                     </div>
+
+
                     <div class="cell auto content-cell">
-                        <form id="FormNewGame">
-                            <label>Titre du jeu :
-                                <input id="GameTitleNew" type="text" placeholder="Titre" required>
-                            </label>
-                            <fieldset>
-                                <legend>Taille du jeu :</legend>
-                                <input type="radio" name="taille" id="GameSmallNew" value="Moyen" required><label>Moyen</label>
-                                <input type="radio" name="taille" id="GameBigNew" value="Grand" required><label>Grand</label>
-                            </fieldset>
-                            <label>Description :</label>
-                            <textarea type="textfield" id="GameDescNew" placeholder="Description du jeu" required></textarea>
-                            <input type="submit" class="button" value="Enregistrer">
-                            <label>Type :
-                                <select required>
-                                    <option value="Occasionnel/Famille">Occasionnel/Famille</option>
-                                    <option value="Ambiance">Ambiance</option>
-                                    <option value="Expert">Expert</option>
-                                    <option value="Enfant">Enfant</option>
-                                    <option value="Classique">Classique</option>
-                                </select>
-                            </label>
-                            <fieldset>
-                                <legend>Dotation ?</legend>
-                                <input type="radio" name="dotation" id="DotYes" value="Oui" required><label>Oui</label>
-                                <input type="radio" name="dotation" id="DotNo" value="Non" required><label>Non</label>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Prototype ?</legend>
-                                <input type="radio" name="prototype" id="ProtYes" value="Oui" required><label>Oui</label>
-                                <input type="radio" name="prototype" id="ProtNo" value="Non" required><label>Non</label>
-                            </fieldset>
-                        </form>
+                        <div class="grid-container full">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell auto">
+                                    <div class="table-scroll">
+                                        <table style="width: 100%">
+                                            <thead>
+                                                <th>N°</th>
+                                                <th>Nom</th>
+                                                <th>Email</th>
+                                                <th>Téléphone</th>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    require ('../../controlers/select_editors.php');
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="cell shrink">
+                                    <div class="button-group stacked" id="editors-action-btn">
+                                        <a class="button" id="show-editor-btn">Consulter</a>
+                                        <a class="button" id="edit-editor-btn">Modifier</a>
+                                        <a class="button" href="new.php">Creer</a>
+                                        <a class="button alert" id="delete-editor-btn">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -137,6 +141,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/games.js"></script>
+<script type="text/javascript" src="../../assets/javascript/editors.js"></script>
 </body>
 </html>

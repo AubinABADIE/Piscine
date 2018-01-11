@@ -28,7 +28,10 @@
                 <div class="cell shrink topbar-right">
                     <button class="button" id="user-btn" type="button" data-toggle="user-dropdown">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        Nom Utilisateur
+                        <?php
+                            session_start();
+                            echo $_SESSION['Nom'];
+                        ?>
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
@@ -53,13 +56,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="editors-btn" href="../editors/index.html">
+                                <a class="sidebar-btn" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="reservations-btn" href="../reservations/index.html">
+                                <a class="sidebar-btn active" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -76,7 +79,7 @@
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.html">
+                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.php">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -91,59 +94,58 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Editer réservation</h5>
+                        <h5 style="margin: 0">Réservation</h5>
                     </div>
 
                     <div class="cell auto content-cell">
 
-                        <form>
-                            <label>
-                                Editeur
-                                <select>
-                                    <option value="editeur1">editeur 1</option>
-                                    <option value="editeur2">editeur 2</option>
-                                    <option value="editeur3">editeur 3</option>
-                                    <option value="editeur4">editeur 4</option>
-                                </select>
-                            </label>
-                            <label>
-                                Jeux
-                                <select multiple="multiple">
-                                    <option value="jeu1">jeu 1</option>
-                                    <option value="jeu2">jeu 2</option>
-                                </select>
-                            </label>
-                            <label>
-                                Nombre d'emplacements
-                                <input id="emplacement-number" type="number" value="1" min="0">
-                            </label>
-                            <label>
-                                Logement ?
-                                <div class="switch small">
-                                    <input class="switch-input" id="logement-switch" type="checkbox">
-                                    <label class="switch-paddle" for="logement-switch">
-                                        <span class="switch-active" aria-hidden="true">Oui</span>
-                                        <span class="switch-inactive" aria-hidden="true">Non</span>
-                                    </label>
+                        <div class="button-group">
+                            <a class="button" href="edit.php">Modifier</a>
+                            <a class="button alert" id="delete-reservation-btn">Supprimer</a>
+                        </div>
+
+                        <div class="grid-container full">
+                            <div class="grid-x grid-margin-x">
+
+                                <div class="cell auto">
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Editeur</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>Infos à propos de l'éditeur</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Logement</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>Infos à propos du logement</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </label>
-                            <div class="hide" id="logement-form">
-                                <label>
-                                    Nombre de places
-                                    <input id="logement-number" type="number" value="1" min="0">
-                                </label>
-                                <label>
-                                    Logement
-                                    <select>
-                                        <option value="logement1">logement 1</option>
-                                        <option value="logement2">logement 2</option>
-                                        <option value="logement3">logement 3</option>
-                                        <option value="logement4">logement 4</option>
-                                    </select>
-                                </label>
+                                <div class="cell auto">
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Jeux</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>Infos à propos des jeux</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Autres infos</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>Infos autres</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                            <input type="submit" class="button" value="Enregistrer">
-                        </form>
+                        </div>
 
                     </div>
 

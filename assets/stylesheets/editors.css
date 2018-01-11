@@ -1,0 +1,12 @@
+tbody {
+    cursor: pointer;
+}
+
+.selected {
+    background: #b8b8b8 !important;
+}
+
+#editors-action-btn {
+    position: sticky;
+    top: 0px;
+}
