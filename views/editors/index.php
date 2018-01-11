@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="cell shrink">
-                                    <div class="button-group stacked">
+                                    <div class="button-group stacked" id="editors-action-btn">
                                         <a class="button" id="show-editor-btn">Consulter</a>
                                         <a class="button" id="edit-editor-btn">Modifier</a>
                                         <a class="button" href="new.php">Creer</a>
