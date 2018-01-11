@@ -114,7 +114,7 @@
                             unset($result);
                             ?>
                         </h5>
-                        <!-- Titre modifiable en fonction du nom de l'éditeur ? -->
+                        
                     </div>
 
 
@@ -137,31 +137,7 @@
                                             unset($result);
 
 
-                                            echo '<div class="cell auto">
-                                                <h3>Ajouter une nouvelle prise de contact</h3>
-                                                <label>Date :
-                                                    <input id="DateRDVEdit" type="date" placeholder=".medium-6.cell" required>
-                                                </label>
-                                            </div>
-                                            <div class="cell auto">
-                                                <h3>Informtions du contact prioritaire</h3>
-                                                <label>Nom du responsable :
-                                                    <input id="NomRespEdit" type="text" placeholder="Nom" required>
-                                                </label>
-                                                <label>Prénom :
-                                                    <input id="PrenomRespEdit" type="text" placeholder="Prénom" required>
-                                                </label>
-
-                                                <label>Poste dans l\'entreprise :
-                                                    <input id="PosteRespEdit" type="text", placeholder="Poste" required>
-                                                </label>
-                                                <label>Mail :
-                                                    <input id="MailRespEdit" type="email", placeholder="email" required>
-                                                </label>
-                                                <label>Téléphone :
-                                                    <input id="TelRespEdit" type="text", placeholder="Téléphone" required>
-                                                </label>
-                                            </div>
+                                            echo '
                                             <div class="cell auto">
                                                 <h3>Informations de l\'éditeur</h3>
                                                 <label>Nom de l\'éditeur :
@@ -184,7 +160,20 @@
                                                 <label>Téléphone :
                                                     <input id="TelEdEdit" type="text" placeholder="Téléphone" value="' . $data[0]['Phone'] . '" required>
                                                 </label>
-                                            </div>';
+                                            </div>
+                                            <div class="cell auto">
+                                                <h3>Ajouter des dates de prise de contact</h3>
+                                                <label>Date de premier contact :
+                                                    <input id="DateRDV1Edit" type="date" placeholder="Premier contact" required>
+                                                </label>
+                                                <label>Date de second contact :
+                                                    <input id="DateRDV2Edit" type="date" placeholder="Second contact" required>
+                                                </label>
+                                                <label>Date de réponset :
+                                                    <input id="DateRepEdit" type="date" placeholder="Réponse" required>
+                                                </label>
+                                            </div>
+                                            ';
                                             ?>
                                         </div>
 

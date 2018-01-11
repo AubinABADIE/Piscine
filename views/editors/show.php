@@ -113,7 +113,7 @@
                                 unset($result);
                             ?>
                         </h5>
-                        <!-- Comment faire pour modifier le titre en fonction du nom de l'éditeur ?-->
+                       
                     </div>
                     <div class="cell auto content-cell">
                         <div class="button-group">
@@ -162,6 +162,23 @@
                                                 $result->closeCursor();
                                                 unset($result);
                                             ?>
+                                            </br>
+                                            <table>
+                                                <thead>
+                                                    <th>Nom</th>
+                                                    <th>Prénom</th>
+                                                    <th>Adresse mail</th>
+                                                    <th>Téléphone</th>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                            <div class="button-group stacked" id="contact-action-btn">
+                                                <a class="button" id="edit-contact-btn">Modifier</a>
+                                                <a class="button" href="new.php">Creer</a>
+                                                <a class="button alert" id="delete-contact-btn">Supprimer</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="card">
@@ -240,6 +257,12 @@
                                                         $result->closeCursor();
                                                         unset($result);
                                                     ?>
+                                                    </br>
+                                                    <div class="button-group stacked" id="game-action-btn">
+                                                        <a class="button" id="edit-game-btn">Modifier</a>
+                                                        <a class="button" href="new.php">Creer</a>
+                                                        <a class="button alert" id="delete-game-btn">Supprimer</a>
+                                                    </div>
                                                 </tbody>
                                             </table>
                                         </div>

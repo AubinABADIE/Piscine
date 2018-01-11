@@ -108,7 +108,7 @@
                             </fieldset>
                             <label>Description :</label>
                             <textarea type="textfield" id="GameDescNew" placeholder="Description du jeu" required></textarea>
-                            <input type="submit" class="button" value="Enregistrer">
+                           
                             <label>Type :
                                 <select required>
                                     <option value="Occasionnel/Famille">Occasionnel/Famille</option>
@@ -128,6 +128,7 @@
                                 <input type="radio" name="prototype" id="ProtYes" value="Oui" required><label>Oui</label>
                                 <input type="radio" name="prototype" id="ProtNo" value="Non" required><label>Non</label>
                             </fieldset>
+                            <input type="submit" class="button" value="Enregistrer">
                         </form>
                     </div>
                 </div>
