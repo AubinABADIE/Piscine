@@ -106,6 +106,25 @@
                             <label>Description :</label>
                             <textarea type="textfield" id="GameDescNew" placeholder="Description du jeu" required></textarea>
                             <input type="submit" class="button" value="Enregistrer">
+                            <label>Type :
+                                <select required>
+                                    <option value="Occasionnel/Famille">Occasionnel/Famille</option>
+                                    <option value="Ambiance">Ambiance</option>
+                                    <option value="Expert">Expert</option>
+                                    <option value="Enfant">Enfant</option>
+                                    <option value="Classique">Classique</option>
+                                </select>
+                            </label>
+                            <fieldset>
+                                <legend>Dotation ?</legend>
+                                <input type="radio" name="dotation" id="DotYes" value="Oui" required><label>Oui</label>
+                                <input type="radio" name="dotation" id="DotNo" value="Non" required><label>Non</label>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Prototype ?</legend>
+                                <input type="radio" name="prototype" id="ProtYes" value="Oui" required><label>Oui</label>
+                                <input type="radio" name="prototype" id="ProtNo" value="Non" required><label>Non</label>
+                            </fieldset>
                         </form>
                     </div>
                 </div>
