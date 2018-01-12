@@ -6,6 +6,20 @@ $("#delete-editor-btn").click(function () {
     }
 });
 
+$("#delete-contact-btn").click(function () {
+    if (confirm("Confirmer la suppression du contact ?")) {
+        console.log("delete")
+    }
+});
+
+$("#delete-game-btn").click(function () {
+    if (confirm("Confirmer la suppression du jeu ?")) {
+        console.log("delete")
+    }
+});
+
+
+
 $("tbody tr").click(function () {
     $("#" + selected_id).removeClass("selected");
     selected_id = $(this).attr('id');
