@@ -115,7 +115,19 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                    require ('../../controlers/select_booking.php');
+                                                    require('connect_bdd.php');
+
+                                                    $result = $bdd->query('SELECT ... FROM ...');
+                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    foreach ($data as $value) {
+                                                        echo '<tr>';
+                                                        echo '<td>'.$value['...'].'</td>';
+                                                        echo '</tr>';
+                                                    }
+
+                                                    $result->closeCursor();
+                                                    unset($result);
                                                 ?>
                                             </tbody>
                                         </table>

@@ -113,7 +113,31 @@
                                             <h4>Logement</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Infos à propos du logement</p>
+                                            <table>
+                                            <thead>
+                                                <th>N°</th>
+                                                <th>Capactité</th>
+                                                <th>Lits réservés</th>
+                                                <th>Prix</th>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    require('connect_bdd.php');
+
+                                                    $result = $bdd->query('SELECT ... FROM ...');
+                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    foreach ($data as $value) {
+                                                        echo '<tr>';
+                                                        echo '<td>'.$value['...'].'</td>';
+                                                        echo '</tr>';
+                                                    }
+
+                                                    $result->closeCursor();
+                                                    unset($result);
+                                                ?>
+                                            </tbody>
+                                        </table>
                                         </div>
                                     </div>
                                     <div class="card">
