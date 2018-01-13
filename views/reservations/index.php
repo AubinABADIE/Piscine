@@ -108,13 +108,15 @@
                                     <div class="table-scroll">
                                         <table style="width: 100%">
                                             <thead>
-                                            <tr>
-                                                <th>N°</th>
-                                                <th>Nom</th>
+                                                <th>Editeurs</th>
+                                                <th>N° réservation</th>
+                                                <th>Date</th>
                                                 <th>Etat</th>
-                                            </tr>
                                             </thead>
                                             <tbody>
+                                                <?php
+                                                    require ('../../controlers/select_booking.php');
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>

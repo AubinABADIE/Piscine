@@ -110,22 +110,12 @@
                                 <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Editeur</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos à propos de l'éditeur</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-divider">
                                             <h4>Logement</h4>
                                         </div>
                                         <div class="card-section">
                                             <p>Infos à propos du logement</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
                                             <h4>Jeux</h4>
@@ -134,9 +124,11 @@
                                             <p>Infos à propos des jeux</p>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Autres infos</h4>
+                                            <h4>Emplacements</h4>
                                         </div>
                                         <div class="card-section">
                                             <p>Infos autres</p>

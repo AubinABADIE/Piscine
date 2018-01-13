@@ -162,7 +162,7 @@
                                                 $result->closeCursor();
                                                 unset($result);
                                             ?>
-                                            </br>
+                                            <br>
                                             <table>
                                                 <thead>
                                                     <th>Nom</th>
@@ -186,7 +186,36 @@
                                             <h4>Réservations enregistrées</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Infos à propos des réservations</p>
+                                            <table>
+                                                <thead>
+                                                    <th>Numéro</th>
+                                                    <th>Date</th>
+                                                    <th>Annulé</th>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        require ('../../controlers/connect_bdd.php');
+
+                                                        $result = $bdd->query('SELECT b.`ID_Booking`, b.`Date_Booking`, b.`Is_Canceled` FROM (`booking` b INNER JOIN game g ON (b.`ID_Game` = g.ID_Game)) INNER JOIN editor e ON (g.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
+                                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                        foreach ($data as $value) {
+                                                            echo '<tr>';
+                                                            echo '<td>'.$value['ID_Booking'].'</td>';
+                                                            echo '<td>'.$value['Date_Booking'].'</td>';
+                                                            if ($value['Is_Canceled'] == TRUE) {
+                                                                echo '<td>Oui</td>';
+                                                            } else {
+                                                                echo '<td>Non</td>';
+                                                            }
+                                                            echo '</tr>';
+                                                        }
+
+                                                        $result->closeCursor();
+                                                        unset($result);
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -198,6 +227,8 @@
                                         <div class="card-section">
                                             <?php
                                                 require ('../../controlers/connect_bdd.php');
+                                            
+                                                $id = $_GET['id'];
 
                                                 $result = $bdd->query('SELECT t.Date_First_Contact, t.Date_Second_Contact, t.Replied FROM trace t INNER JOIN editor e ON (t.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
                                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -257,14 +288,14 @@
                                                         $result->closeCursor();
                                                         unset($result);
                                                     ?>
-                                                    </br>
-                                                    <div class="button-group stacked" id="game-action-btn">
-                                                        <a class="button" id="edit-game-btn">Modifier</a>
-                                                        <a class="button" href="new.php">Creer</a>
-                                                        <a class="button alert" id="delete-game-btn">Supprimer</a>
-                                                    </div>
                                                 </tbody>
                                             </table>
+                                            <br>
+                                            <div class="button-group stacked" id="game-action-btn">
+                                                <a class="button" id="edit-game-btn">Modifier</a>
+                                                <a class="button" href="new.php">Creer</a>
+                                                <a class="button alert" id="delete-game-btn">Supprimer</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
