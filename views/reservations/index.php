@@ -108,10 +108,11 @@
                                     <div class="table-scroll">
                                         <table style="width: 100%">
                                             <thead>
-                                                <th>Editeurs</th>
                                                 <th>N° réservation</th>
+                                                <th>Nom</th>
                                                 <th>Date</th>
-                                                <th>Etat</th>
+                                                <th>Commentaires</th>
+                                                <th>Logement</th>
                                             </thead>
                                             <tbody>
                                                 <?php
