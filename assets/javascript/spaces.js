@@ -3,3 +3,18 @@ $("#delete-space-btn").click(function () {
         console.log("delete")
     }
 });
+
+
+function changeForm()
+{
+	if(document.getElementById("ZoneType").checked)
+	{
+		document.getElementById("NewEditor").disabled=true;
+		document.getElementById("NewType").disabled=false;
+	}
+	else
+	{
+		document.getElementById("NewType").disabled=true;
+		document.getElementById("NewEditor").disabled=false;
+	}
+}

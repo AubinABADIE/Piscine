@@ -109,6 +109,13 @@
                                        <label>Libellé
                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
                                        </label>
+                                        <fieldset id="SelectType">
+                                            <legend>Type de zone
+                                                <input type="radio" name="type" value="Type" id="ZoneType" onchange="changeForm();"><label>Zone de type de jeu</label>
+                                                <input type="radio" name="type" value="Editor" id="ZoneEditor" onchange="changeForm();"><label>Zone d'éditeur</label>
+                                            </legend>
+                                        </fieldset>
+
                                        <label>Type de jeu
                                             <select id="NewType" required>
                                                 <option value="" disabled selected>Sélectionner un type</option>
@@ -127,16 +134,7 @@
                                                 ?>
                                             </select>
                                        </label>
-                                       <input type="submit" class="button" value="Enregistrer">
-                                   </form>
-                                </div>
-                                <div class="cell auto">
-                                    <h5>Création d'une zone éditeur</h5>
-                                    <form id="FormNewSpaceEditor">
-                                        <label>Libellé
-                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
-                                        </label>
-                                        <label>Editeur associé
+                                       <label>Editeur associé
                                             <select id="NewEditor" required>
                                             <option value="" disabled selected>Sélectionner un éditeur</option>
                                                 <?php
@@ -154,8 +152,8 @@
                                                 ?>
                                             </select>
                                         </label>
-                                        <input type="submit" class="button" value="Enregistrer">
-                                    </form>
+                                       <input type="submit" class="button" value="Enregistrer">
+                                   </form>
                                 </div>
                             </div>
                         </div>
