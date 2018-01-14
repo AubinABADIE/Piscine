@@ -4,7 +4,7 @@
 
     $id = $_GET['id'];
 
-    $result = $bdd->query('SELECT ID_Booking FROM reserved_place r INNER JOIN lodgment l ON (r.ID_Space = l.ID_Space) WHERE ID_Space = "'.$id.'"');
+    $result = $bdd->query('SELECT ID_Booking FROM reserved_place r INNER JOIN space s ON (r.ID_Space = s.ID_Space) WHERE r.ID_Space = "'.$id.'"');
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
     unset($result);
     
@@ -12,7 +12,7 @@
     unset($result);
 
     foreach ($data as $value) {
-        header('Location: ../views/editors/show.php?id=' . $value['ID_Booking']);
+        header('Location: ../views/reservations/index.php');
     }
     exit();
 ?>
