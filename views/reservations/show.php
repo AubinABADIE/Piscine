@@ -224,6 +224,9 @@
                                                 $result->closeCursor();
                                                 unset($result);
                                             ?>
+                                            <div class="button-group" id="facture-action-btn">
+                                                <a class="button" id="edit-facture-btn">Modifier</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -261,6 +264,11 @@
                                                     ?>
                                                 </tbody>
                                             </table>
+                                            <div class="button-group" id="space-action-btn">
+                                                <a class="button" id="edit-space-btn">Modifier</a>
+                                                <a class="button">Ajouter</a>
+                                                <a class="button alert" id="delete-space-btn">Supprimer</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
