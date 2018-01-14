@@ -10,6 +10,7 @@
         echo '<td>'.$value['Name'].'</td>';
         echo '<td>'.$value['Date_Booking'].'</td>';
         echo '<td>'.$value['Commentary'].'</td>';
+        echo '<td>';
         echo '</tr>';
     }
     $result->closeCursor();
