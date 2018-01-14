@@ -160,7 +160,7 @@
                                             ?>
                                             <br>
                                             <h5><b>Contacts :</b></h5>
-                                            <table>
+                                            <table class="selectable" id="contacts-table">
                                                 <thead>
                                                     <th>Nom</th>
                                                     <th>Prénom</th>
@@ -192,7 +192,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="button-group" id="contact-action-btn">
-                                                <a class="button" id="edit-contact-btn" href="../contacts/edit.php">Modifier</a>
+                                                <a class="button" id="edit-contact-btn">Modifier</a>
                                                 <?php
                                                    $id = $_GET['id'];
                                                    echo '<a class="button" href="../contacts/new.php?id='.$id.'">Ajouter</a>'
@@ -206,7 +206,7 @@
                                             <h4>Réservations enregistrées</h4>
                                         </div>
                                         <div class="card-section">
-                                            <table>
+                                            <table id="booking-table">
                                                 <thead>
                                                     <th>Numéro</th>
                                                     <th>Date</th>
@@ -272,7 +272,7 @@
                                             <h4>Jeux</h4>
                                         </div>
                                         <div class="card-section">
-                                            <table>
+                                            <table class="selectable" id="game-table">
                                                 <thead>
                                                     <th>Nom</th>
                                                     <th>Quantité</th>

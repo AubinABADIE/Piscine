@@ -1,3 +1,5 @@
+var selectedBooking_id;
+
 $("#delete-reservation-btn").click(function () {
     if (confirm("Confirmer la suppression ?")) {
         console.log("delete")
@@ -11,8 +13,6 @@ $("#logement-switch").change(function () {
         $("#logement-form").addClass("hide");
     }
 });
-
-var selectedBooking_id;
 
 $("tbody tr").click(function () {
     $("#" + selectedBooking_id).removeClass("selected");
