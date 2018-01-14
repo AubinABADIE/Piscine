@@ -182,7 +182,7 @@
                                                     $result->closeCursor();
                                                     unset($result);
                                                 
-                                                    $result = $bdd->query('SELECT bi.Negociated_Amount FROM bill bi INNER JOIN booking b WHERE ID_Booking = "'.$id.'"');
+                                                    $result = $bdd->query('SELECT bi.Negociated_Amount FROM bill bi INNER JOIN booking b WHERE b.ID_Booking = "'.$id.'"');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                     $amount = $qty * $data[0]['Negociated_Amount'];
