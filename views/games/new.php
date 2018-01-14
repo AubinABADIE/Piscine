@@ -151,8 +151,8 @@
                                 </fieldset>
                                 <fieldset>
                                     <legend>Est-il à renvoyer ?</legend>
-                                    <input type="radio" name="prototype" id="RenvoiYes" value="1" required><label>Oui</label>
-                                    <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
+                                    <input type="radio" name="renvoi" id="RenvoiYes" value="1" required><label>Oui</label>
+                                    <input type="radio" name="renvoi" id="RenvoiNo" value="0" required checked><label>Non</label>
                                 </fieldset>
                             </div>
                             
