@@ -111,6 +111,7 @@
                                        </label>
                                        <label>Type de jeu
                                             <select multiple id="EditType">
+                                            <option value="" disabled selected>Sélectionner un type</option>
                                             <?php
                                             require('../../controlers/connect_bdd.php');
 
@@ -137,6 +138,7 @@
                                         </label>
                                         <label>Editeur associé
                                             <select multiple id="EditEditor" required>
+                                            <option value="" disabled selected>Sélectionner un éditeur</option>
                                             <?php
                                                 require('../../controlers/connect_bdd.php');
 
