@@ -49,7 +49,7 @@
 			}
 
 			if ($redirect) {
-				header('Location: ../views/editors/show.php');
+				header('Location: ../views/editors/show.php?id='.$_GET['id']);
 				exit();
 			}
 		}
