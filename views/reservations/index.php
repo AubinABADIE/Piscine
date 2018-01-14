@@ -129,7 +129,7 @@
                                 <div class="cell shrink">
                                     <div id="reservations-action-btn" class="button-group stacked">
                                         <a class="button" id="show-booking-btn">Consulter</a>
-                                        <a class="button" id="show-booking-btn">Modifier</a>
+                                        <a class="button" id="edit-booking-btn">Modifier</a>
                                         <a class="button" href="new.php">Ajouter</a>
                                         <a class="button alert" id="delete-reservation-btn">Supprimer</a>
                                     </div>
