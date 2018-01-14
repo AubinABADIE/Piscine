@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Projet</title>
+    <title>Projet Piscine</title>
 
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
@@ -127,7 +127,7 @@
                                 
                                 foreach ($data as $value) {
                                     echo '<a class="button" href="edit.php?id='.$id.'">Modifier</a>';
-                                    echo '<a class="button alert" id="delete-editor-btn">Supprimer</a>';
+                                    echo '<a class="button alert" id="delete-editor-btn" name="'.$id.'">Supprimer</a>';
                                 }
                             ?>
                         </div>

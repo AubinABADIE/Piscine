@@ -2,7 +2,7 @@ var selectedEditor_id;
 
 $("#delete-editor-btn").click(function () {
     if (confirm("Confirmer la suppression de l'éditeur ?")) {
-        console.log("delete")
+        window.location.href = "../../controlers/delete_editors.php?id=" + $(this).attr('name')
     }
 });
 
@@ -12,6 +12,7 @@ $("table.selectable#editors-table tbody tr").click(function () {
     $(this).addClass("selected");
     $("#show-editor-btn").attr("href", "show.php?id=" + selectedEditor_id);
     $("#edit-editor-btn").attr("href", "edit.php?id=" + selectedEditor_id);
+    $("#delete-editor-btn").attr("name", selectedEditor_id);
 });
 
 $("tr.clickable").click(function () {

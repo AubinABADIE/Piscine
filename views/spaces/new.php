@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Projet</title>
+    <title>Projet Piscine</title>
 
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
@@ -106,17 +106,17 @@
                                 <div class="cell auto">
                                     <h5>Création d'une zone de type de jeu</h5>
                                    <form id="FormNewSpaceType">
-                                       <label>Libellé
+                                       <label>Libellé :
                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
                                        </label>
                                         <fieldset id="SelectType">
-                                            <legend>Type de zone
+                                            <legend>Type de zone : </br>
                                                 <input type="radio" name="type" value="Type" id="ZoneType" onchange="changeForm();"><label>Zone de type de jeu</label>
                                                 <input type="radio" name="type" value="Editor" id="ZoneEditor" onchange="changeForm();"><label>Zone d'éditeur</label>
                                             </legend>
                                         </fieldset>
 
-                                       <label>Type de jeu
+                                       <label>Type de jeu :
                                             <select id="NewType" required>
                                                 <option value="" disabled selected>Sélectionner un type</option>
                                                 <?php
@@ -134,7 +134,7 @@
                                                 ?>
                                             </select>
                                        </label>
-                                       <label>Editeur associé
+                                       <label>Editeur associé :
                                             <select id="NewEditor" required>
                                             <option value="" disabled selected>Sélectionner un éditeur</option>
                                                 <?php
