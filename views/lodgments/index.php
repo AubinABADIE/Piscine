@@ -12,7 +12,6 @@
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
-
     <div class="cell shrink" id="topbar">
         <div class="grid-container full">
             <div class="grid-x">

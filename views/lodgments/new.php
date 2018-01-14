@@ -104,52 +104,19 @@
 
                     <div class="cell auto content-cell">
 
-                        <form>
-                            <label>
-                                Editeur
-                                <select>
-                                    <option value="editeur1">editeur 1</option>
-                                    <option value="editeur2">editeur 2</option>
-                                    <option value="editeur3">editeur 3</option>
-                                    <option value="editeur4">editeur 4</option>
-                                </select>
+                        <form id="FormNewLodgment">
+                            <label>Adresse
+                                <input type="text" id="NewAdress" placeholder="Adresse" required>
                             </label>
-                            <label>
-                                Jeux
-                                <select multiple="multiple">
-                                    <option value="jeu1">jeu 1</option>
-                                    <option value="jeu2">jeu 2</option>
-                                </select>
+                            <label>Ville
+                                <input type="text" id="NewCity" placeholder="Ville" required>
                             </label>
-                            <label>
-                                Nombre d'emplacements
-                                <input id="emplacement-number" type="number" value="1" min="0">
+                            <label>Capacité (nombre de personnes max)
+                                <input type="number" id="NewCapacity" placeholder="Capacité" required>
                             </label>
-                            <label>
-                                Logement ?
-                                <div class="switch small">
-                                    <input class="switch-input" id="logement-switch" type="checkbox">
-                                    <label class="switch-paddle" for="logement-switch">
-                                        <span class="switch-active" aria-hidden="true">Oui</span>
-                                        <span class="switch-inactive" aria-hidden="true">Non</span>
-                                    </label>
-                                </div>
+                            <label>Prix à la nuit
+                                <input type="number" id="NewNightPrice" placeholder="Prix" required>
                             </label>
-                            <div class="hide" id="logement-form">
-                                <label>
-                                    Nombre de places
-                                    <input id="logement-number" type="number" value="1" min="0">
-                                </label>
-                                <label>
-                                    Logement
-                                    <select>
-                                        <option value="logement1">logement 1</option>
-                                        <option value="logement2">logement 2</option>
-                                        <option value="logement3">logement 3</option>
-                                        <option value="logement4">logement 4</option>
-                                    </select>
-                                </label>
-                            </div>
                             <input type="submit" class="button" value="Enregistrer">
                         </form>
 
