@@ -118,7 +118,7 @@
                                             <h4>Logements</h4>
                                         </div>
                                         <div class="card-section">
-                                            <table>
+                                            <table class="selectable" id="lodgment-table">
                                                 <thead>
                                                     <th>Adresse</th>
                                                     <th>Capacité</th>
@@ -135,7 +135,7 @@
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
-                                                            echo '<tr id='.$value['ID_Lodgment'].'">';
+                                                            echo '<tr id='.$value['ID_Lodgment'].'>';
                                                             echo '<td>'.$value['Address'].$value['Postal_Code'].$value['Town'].'</td>';
                                                             echo '<td>'.$value['Capacity'].'</td>';
                                                             echo '<td>'.$value['Beds'].'</td>';
@@ -149,7 +149,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="button-group" id="lodgment-action-btn">
-                                                <a class="button" id="edit-lodgment-btn" href="../lodgments/edit.php">Modifier</a>
+                                                <a class="button" id="edit-lodgment-btn">Modifier</a>
                                                 <?php
                                                    $id = $_GET['id'];
                                                    echo '<a class="button" href="../lodgments/new.php?id='.$id.'">Ajouter</a>'

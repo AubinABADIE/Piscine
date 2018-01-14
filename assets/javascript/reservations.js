@@ -14,7 +14,7 @@ $("#logement-switch").change(function () {
     }
 });
 
-$("tbody tr").click(function () {
+$("table.selectable#booking-table tbody tr").click(function () {
     $("#" + selectedBooking_id).removeClass("selected");
     selectedBooking_id = $(this).attr('id');
     $(this).addClass("selected");
