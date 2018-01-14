@@ -127,7 +127,7 @@
                                 
                                 foreach ($data as $value) {
                                     echo '<a class="button" href="edit.php?id='.$id.'">Modifier</a>';
-                                    echo '<a class="button alert" id="delete-editor-btn">Supprimer</a>';
+                                    echo '<a class="button alert" id="delete-editor-btn" name="'.$id.'">Supprimer</a>';
                                 }
                             ?>
                         </div>
