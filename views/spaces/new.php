@@ -110,12 +110,20 @@
                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
                                        </label>
                                        <label>Type de jeu
-                                            <select multiple id="NewType" required>
-                                                <option value="1" selected>Occasionnel/Famille</option>
-                                                <option value="2">Ambiance</option>
-                                                <option value="3">Expert</option>
-                                                <option value="4">Enfant</option>
-                                                <option value="5">Classique</option>
+                                            <select id="NewType" required>
+                                                <?php
+                                                require('../../controlers/connect_bdd.php');
+
+                                                $result = $bdd->query('SELECT * FROM gametype');
+                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                foreach ($data as $value) {
+                                                    echo '<option value="'.$value['ID_GameType'].'">'.$value['Label'].'</option>';
+                                                }
+
+                                                $result->closeCursor();
+                                                unset($result);
+                                                ?>
                                             </select>
                                        </label>
                                        <input type="submit" class="button" value="Enregistrer">
@@ -128,8 +136,20 @@
                                             <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
                                         </label>
                                         <label>Editeur associé
-                                            <select multiple id="NewEditor" required>
+                                            <select id="NewEditor" required>
+                                                <?php
+                                                require('../../controlers/connect_bdd.php');
 
+                                                $result = $bdd->query('SELECT * FROM editor');
+                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                foreach ($data as $value) {
+                                                    echo '<option value="'.$value['ID_Editor'].'">'.$value['Name'].'</option>';
+                                                }
+
+                                                $result->closeCursor();
+                                                unset($result);
+                                                ?>
                                             </select>
                                         </label>
                                         <input type="submit" class="button" value="Enregistrer">
