@@ -110,42 +110,39 @@
                                 <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Logement</h4>
+                                            <h4>Logements</h4>
                                         </div>
                                         <div class="card-section">
                                             <table>
-                                            <thead>
-                                                <th>N°</th>
-                                                <th>Capactité</th>
-                                                <th>Lits réservés</th>
-                                                <th>Prix</th>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                    require('connect_bdd.php');
+                                                <thead>
+                                                    <th>Adresse</th>
+                                                    <th>Capacité</th>
+                                                    <th>Lits réservés</th>
+                                                    <th>Prix</th>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        require('../../controlers/connect_bdd.php');
 
-                                                    $result = $bdd->query('SELECT ... FROM ...');
-                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                                        $id = $_GET['id'];
 
-                                                    foreach ($data as $value) {
-                                                        echo '<tr>';
-                                                        echo '<td>'.$value['...'].'</td>';
-                                                        echo '</tr>';
-                                                    }
+                                                        $result = $bdd->query('SELECT l.*, lo.Beds FROM (lodgment l INNER JOIN lodge lo ON (l.ID_Lodgment = lo.ID_Lodgment)) INNER JOIN booking b ON (lo.ID_Booking = b.ID_Booking) WHERE b.ID_Booking = "'.$id.'"');
+                                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                                                    $result->closeCursor();
-                                                    unset($result);
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Jeux</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos à propos des jeux</p>
+                                                        foreach ($data as $value) {
+                                                            echo '<tr id='.$value['ID_Lodgment'].'">';
+                                                            echo '<td>'.$value['Address'].$value['Postal_Code'].$value['Town'].'</td>';
+                                                            echo '<td>'.$value['Capacity'].'</td>';
+                                                            echo '<td>'.$value['Beds'].'</td>';
+                                                            echo '<td>'.$value['Night_Price'].'</td>';
+                                                            echo '</tr>';
+                                                        }
+
+                                                        $result->closeCursor();
+                                                        unset($result);
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +152,34 @@
                                             <h4>Emplacements</h4>
                                         </div>
                                         <div class="card-section">
-                                            <p>Infos autres</p>
+                                            <table>
+                                                <thead>
+                                                    <th>Zone</th>
+                                                    <th>Jeu</th>
+                                                    <th>Nombre</th>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        require('../../controlers/connect_bdd.php');
+
+                                                        $id = $_GET['id'];
+
+                                                        $result = $bdd->query('SELECT s.*, g.Name, r.Quantity FROM ((space s INNER JOIN reserved_place r ON (s.ID_Space = r.ID_Space)) INNER JOIN game g ON (r.ID_Game = g.ID_Game)) INNER JOIN booking b ON (r.ID_Booking = b.ID_Booking) WHERE b.ID_Booking = "'.$id.'"');
+                                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                        foreach ($data as $value) {
+                                                            echo '<tr id='.$value['ID_Space'].'">';
+                                                            echo '<td>'.$value['Label'].'</td>';
+                                                            echo '<td>'.$value['Name'].'</td>';
+                                                            echo '<td>'.$value['Quantity'].'</td>';
+                                                            echo '</tr>';
+                                                        }
+
+                                                        $result->closeCursor();
+                                                        unset($result);
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
