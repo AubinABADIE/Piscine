@@ -6,7 +6,6 @@
 
     foreach ($data as $value) {
         echo '<tr id="'.$value['ID_Booking'].'">';
-        echo '<td>'.$value['ID_Booking'].'</td>';
         echo '<td>'.$value['Name'].'</td>';
         echo '<td>'.$value['Date_Booking'].'</td>';
         echo '<td>'.$value['Commentary'].'</td>';
