@@ -100,29 +100,30 @@
 
 
                     <div class="cell auto content-cell">
-
-                       Cette application a été créée durant l'année 2017/2018 dans le cadre d'un projet.
-                       Elle a été  conçue entiérement  par 6 élèves de la séction  IG3 de Polytech Montpellier. 
-                        Si vous voulez nous contacter pour plus d'informations veuillez envoyer un mail à une de ces adresses mail suivantes :
-                        Aubin Abadie
-                        _ aubin.abadie@gmail.com
-                        Adam Megherat
-                        _adammegherat@gmail.com
-                        Alice Burette
-                        _aliceburette11@gmail.com
-                        Yvan Sanson
-                        _sansonyvan@gmail.com
-                        Alexandre Kueny
-                        _Alexandre.kueny3@gmail.com
-                        Paul Arnaud
-                        _paularnaud59390@gmail.com
-                        Si vous voulez contacter nos professeurs référants :
-                        M Fiorio Christophe
-                        christophe.fiorio@umontpellier.fr
-                        Mme Anne-laure Villaret
-                        anne-laure.villaret@umontpellier.fr
-                        N'hésitez pas à faire remonter si vous constatez un soucis sur notre  application, ou même pour toutes autres remarques.
-                        Nous sommes conscients que certaines fonctionnalités ne sont pas otpimales, veuillez nous en excuser.
+                       Cette application a été créée durant l'année 2017/2018 dans le cadre d'un projet.<br>
+                       Elle a été  conçue entiérement  par 6 élèves de la séction  IG3 de Polytech Montpellier.<br>
+                        Si vous voulez nous contacter pour plus d'informations veuillez envoyer un mail à une de ces adresses mail suivantes :  <br>
+                        Aubin Abadie  <br>
+                        _ aubin.abadie@gmail.com  <br>
+                        Adam Megherat  <br>
+                        _adammegherat@gmail.com  <br>
+                        Alice Burette  <br>
+                        _aliceburette11@gmail.com  <br>
+                        Yvan Sanson  <br>
+                        _sansonyvan@gmail.com  <br>
+                        Alexandre Kueny   <br>
+                        _Alexandre.kueny3@gmail.com   <br>
+                        Paul Arnaud  <br>
+                        _paularnaud59390@gmail.com  <br>
+                        Si vous voulez contacter nos professeurs référants :  <br>
+                        M Fiorio Christophe  <br>
+                        christophe.fiorio@umontpellier.fr  <br>
+                        Mme Anne-laure Villaret  <br>
+                        anne-laure.villaret@umontpellier.fr  <br>
+                        N'hésitez pas à faire remonter si vous constatez un soucis sur notre  application, ou même pour toutes autres remarques.  <br>
+                        Nous sommes conscients que certaines fonctionnalités ne sont pas otpimales, veuillez nous en excuser.  <br>
+                        
+                        
 
 
                     </div>
