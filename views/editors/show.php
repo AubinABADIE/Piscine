@@ -291,7 +291,7 @@
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
-                                                            echo '<tr id="'.$value['ID_Game'].'">';
+                                                            echo '<tr id="'.$value['ID_Game'].'" class="game-line">';
                                                             echo '<td>'.$value['Name'].'</td>';
                                                             echo '<td>'.$value['Quantity'].'</td>';
                                                             echo '<td>'.$value['Size'].'</td>';

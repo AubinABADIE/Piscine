@@ -104,7 +104,7 @@
                         <div class="grid-container full">
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
-                                    <p>Nombre d'emplacements total : </p>
+                                    <p>Nombre d'emplacements réservés : </p>
                                     <div class="card">
                                         <div class="card-divider">
                                             <h4>Zones types</h4>

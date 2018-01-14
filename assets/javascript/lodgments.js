@@ -6,9 +6,10 @@ $("#delete-lodgment-btn").click(function () {
     }
 });
 
-$("tbody tr").click(function () {
+$("table.selectable#lodgment-table tbody tr").click(function () {
+    console.log(selectedLodgment_id);
     $("#" + selectedLodgment_id).removeClass("selected");
     selectedLodgment_id = $(this).attr('id');
     $(this).addClass("selected");
-    $("#edit-contact-btn").attr("href", "../lodgments/edit.php?id=" + selectedLodgment_id);
+    $("#edit-lodgment-btn").attr("href", "../lodgments/edit.php?id=" + selectedLodgment_id);
 });
