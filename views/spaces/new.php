@@ -98,19 +98,25 @@
             <div class="cell auto">
                 <div class="grid-y grid-frame">
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Modification de l'espace</h5>
+                        <h5 style="margin: 0">Création de l'espace</h5>
                     </div>
                     <div class="cell auto content-cell">
                         <div class="grid-container full">
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
-                                    <h5>Modification d'une zone de type de jeu</h5>
-                                   <form id="FormNewSpaceType">
+                                    <h5>Création d'une zone de type de jeu</h5>
+                                   <form id="FormNewSpace">
                                        <label>Libellé
                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
                                        </label>
+                                       <fieldset>
+                                           <legend>Type de la zone</legend>
+                                           <input type="radio" name="SpaceTypes" value="Type" required><label>Zone de types de jeu</label>
+                                           <input type="radio" name="SpaceTypes" value="Editor" required><label>Zone d'un éditeur</label>
+
+                                        </fieldset>
                                        <label>Type de jeu
-                                            <select multiple id="NewType" required>
+                                            <select multiple id="NewType">
                                                 <option value="1" selected>Occasionnel/Famille</option>
                                                 <option value="2">Ambiance</option>
                                                 <option value="3">Expert</option>
@@ -118,22 +124,13 @@
                                                 <option value="5">Classique</option>
                                             </select>
                                        </label>
-                                       <input type="submit" class="button" value="Enregistrer">
-                                   </form>
-                                </div>
-                                <div class="cell auto">
-                                    <h5>Modification d'une zone éditeur</h5>
-                                    <form id="FormNewSpaceEditor">
-                                        <label>Libellé
-                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
-                                        </label>
-                                        <label>Editeur associé
-                                            <select multiple id="NewEditor" required>
-
+                                       <label>Editeur attaché à la zone
+                                           <select multiple id="NewEditor">
+                                            
                                             </select>
                                         </label>
-                                        <input type="submit" class="button" value="Enregistrer">
-                                    </form>
+                                       <input type="submit" class="button" value="Enregistrer">
+                                   </form>
                                 </div>
                             </div>
                         </div>
