@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/reservations.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/lodgments.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -105,11 +105,37 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Nouveau logement</h5>
+                        <h5 style="margin: 0">Logements</h5>
                     </div>
-
                     <div class="cell auto content-cell">
+                    <div class="grid-container full">
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell auto">
+                                <div class="table-scroll">
+                                    <table class="selectable" id="editors-table" style="width: 100%">
+                                        <thead>
+                                            <th>Adresse</th>
+                                            <th>Ville</th>
+                                            <th>Capacité</th>
+                                            <th>Prix à la nuit</th>
+                                        </thead>
+                                        <tbody>
 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="cell shrink">
+                                <div class="button-group stacked" id="lodgment-action-btn">
+                                    <a class="button" id="show-lodgment-btn">Consulter</a>
+                                    <a class="button" id="edit-lodgment-btn">Modifier</a>
+                                    <a class="button" href="new.php">Ajouter</a>
+                                    <a class="button alert" id="delete-lodgment-btn">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         
                     </div>
 
@@ -124,6 +150,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/reservations.js"></script>
+<script type="text/javascript" src="../../assets/javascript/lodgments.js"></script>
 </body>
 </html>
