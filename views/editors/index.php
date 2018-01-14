@@ -109,7 +109,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
                                     <div class="table-scroll">
-                                        <table style="width: 100%">
+                                        <table class="selectable" id="editors-table" style="width: 100%">
                                             <thead>
                                                 <th>N°</th>
                                                 <th>Nom</th>
