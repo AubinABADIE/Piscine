@@ -68,15 +68,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="alerts-btn">
-                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
-                                    <span class="sidebar-menu-text">Alertes</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a class="sidebar-btn" id="spaces-btn" href="../spaces/index.php">
                                     <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidebar-btn" id="alerts-btn">
+                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
+                                    <span class="sidebar-menu-text">Alertes</span>
                                 </a>
                             </li>
                         </ul>
@@ -148,6 +148,77 @@
                                                     ?>
                                                 </tbody>
                                             </table>
+                                            <div class="button-group" id="lodgment-action-btn">
+                                                <a class="button" id="edit-lodgment-btn" href="../lodgments/edit.php">Modifier</a>
+                                                <?php
+                                                   $id = $_GET['id'];
+                                                   echo '<a class="button" href="../lodgments/new.php?id='.$id.'">Ajouter</a>'
+                                                ?>
+                                                <a class="button alert" id="delete-lodgment-btn">Supprimer</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Facture</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>
+                                                <b>Montant : </b>
+                                                <?php
+                                                    require('../../controlers/connect_bdd.php');
+                                                
+                                                    $id = $_GET['id'];
+                                                    $qty = 0;
+                                                    $amount = 0;
+                                                
+                                                    $result = $bdd->query('SELECT Quantity FROM reserved_place WHERE b.ID_Booking = "'.$id.'"');
+                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    foreach ($data as $value) {
+                                                        $qty = $qty + $value['Quantity'];
+                                                    }
+
+                                                    $result->closeCursor();
+                                                    unset($result);
+                                                
+                                                    $result = $bdd->query('SELECT bi.Negociated_Amount FROM bill bi INNER JOIN booking b WHERE b.ID_Booking = "'.$id.'"');
+                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    $amount = $qty * $data[0]['Negociated_Amount'];
+                                                    echo $amount.' €';
+
+                                                    $result->closeCursor();
+                                                    unset($result);
+                                                
+                                                ?>
+                                            </p>
+                                            <?php
+                                                require('../../controlers/connect_bdd.php');
+
+                                                $id = $_GET['id'];
+
+                                                $result = $bdd->query('SELECT b.* FROM bill bi INNER JOIN booking b ON (bi.ID_Booking = b.ID_Booking) WHERE b.ID_Booking = "'.$id.'"');
+                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                foreach ($data as $value) {
+                                                    if ($value['Negociated_Amount'] == TRUE) {
+                                                        echo '<p><b>Facture payée ? </b> Oui</p>';
+                                                    } else {
+                                                        echo '<p><b>Facture payée ? </b> Non</p>';
+                                                    }
+                                                    if ($value['Is_Paid'] == TRUE) {
+                                                        echo '<p><b>Facture payée ? </b> Oui</p>';
+                                                    } else {
+                                                        echo '<p><b>Facture payée ? </b> Non</p>';
+                                                    }
+                                                    echo '<p><b>Date paiement : </b>'.$value['Date_Payment'].'</p>';
+                                                    echo '<p><b>Adresse : </b>'.$value['Address'].' '.$value['Postal_Code'].' '.$value['Town'].'</p>';
+                                                }
+
+                                                $result->closeCursor();
+                                                unset($result);
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -205,6 +276,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/reservations.js"></script>
+<script type="text/javascript" src="../../assets/javascript/lodgments.js"></script>
 </body>
 </html>

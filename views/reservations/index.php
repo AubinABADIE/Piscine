@@ -69,15 +69,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn" id="alerts-btn">
-                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
-                                    <span class="sidebar-menu-text">Alertes</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a class="sidebar-btn" id="spaces-btn" href="../spaces/index.php">
                                     <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidebar-btn" id="alerts-btn">
+                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
+                                    <span class="sidebar-menu-text">Alertes</span>
                                 </a>
                             </li>
                         </ul>
@@ -129,8 +129,8 @@
                                 <div class="cell shrink">
                                     <div id="reservations-action-btn" class="button-group stacked">
                                         <a class="button" id="show-booking-btn">Consulter</a>
-                                        <a class="button" id="edit-booking-btn">Modifier</a>
-                                        <a class="button" href="new.php">Créer</a>
+                                        <a class="button" id="show-booking-btn">Modifier</a>
+                                        <a class="button" href="new.php">Ajouter</a>
                                         <a class="button alert" id="delete-reservation-btn">Supprimer</a>
                                     </div>
                                 </div>
