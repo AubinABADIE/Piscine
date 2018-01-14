@@ -1,7 +1,7 @@
 $(document).foundation();
 
-var name = 'Nom Projet';
-var short_name = 'N';
+var name = 'Projet Piscine';
+var short_name = 'P';
 var sidebar_expanded;
 
 var collapseSidebar = function () {
