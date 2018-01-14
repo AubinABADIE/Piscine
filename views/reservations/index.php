@@ -116,7 +116,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                    require('connect_bdd.php');
+                                                    require('../../controllers/connect_bdd.php');
 
                                                     $result = $bdd->query('SELECT ... FROM ...');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
