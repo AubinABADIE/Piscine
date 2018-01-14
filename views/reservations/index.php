@@ -111,8 +111,6 @@
                                                 <th>Nom</th>
                                                 <th>Date</th>
                                                 <th>Commentaires</th>
-                                                <th>N° Logement</th>
-                                                <th>N° Espace</th>
                                             </thead>
                                             <tbody>
                                                 <?php
