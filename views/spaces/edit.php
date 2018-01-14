@@ -1,3 +1,7 @@
+<?php
+    require ('../../controlers/session_verif.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

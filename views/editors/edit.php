@@ -1,3 +1,7 @@
+<?php
+    require ('../../controlers/session_verif.php');
+?>
+
 <!DOCTYPE html>
 <!--https://foundation.zurb.com/sites/docs/ -->
 <html lang="fr">

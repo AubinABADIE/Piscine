@@ -1,17 +1,6 @@
-<div class="cell auto">
-    <h3>Dates de prise de contact</h3>
-    <label>Date de premier contact :
-        <input name="dfirst" id="DateRDV1New" type="date" placeholder="Premier contact" required>
-    </label>
-    <label>Date de second contact :
-        <input id="DateRDV2New" type="date" placeholder="Second contact">
-    </label>
-    <label>Date de réponse :
-        <input id="DateRepNew" type="date" placeholder="Réponse">
-    </label>
-</div>
-
-
+<?php
+    require ('../../controlers/session_verif.php');
+?>
 
 <!DOCTYPE html>
 <!--https://foundation.zurb.com/sites/docs/ --> 

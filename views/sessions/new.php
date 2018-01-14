@@ -12,7 +12,7 @@
 <body>
     <nav><a href="#" class="focus">CONNEXION</a></nav>
 
-    <form action="../../controlers/connect.php" method="post">
+    <form action="../../controlers/session_connect.php" method="post">
 
         <h2>CONNEXION</h2>
 

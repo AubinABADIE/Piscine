@@ -24,6 +24,7 @@
 			$_SESSION['Nom'] = $row['Name'];
 			$_SESSION['Phone'] = $row['Phone'];
 			$_SESSION['Email'] = $row['Email'];
+            $_SESSION['Logged'] = true;
             
 			header('Location: ../views/editors/index.php');
 			exit();
