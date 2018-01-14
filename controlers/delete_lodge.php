@@ -4,7 +4,7 @@
 
     $id = $_GET['id'];
 
-    $result = $bdd->query('SELECT ID_Editor FROM contact WHERE ID_Contact = "'.$id.'"');
+    $result = $bdd->query('SELECT ID_Booking FROM lodge WHERE ID_Booking = "'.$id.'"');
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
     unset($result);
     

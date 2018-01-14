@@ -280,6 +280,7 @@
                                                     <th>Type</th>
                                                     <th>Dotation</th>
                                                     <th>Prototype</th>
+                                                    <th>A renvoyer</th>
                                                 </thead>
                                                 <tbody>
                                                     <?php
@@ -302,6 +303,11 @@
                                                                 echo '<td>Non</td>';
                                                             }
                                                             if ($value['IsPrototype'] == TRUE) {
+                                                                echo '<td>Oui</td>';
+                                                            } else {
+                                                                echo '<td>Non</td>';
+                                                            }
+                                                            if ($value['ToReturn'] == TRUE) {
                                                                 echo '<td>Oui</td>';
                                                             } else {
                                                                 echo '<td>Non</td>';
