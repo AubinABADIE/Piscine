@@ -187,7 +187,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="button-group" id="contact-action-btn">
-                                                <a class="button" id="edit-contact-btn">Modifier</a>
+                                                <a class="button" id="edit-contact-btn" href="../contacts/edit.php">Modifier</a>
                                                 <?php
                                                    $id = $_GET['id'];
                                                    echo '<a class="button" href="../contacts/new.php?id='.$id.'">Ajouter</a>'
