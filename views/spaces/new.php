@@ -69,7 +69,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="spaces-btn">
+                                <a class="sidebar-btn active" id="spaces-btn" href="index.php">
                                     <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
@@ -98,7 +98,7 @@
             <div class="cell auto">
                 <div class="grid-y grid-frame">
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Modification de l'espace</h5>
+                        <h5 style="margin: 0">Création de l'espace</h5>
                     </div>
                     <div class="cell auto content-cell">
                         <div class="grid-container full">
