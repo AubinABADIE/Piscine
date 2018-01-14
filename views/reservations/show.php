@@ -136,7 +136,7 @@
 
                                                         foreach ($data as $value) {
                                                             echo '<tr id='.$value['ID_Lodgment'].'">';
-                                                            echo '<td>'.$value['Address'].$value['Postal_Code'].$value['Town'].'</td>';
+                                                            echo '<td>'.$value['Address'].' '.$value['Postal_Code'].' '.$value['Town'].'</td>';
                                                             echo '<td>'.$value['Capacity'].'</td>';
                                                             echo '<td>'.$value['Beds'].'</td>';
                                                             echo '<td>'.$value['Night_Price'].'</td>';
@@ -172,48 +172,53 @@
                                                     $qty = 0;
                                                     $amount = 0;
                                                 
-                                                    $result = $bdd->query('SELECT Quantity FROM reserved_place WHERE b.ID_Booking = "'.$id.'"');
+                                                    $result = $bdd->query('SELECT Quantity FROM reserved_place WHERE ID_Booking = "'.$id.'"');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
-
                                                     foreach ($data as $value) {
                                                         $qty = $qty + $value['Quantity'];
                                                     }
-
                                                     $result->closeCursor();
                                                     unset($result);
                                                 
                                                     $result = $bdd->query('SELECT bi.Negociated_Amount FROM bill bi INNER JOIN booking b WHERE b.ID_Booking = "'.$id.'"');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
-
                                                     $amount = $qty * $data[0]['Negociated_Amount'];
-                                                    echo $amount.' €';
-
                                                     $result->closeCursor();
                                                     unset($result);
                                                 
+                                                    $result = $bdd->query('SELECT l.Night_Price, lo.Beds FROM lodgment l INNER JOIN lodge lo ON (l.ID_Lodgment = lo.ID_Lodgment) WHERE lo.ID_Booking = "'.$id.'"');
+                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                                    foreach ($data as $value) {
+                                                        $amount = $amount + ($value['Night_Price'] * $value['Beds']);
+                                                    }
+                                                    $result->closeCursor();
+                                                    unset($result);
+                                                
+                                                
+                                                    echo $amount.' €';
                                                 ?>
                                             </p>
+                                            <br>
                                             <?php
                                                 require('../../controlers/connect_bdd.php');
 
                                                 $id = $_GET['id'];
 
-                                                $result = $bdd->query('SELECT b.* FROM bill bi INNER JOIN booking b ON (bi.ID_Booking = b.ID_Booking) WHERE b.ID_Booking = "'.$id.'"');
+                                                $result = $bdd->query('SELECT bi.* FROM bill bi INNER JOIN booking b ON (bi.ID_Booking = b.ID_Booking) WHERE b.ID_Booking = "'.$id.'"');
                                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                 foreach ($data as $value) {
-                                                    if ($value['Negociated_Amount'] == TRUE) {
-                                                        echo '<p><b>Facture payée ? </b> Oui</p>';
+                                                    if (is_null($value['Negociated_Amount'])) {
+                                                        echo '<p>Prix de l\'emplacement par défaut</p>';
                                                     } else {
-                                                        echo '<p><b>Facture payée ? </b> Non</p>';
+                                                        echo '<p>Prix de l\'emplacement négocié : '.$value['Negociated_Amount'].' €</p>';
                                                     }
                                                     if ($value['Is_Paid'] == TRUE) {
                                                         echo '<p><b>Facture payée ? </b> Oui</p>';
+                                                        echo '<p><b>Date paiement : </b>'.$value['Date_Payment'].'</p>';
                                                     } else {
                                                         echo '<p><b>Facture payée ? </b> Non</p>';
                                                     }
-                                                    echo '<p><b>Date paiement : </b>'.$value['Date_Payment'].'</p>';
-                                                    echo '<p><b>Adresse : </b>'.$value['Address'].' '.$value['Postal_Code'].' '.$value['Town'].'</p>';
                                                 }
 
                                                 $result->closeCursor();
@@ -232,7 +237,7 @@
                                                 <thead>
                                                     <th>Zone</th>
                                                     <th>Jeu</th>
-                                                    <th>Nombre</th>
+                                                    <th>Nombre d'emplacements</th>
                                                 </thead>
                                                 <tbody>
                                                     <?php
