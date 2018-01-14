@@ -2,7 +2,7 @@ var selectedBooking_id;
 
 $("#delete-reservation-btn").click(function () {
     if (confirm("Confirmer la suppression ?")) {
-        console.log("delete")
+        window.location.href = "../../controlers/delete_bookings.php?id=" + $(this).attr('name')
     }
 });
 
@@ -20,4 +20,5 @@ $("table.selectable#booking-table tbody tr").click(function () {
     $(this).addClass("selected");
     $("#show-booking-btn").attr("href", "show.php?id=" + selectedBooking_id);
     $("#edit-booking-btn").attr("href", "edit.php?id=" + selectedBooking_id);
+    $("#delete-reservation-btn").attr("name", selectedBooking_id);
 });
