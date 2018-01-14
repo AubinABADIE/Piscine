@@ -13,3 +13,8 @@ $("table.selectable#editors-table tbody tr").click(function () {
     $("#show-editor-btn").attr("href", "show.php?id=" + selectedEditor_id);
     $("#edit-editor-btn").attr("href", "edit.php?id=" + selectedEditor_id);
 });
+
+$("tr.clickable").click(function () {
+    console.log("click")
+    window.location.href = "../reservations/show.php?id="+$(this).attr('id')
+});

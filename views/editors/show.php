@@ -222,7 +222,7 @@
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
-                                                            echo '<tr>';
+                                                            echo '<tr class="clickable" id="'.$value['ID_Booking'].'">';
                                                             echo '<td>'.$value['ID_Booking'].'</td>';
                                                             echo '<td>'.$value['Date_Booking'].'</td>';
                                                             if ($value['Is_Canceled'] == TRUE) {
