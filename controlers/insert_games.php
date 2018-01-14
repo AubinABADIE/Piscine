@@ -29,11 +29,15 @@
         if ((!isset($_POST['prototype'])) ||  ($_POST['prototype'] == '')) {
 			$insert = false;
 		}
+        
+        if ((!isset($_POST['renvoi'])) ||  ($_POST['renvoi'] == '')) {
+			$insert = false;
+		}
 
 		if ($insert) {
 			$redirect = false; // Pour ne rediriger que si on a réussi l'opération.
 
-			$result = $bdd->prepare('INSERT INTO game (ID_Game, Name, Rules, Quantity, IsEndowment, IsPrototype, ID_Editor, ID_GameSize, ID_GameType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+			$result = $bdd->prepare('INSERT INTO game (ID_Game, Name, Rules, Quantity, IsEndowment, IsPrototype, ToReturn, ID_Editor, ID_GameSize, ID_GameType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
             
             $result->bindParam(1, $myNull, PDO::PARAM_NULL);
             $result->bindParam(2, $_POST['name'], PDO::PARAM_STR);
@@ -45,9 +49,10 @@
             $result->bindParam(4, $_POST['quantity'], PDO::PARAM_INT);
             $result->bindParam(5, $_POST['dotation'], PDO::PARAM_STR);
             $result->bindParam(6, $_POST['prototype'], PDO::PARAM_STR);
-            $result->bindParam(7, $_GET['id'], PDO::PARAM_INT);
-            $result->bindParam(8, $_POST['size'], PDO::PARAM_INT);
-            $result->bindParam(9, $_POST['type'], PDO::PARAM_INT);
+            $result->bindParam(7, $_POST['renvoi'], PDO::PARAM_STR);
+            $result->bindParam(8, $_GET['id'], PDO::PARAM_INT);
+            $result->bindParam(9, $_POST['size'], PDO::PARAM_INT);
+            $result->bindParam(10, $_POST['type'], PDO::PARAM_INT);
         
 			try {
 				$result->execute();

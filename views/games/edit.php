@@ -240,6 +240,19 @@
                                                 }
                                                 echo '    
                                                     </fieldset>
+                                                    <fieldset>
+                                                        <legend>Est-il à renvoyer ?</legend>';
+                                                if ($data[0]['ToReturn'] == true) {
+                                                    echo '
+                                                        <input type="radio" name="renvoi" id="RenvoiYes" value="1" required checked><label>Oui</label>
+                                                        <input type="radio" name="renvoi" id="RenvoiNo" value="0" required><label>Non</label>';
+                                                } else {
+                                                    echo '
+                                                        <input type="radio" name="renvoi" id="RenvoiYes" value="1" required><label>Oui</label>
+                                                        <input type="radio" name="renvoi" id="RenvoiNo" value="0" required checked><label>Non</label>';
+                                                }
+                                                echo'
+                                                    </fieldset>
                                                 </div>
                                                 ';
                                             ?>
