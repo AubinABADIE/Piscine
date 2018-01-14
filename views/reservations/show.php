@@ -172,7 +172,7 @@
                                                     $qty = 0;
                                                     $amount = 0;
                                                 
-                                                    $result = $bdd->query('SELECT Quantity FROM reserved_place WHERE b.ID_Booking = "'.$id.'"');
+                                                    $result = $bdd->query('SELECT Quantity FROM reserved_place WHERE ID_Booking = "'.$id.'"');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                     foreach ($data as $value) {
