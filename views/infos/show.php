@@ -129,11 +129,11 @@
                                             <p>Pour contacter directement l'un des élèves, utilisez les adresses suivantes :
                                             </br>
                                             <a href="mailto:aubin.abadie@etu.umontpellier.fr">Aubin ABADIE</a> </br>
-                                            <a href="mailto:adam.megherat@etu.umontpellier.fr">Adam MEGHERAT</a></br>
-                                            <a href="mailto:alice.burette@etu.umontpellier.fr">Alice BURETTE</a></br>
-                                            <a href="mailto:yvan.sanson@etu.umontpellier.fr">Yvan SANSON</a></br>
-                                            <a href="mailto:alexandre.kueny@etu.umontpellier.fr">Alexandre KUENY</a></br>
                                             <a href="mailto:paul.arnaud@etu.umontpellier.fr">Paul ARNAUD</a></br>
+                                            <a href="mailto:alice.burette@etu.umontpellier.fr">Alice BURETTE</a></br>
+                                            <a href="mailto:adam.megherat@etu.umontpellier.fr">Adam MEGHERAT</a></br>
+                                            <a href="mailto:alexandre.kueny@etu.umontpellier.fr">Alexandre KUENY</a></br>
+                                            <a href="mailto:yvan.sanson@etu.umontpellier.fr">Yvan SANSON</a></br>
                                             </p>
                                         </div>
                                 </div>
