@@ -244,7 +244,7 @@
                                             <h4>Emplacements</h4>
                                         </div>
                                         <div class="card-section">
-                                            <table>
+                                            <table class="selectable" id="spaces-table">
                                                 <thead>
                                                     <th>Zone</th>
                                                     <th>Jeu</th>
@@ -260,7 +260,7 @@
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
-                                                            echo '<tr id='.$value['ID_Space'].'">';
+                                                            echo '<tr id='.$value['ID_Space'].'>';
                                                             echo '<td>'.$value['Label'].'</td>';
                                                             echo '<td>'.$value['Name'].'</td>';
                                                             echo '<td>'.$value['Quantity'].'</td>';
@@ -298,5 +298,6 @@
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
 <script type="text/javascript" src="../../assets/javascript/lodgments.js"></script>
+<script type="text/javascript" src="../../assets/javascript/spaces.js"></script>
 </body>
 </html>

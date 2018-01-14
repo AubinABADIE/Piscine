@@ -119,7 +119,6 @@
                                     <div class="table-scroll">
                                         <table class="selectable" id="booking-table" style="width: 100%">
                                             <thead>
-                                                <th>N° réservation</th>
                                                 <th>Nom</th>
                                                 <th>Date</th>
                                                 <th>Commentaires</th>

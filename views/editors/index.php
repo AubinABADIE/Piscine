@@ -117,7 +117,6 @@
                                     <div class="table-scroll">
                                         <table class="selectable" id="editors-table" style="width: 100%">
                                             <thead>
-                                                <th>N°</th>
                                                 <th>Nom</th>
                                                 <th>Email</th>
                                                 <th>Téléphone</th>
