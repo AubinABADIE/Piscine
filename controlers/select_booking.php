@@ -1,7 +1,7 @@
 <?php
     require('connect_bdd.php');
 
-    $result = $bdd->query('SELECT ID_Booking, Date_Booking, Commentary, Name, ID_Lodgment, ID_Space FROM booking INNER JOIN editor ON booking.ID_Editor = editor.ID_Editor WHERE Is_Canceled = FALSE');
+    $result = $bdd->query('SELECT booking.ID_Booking, Date_Booking, Commentary, Name, ID_Lodgment, ID_Space FROM booking INNER JOIN editor ON booking.ID_Editor = editor.ID_Editor INNER JOIN lodge ON booking.ID_Booking = lodge.ID_Booking INNER JOIN space ON editor.ID_Editor = space.ID_Editor WHERE Is_Canceled = FALSE');
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($data as $value) {
