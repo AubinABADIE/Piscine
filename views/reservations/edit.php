@@ -75,7 +75,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>

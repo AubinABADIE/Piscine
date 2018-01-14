@@ -79,7 +79,7 @@
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="infos-btn">
+                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.php">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -97,7 +97,9 @@
                         <h5 style="margin: 0">Création d'un nouveau jeu</h5>
                     </div>
                     <div class="cell auto content-cell">
-                        <form id="FormNewGame" action="../../controlers/insert_games.php" method="post">
+                        <?php
+                        echo '<form id="FormNewGame" action="../../controlers/insert_games.php?id='.$_GET['id'].'" method="post">'
+                        ?>
                             <div class="cell auto">
                                 <h3>Informations du jeu</h3>
                                 <label>Titre :
