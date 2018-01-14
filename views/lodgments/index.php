@@ -128,7 +128,6 @@
                             </div>
                             <div class="cell shrink">
                                 <div class="button-group stacked" id="lodgment-action-btn">
-                                    <a class="button" id="show-lodgment-btn">Consulter</a>
                                     <a class="button" id="edit-lodgment-btn">Modifier</a>
                                     <a class="button" href="new.php">Ajouter</a>
                                     <a class="button alert" id="delete-lodgment-btn">Supprimer</a>
