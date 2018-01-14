@@ -106,10 +106,10 @@
                                 <div class="cell auto">
                                     <h5>Modification d'une zone de type de jeu</h5>
                                    <form id="FormEditSpaceType">
-                                       <label>Libellé
+                                       <label>Libellé :
                                            <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
                                        </label>
-                                       <label>Type de jeu
+                                       <label>Type de jeu :
                                             <select multiple id="EditType">
                                             <option value="" disabled selected>Sélectionner un type</option>
                                             <?php
@@ -133,10 +133,10 @@
                                 <div class="cell auto">
                                     <h5>Modification d'une zone éditeur</h5>
                                     <form id="FormEditSpaceEditor">
-                                        <label>Libellé
+                                        <label>Libellé :
                                             <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
                                         </label>
-                                        <label>Editeur associé
+                                        <label>Editeur associé :
                                             <select multiple id="EditEditor" required>
                                             <option value="" disabled selected>Sélectionner un éditeur</option>
                                             <?php
