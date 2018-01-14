@@ -144,7 +144,7 @@
 
                                                         foreach ($data as $value) {
                                                             echo '<tr id='.$value['ID_Lodgment'].'">';
-                                                            echo '<td>'.$value['Address'].' '.$value['Postal_Code'].' '.$value['Town'].'</td>';
+                                                            echo '<td>'.$value['Address'].', '.$value['Postal_Code'].' '.$value['Town'].'</td>';
                                                             echo '<td>'.$value['Capacity'].'</td>';
                                                             echo '<td>'.$value['Beds'].'</td>';
                                                             echo '<td>'.$value['Night_Price'].'</td>';
