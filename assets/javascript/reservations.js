@@ -11,3 +11,13 @@ $("#logement-switch").change(function () {
         $("#logement-form").addClass("hide");
     }
 });
+
+var selectedBooking_id;
+
+$("tbody tr").click(function () {
+    $("#" + selectedBooking_id).removeClass("selected");
+    selectedBooking_id = $(this).attr('id');
+    $(this).addClass("selected");
+    $("#show-booking-btn").attr("href", "show.php?id=" + selectedBooking_id);
+    $("#edit-booking-btn").attr("href", "edit.php?id=" + selectedBooking_id);
+});
