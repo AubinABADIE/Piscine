@@ -1,7 +1,7 @@
 var selectedEditor_id;
 
 $("#delete-editor-btn").click(function () {
-    if (confirm("Confirmer la suppression ?")) {
+    if (confirm("Confirmer la suppression de l'éditeur ?")) {
         console.log("delete")
     }
 });

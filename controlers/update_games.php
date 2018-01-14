@@ -6,38 +6,48 @@
     $myNull = null;
 
 	if (count($_POST) > 0) {
-		if ((!isset($_POST['lastname'])) || ($_POST['lastname'] == '')) {
+		if ((!isset($_POST['name'])) || ($_POST['name'] == '')) {
 			$update = false;
 		}
 
-		if ((!isset($_POST['firstname'])) ||  ($_POST['firstname'] == '')) {
+		if ((!isset($_POST['quantity'])) ||  ($_POST['quantity'] == '')) {
+			$update = false;
+		}
+        
+        if ((!isset($_POST['size'])) ||  ($_POST['size'] == '')) {
+			$update = false;
+		}
+        
+        if ((!isset($_POST['type'])) ||  ($_POST['type'] == '')) {
+			$update = false;
+		}
+        
+        if ((!isset($_POST['dotation'])) ||  ($_POST['dotation'] == '')) {
+			$update = false;
+		}
+        
+        if ((!isset($_POST['prototype'])) ||  ($_POST['prototype'] == '')) {
 			$update = false;
 		}
 
 		if ($update) {
 			$redirect = false; // Pour ne rediriger que si on a réussi l'opération.
 
-			$result = $bdd->prepare('UPDATE contact SET Lastname=:v1, Firstname=:v2, Job=:v3, Email=:v4, Phone=:v5 WHERE ID_Contact=:id');
+			$result = $bdd->prepare('UPDATE game SET Name=:v1, Rules=:v2, Quantity=:v3, IsEndowment=:v4, IsPrototype=:v5, ID_GameSize=:v6, ID_GameType=:v7 WHERE ID_Game=:id');
             
 			$result->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-            $result->bindParam(':v1', $_POST['lastname'], PDO::PARAM_STR);
-            $result->bindParam(':v2', $_POST['firstname'], PDO::PARAM_STR);
-            if(is_null($_POST['job']) || $_POST['job'] == ''){
-                $result->bindParam(':v3', $myNull, PDO::PARAM_NULL);
+            $result->bindParam(':v1', $_POST['name'], PDO::PARAM_STR);
+            if(is_null($_POST['rules']) || $_POST['rules'] == ''){
+                $result->bindParam(':v2', $myNull, PDO::PARAM_NULL);
             } else {
-                $result->bindParam(':v3', $_POST['job'], PDO::PARAM_STR);
+                $result->bindParam(':v2', $_POST['rules'], PDO::PARAM_STR);
             }
-            if(is_null($_POST['email']) || $_POST['email'] == ''){
-                $result->bindParam(':v4', $myNull, PDO::PARAM_NULL);
-            } else {
-                $result->bindParam(':v4', $_POST['email'], PDO::PARAM_STR);
-            }
-            if(is_null($_POST['phone']) || $_POST['phone'] == ''){
-                $result->bindParam(':v5', $myNull, PDO::PARAM_NULL);
-            } else {
-                $result->bindParam(':v5', $_POST['phone'], PDO::PARAM_STR);
-            }
-            
+            $result->bindParam(':v3', $_POST['quantity'], PDO::PARAM_INT);
+            $result->bindParam(':v4', $_POST['dotation'], PDO::PARAM_STR);
+            $result->bindParam(':v5', $_POST['prototype'], PDO::PARAM_STR);
+            $result->bindParam(':v6', $_POST['size'], PDO::PARAM_INT);
+            $result->bindParam(':v7', $_POST['type'], PDO::PARAM_INT);
+        
 			try {
 				$result->execute();
 				$result->closeCursor();

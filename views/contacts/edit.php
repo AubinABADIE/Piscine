@@ -100,7 +100,7 @@
                             require ('../../controlers/connect_bdd.php');
 
                             $id = $_GET['id'];
-                            $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
+                            $query = 'SELECT * FROM contact WHERE ID_Contact = "'.$id.'"';
                             $result = $bdd->query($query);
                             $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -169,6 +169,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/contact.js"></script>
+<script type="text/javascript" src="../../assets/javascript/contacts.js"></script>
 </body>
 </html>

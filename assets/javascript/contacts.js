@@ -10,6 +10,5 @@ $("tbody tr").click(function () {
     $("#" + selectedContact_id).removeClass("selected");
     selectedContact_id = $(this).attr('id');
     $(this).addClass("selected");
-    $("#show-editor-btn").attr("href", "show.php?id=" + selectedContact_id);
-    $("#edit-editor-btn").attr("href", "edit.php?id=" + selectedContact_id);
+    $("#edit-contact-btn").attr("href", "../contacts/edit.php?id=" + selectedContact_id);
 });

@@ -187,8 +187,11 @@
                                                 </tbody>
                                             </table>
                                             <div class="button-group" id="contact-action-btn">
-                                                <a class="button" href="../contact/edit.php">Modifier</a>
-                                                <a class="button" href="../contact/new.php">Creer</a>
+                                                <a class="button" id="edit-contact-btn">Modifier</a>
+                                                <?php
+                                                   $id = $_GET['id'];
+                                                   echo '<a class="button" href="../contacts/new.php?id='.$id.'">Ajouter</a>'
+                                                ?>
                                                 <a class="button alert" id="delete-contact-btn">Supprimer</a>
                                             </div>
                                         </div>
@@ -210,7 +213,7 @@
                                                     
                                                         $id = $_GET['id'];
                                                     
-                                                        $result = $bdd->query('SELECT b.ID_Booking, b.Date_Booking, b.Is_Canceled FROM booking b INNER JOIN editor e ON (b.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
+                                                        $result = $bdd->query('SELECT b.* FROM booking b INNER JOIN editor e ON (b.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
@@ -244,7 +247,7 @@
                                             
                                                 $id = $_GET['id'];
 
-                                                $result = $bdd->query('SELECT t.Date_First_Contact, t.Date_Second_Contact, t.Replied FROM trace t INNER JOIN editor e ON (t.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
+                                                $result = $bdd->query('SELECT t.* FROM trace t INNER JOIN editor e ON (t.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
                                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                 foreach ($data as $value) {
@@ -276,8 +279,10 @@
                                                 <tbody>
                                                     <?php
                                                         require ('../../controlers/connect_bdd.php');
-
-                                                        $result = $bdd->query('SELECT g.ID_Game, g.Name, g.Quantity, g.IsEndowment, g.IsPrototype, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "'.$id.'"');
+                                                        
+                                                        $id = $_GET['id'];
+                                                    
+                                                        $result = $bdd->query('SELECT g.*, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "'.$id.'"');
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
@@ -306,8 +311,11 @@
                                             </table>
                                             <br>
                                             <div class="button-group" id="game-action-btn">
-                                                <a class="button" href="../games/edit.php">Modifier</a>
-                                                <a class="button" href="../games/new.php">Creer</a>
+                                                <a class="button" id="edit-game-btn">Modifier</a>
+                                                <?php
+                                                   $id = $_GET['id'];
+                                                   echo '<a class="button" href="../games/new.php?id='.$id.'">Ajouter</a>'
+                                                ?>
                                                 <a class="button alert" id="delete-game-btn">Supprimer</a>
                                             </div>
                                         </div>

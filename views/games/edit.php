@@ -100,7 +100,7 @@
                             require ('../../controlers/connect_bdd.php');
 
                             $id = $_GET['id'];
-                            $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
+                            $query = 'SELECT * FROM game WHERE ID_Game = "'.$id.'"';
                             $result = $bdd->query($query);
                             $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -137,11 +137,11 @@
                                                         <input name="name" id="GameTitleEdit" type="text" placeholder="Titre" value="'.$data[0]['Name'].'" required>
                                                     </label>
                                                     <label>Description :</label>
-                                                    <textarea name="rules" type="textfield" id="GameDescEdit" placeholder="Description du jeu" value="'.$data[0]['Rules'].'" required></textarea>
+                                                    <textarea name="rules" type="textfield" id="GameDescEdit" placeholder="Description du jeu" value="'.$data[0]['Rules'].'"></textarea>
                                                     <label>Quantité :</label>
                                                     <input name="quantity" id="GameQtyEdit" type="number" value="'.$data[0]['Quantity'].'" min="0">
                                                     <label>Taille :
-                                                        <select required>';
+                                                        <select name="size" required>';
                                                 if ($data[0]['ID_GameSize'] == 1) {
                                                     echo '
                                                         <option value="1" selected>Petit</option>
@@ -162,7 +162,7 @@
                                                     </select>
                                                 </label>
                                                 <label>Type :
-                                                    <select required>';
+                                                    <select name="type" required>';
                                                 if ($data[0]['ID_GameType'] == 1) {
                                                     echo '
                                                         <option value="1" selected>Occasionnel/Famille</option>

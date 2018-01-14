@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--https://foundation.zurb.com/sites/docs/ --> 
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/editors.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/contact.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -22,8 +23,7 @@
                 </div>
 
                 <div class="cell auto topbar-center">
-                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn"
-                                                                      aria-hidden="true"></i></div>
+                    <div class="h4" id="toggle-sidebar-btn-parent"><i class="fa fa-bars" id="toggle-sidebar-btn" aria-hidden="true"></i></div>
                 </div>
 
                 <div class="cell shrink topbar-right">
@@ -79,7 +79,7 @@
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="infos-btn" href="../infos/show.php">
+                                <a class="sidebar-btn" id="infos-btn">
                                     <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Infos</span>
                                 </a>
@@ -94,45 +94,32 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Editeurs</h5>
+                        <h5 style="margin: 0">Création d'un nouveau contact</h5>
                     </div>
-
-
                     <div class="cell auto content-cell">
-                        <div class="grid-container full">
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell auto">
-                                    <div class="table-scroll">
-                                        <table style="width: 100%">
-                                            <thead>
-                                                <th>N°</th>
-                                                <th>Nom</th>
-                                                <th>Email</th>
-                                                <th>Téléphone</th>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                    require ('../../controlers/select_editors.php');
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="cell shrink">
-                                    <div class="button-group stacked" id="editors-action-btn">
-                                        <a class="button" id="show-editor-btn">Consulter</a>
-                                        <a class="button" id="edit-editor-btn">Modifier</a>
-                                        <a class="button" href="new.php">Ajouter</a>
-                                        <a class="button alert" id="delete-editor-btn">Supprimer</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <form id="FormNewContact" action="../../controlers/insert_contacts.php" method="post">
+                            <h3>Informations du contact</h3>
+                            <label>Nom :
+                                <input name="lastname" id="NomRespEdit" type="text" placeholder="Nom" required>
+                            </label>
+                            <label>Prénom :
+                                <input name="firstname" id="PrenomRespEdit" type="text" placeholder="Prénom" required>
+                            </label>
 
+                            <label>Poste dans l'entreprise :
+                                <input name="job" id="PosteRespEdit" type="text", placeholder="Poste">
+                            </label>
+                            <label>Mail :
+                                <input name="email" id="MailRespEdit" type="email", placeholder="Email">
+                            </label>
+                            <label>Téléphone :
+                                <input name="phone" id="TelRespEdit" type="text", placeholder="Téléphone">
+                            </label>
+                            <input type="submit" class="button" value="Enregistrer">
+                        </form>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -141,6 +128,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/editors.js"></script>
+<script type="text/javascript" src="../../assets/javascript/contacts.js"></script>
 </body>
 </html>

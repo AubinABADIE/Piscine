@@ -97,43 +97,46 @@
                         <h5 style="margin: 0">Création d'un nouveau jeu</h5>
                     </div>
                     <div class="cell auto content-cell">
-                        <form id="FormNewGame">
-                            <h3>Informations du jeu</h3>
-                            <label>Titre :
-                                <input id="GameTitleNew" type="text" placeholder="Titre" required>
-                            </label>
-                            <label>Description :</label>
-                            <textarea type="textfield" id="GameDescNew" placeholder="Description du jeu" required></textarea>
-                            <label>Quantité :</label>
-                            <input id="GameQtyNew" type="number" value="0" min="0">
-                            <label>Taille :
-                                <select required>
-                                    <option value="" disabled selected>Sélectionner une taille</option>
-                                    <option value="1">Petit</option>
-                                    <option value="2">Moyen</option>
-                                    <option value="3">Surdimensionné</option>
-                                </select>
-                            </label>
-                            <label>Type :
-                                <select required>
-                                    <option value="" disabled selected>Sélectionner un type</option>
-                                    <option value="1">Occasionnel/Famille</option>
-                                    <option value="2">Ambiance</option>
-                                    <option value="3">Expert</option>
-                                    <option value="4">Enfant</option>
-                                    <option value="5">Classique</option>
-                                </select>
-                            </label>
-                            <fieldset>
-                                <legend>Est-ce une dotation ?</legend>
-                                <input type="radio" name="dotation" id="DotYes" value="1" required><label>Oui</label>
-                                <input type="radio" name="dotation" id="DotNo" value="0" required checked><label>Non</label>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Est-ce un prototype ?</legend>
-                                <input type="radio" name="prototype" id="ProtYes" value="1" required><label>Oui</label>
-                                <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
-                            </fieldset>
+                        <form id="FormNewGame" action="../../controlers/insert_games.php" method="post">
+                            <div class="cell auto">
+                                <h3>Informations du jeu</h3>
+                                <label>Titre :
+                                    <input name="name" id="GameTitleNew" type="text" placeholder="Titre" required>
+                                </label>
+                                <label>Description :</label>
+                                <textarea name="rules" type="textfield" id="GameDescNew" placeholder="Description du jeu"></textarea>
+                                <label>Quantité :</label>
+                                <input name="quantity" id="GameQtyNew" type="number" value="0" min="0">
+                                <label>Taille :
+                                    <select name="size" required>
+                                        <option value="" disabled selected>Sélectionner une taille</option>
+                                        <option value="1">Petit</option>
+                                        <option value="2">Moyen</option>
+                                        <option value="3">Surdimensionné</option>
+                                    </select>
+                                </label>
+                                <label>Type :
+                                    <select name="type" required>
+                                        <option value="" disabled selected>Sélectionner un type</option>
+                                        <option value="1">Occasionnel/Famille</option>
+                                        <option value="2">Ambiance</option>
+                                        <option value="3">Expert</option>
+                                        <option value="4">Enfant</option>
+                                        <option value="5">Classique</option>
+                                    </select>
+                                </label>
+                                <fieldset>
+                                    <legend>Est-ce une dotation ?</legend>
+                                    <input type="radio" name="dotation" id="DotYes" value="1" required><label>Oui</label>
+                                    <input type="radio" name="dotation" id="DotNo" value="0" required checked><label>Non</label>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Est-ce un prototype ?</legend>
+                                    <input type="radio" name="prototype" id="ProtYes" value="1" required><label>Oui</label>
+                                    <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
+                                </fieldset>
+                            </div>
+                            
                             <input type="submit" class="button" value="Enregistrer">
                         </form>
                     </div>

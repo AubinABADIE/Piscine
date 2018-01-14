@@ -1,3 +1,18 @@
+<div class="cell auto">
+    <h3>Dates de prise de contact</h3>
+    <label>Date de premier contact :
+        <input name="dfirst" id="DateRDV1New" type="date" placeholder="Premier contact" required>
+    </label>
+    <label>Date de second contact :
+        <input id="DateRDV2New" type="date" placeholder="Second contact">
+    </label>
+    <label>Date de réponse :
+        <input id="DateRepNew" type="date" placeholder="Réponse">
+    </label>
+</div>
+
+
+
 <!DOCTYPE html>
 <!--https://foundation.zurb.com/sites/docs/ --> 
 <html lang="fr">
@@ -9,7 +24,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/contact.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/games.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -94,30 +109,25 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Création d'un nouveau contact</h5>
+                        <h5 style="margin: 0">Gestion de la prise de contact</h5>
                     </div>
                     <div class="cell auto content-cell">
-                        <form id="FormNewContact">
-                            <h3>Informations du contact</h3>
-                            <label>Nom :
-                                <input id="NomRespEdit" type="text" placeholder="Nom" required>
-                            </label>
-                            <label>Prénom :
-                                <input id="PrenomRespEdit" type="text" placeholder="Prénom" required>
-                            </label>
-
-                            <label>Poste dans l'entreprise :
-                                <input id="PosteRespEdit" type="text", placeholder="Poste" required>
-                            </label>
-                            <label>Mail :
-                                <input id="MailRespEdit" type="email", placeholder="Email" required>
-                            </label>
-                            <label>Téléphone :
-                                <input id="TelRespEdit" type="text", placeholder="Téléphone" required>
-                            </label>
-                            <input type="submit" class="button" value="Enregistrer">
+                        <form id="FormNewGame">
+                            <div class="cell auto">
+                                <h3>Dates de prise de contact</h3>
+                                <label>Date de premier contact :
+                                    <input name="dfirst" id="DateRDV1New" type="date" placeholder="Premier contact" required>
+                                </label>
+                                <label>Date de second contact :
+                                    <input id="DateRDV2New" type="date" placeholder="Second contact">
+                                </label>
+                                <label>Date de réponse :
+                                    <input id="DateRepNew" type="date" placeholder="Réponse">
+                                </label>
+                            </div>
                         </form>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -128,6 +138,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/contact.js"></script>
+<script type="text/javascript" src="../../assets/javascript/games.js"></script>
 </body>
 </html>
