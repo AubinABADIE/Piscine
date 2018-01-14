@@ -57,13 +57,13 @@
                     <div class="cell auto">
                         <ul class="vertical menu sidebar-menu">
                             <li>
-                                <a class="sidebar-btn" id="editors-btn" href="../editors/index.php">
+                                <a class="sidebar-btn active" id="editors-btn" href="../editors/index.php">
                                     <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Editeurs</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="reservations-btn" href="../reservations/index.php">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
                                 </a>
@@ -76,7 +76,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="cell shrink">
                         <ul class="vertical menu sidebar-menu">
                             <li>
@@ -112,8 +111,8 @@
                                                 <th>Nom</th>
                                                 <th>Date</th>
                                                 <th>Commentaires</th>
-                                                <th>Logement</th>
-                                                <th>Espace</th>
+                                                <th>N° Logement</th>
+                                                <th>N° Espace</th>
                                             </thead>
                                             <tbody>
                                                 <?php
@@ -125,8 +124,8 @@
                                 </div>
                                 <div class="cell shrink">
                                     <div id="reservations-action-btn" class="button-group stacked">
-                                        <a class="button" href="show.php">Consulter</a>
-                                        <a class="button" href="edit.php">Modifier</a>
+                                        <a class="button" id="show-booking-btn">Consulter</a>
+                                        <a class="button" id="edit-booking-btn">Modifier</a>
                                         <a class="button" href="new.php">Créer</a>
                                         <a class="button alert" id="delete-reservation-btn">Supprimer</a>
                                     </div>
