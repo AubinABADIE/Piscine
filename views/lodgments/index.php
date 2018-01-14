@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/lodgments.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/lodgment.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
