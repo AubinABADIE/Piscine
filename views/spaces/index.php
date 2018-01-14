@@ -75,7 +75,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="alerts-btn">
+                                <a class="sidebar-btn active" id="spaces-btn">
                                     <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
