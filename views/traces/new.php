@@ -85,7 +85,7 @@
                             </li>
                             <li>
                                 <a class="sidebar-btn" id="spaces-btn" href="../spaces/index.php">
-                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
+                                    <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
                             </li>

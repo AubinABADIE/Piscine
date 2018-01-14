@@ -6,7 +6,8 @@ $("#delete-contact-btn").click(function () {
     }
 });
 
-$("tbody tr").click(function () {
+$("table.selectable#contacts-table tbody tr").click(function () {
+    console.log('click contact');
     $("#" + selectedContact_id).removeClass("selected");
     selectedContact_id = $(this).attr('id');
     $(this).addClass("selected");

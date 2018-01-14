@@ -70,7 +70,7 @@
                             </li>
                             <li>
                                 <a class="sidebar-btn active" id="spaces-btn">
-                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
+                                    <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
                             </li>

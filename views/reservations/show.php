@@ -69,7 +69,7 @@
                             </li>
                             <li>
                                 <a class="sidebar-btn" id="spaces-btn" href="../spaces/index.php">
-                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
+                                    <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
                             </li>
@@ -118,7 +118,7 @@
                                             <h4>Logements</h4>
                                         </div>
                                         <div class="card-section">
-                                            <table>
+                                            <table class="selectable" id="lodgment-table">
                                                 <thead>
                                                     <th>Adresse</th>
                                                     <th>Capacité</th>
@@ -149,7 +149,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="button-group" id="lodgment-action-btn">
-                                                <a class="button" id="edit-lodgment-btn" href="../lodgments/edit.php">Modifier</a>
+                                                <a class="button" id="edit-lodgment-btn">Modifier</a>
                                                 <?php
                                                    $id = $_GET['id'];
                                                    echo '<a class="button" href="../lodgments/new.php?id='.$id.'">Ajouter</a>'

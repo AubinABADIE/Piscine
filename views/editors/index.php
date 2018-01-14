@@ -70,7 +70,7 @@
                             </li>
                             <li>
                                 <a class="sidebar-btn" id="spaces-btn" href="../spaces/index.php">
-                                    <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
+                                    <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
                             </li>
@@ -109,7 +109,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
                                     <div class="table-scroll">
-                                        <table style="width: 100%">
+                                        <table class="selectable" id="editors-table" style="width: 100%">
                                             <thead>
                                                 <th>N°</th>
                                                 <th>Nom</th>
