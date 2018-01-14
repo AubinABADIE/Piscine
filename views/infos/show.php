@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/editors.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/info.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -99,32 +99,54 @@
 
 
                     <div class="cell auto content-cell">
-                       Cette application a été créée durant l'année 2017/2018 dans le cadre d'un projet.<br>
-                       Elle a été  conçue entiérement  par 6 élèves de la séction  IG3 de Polytech Montpellier.<br>
-                        Si vous voulez nous contacter pour plus d'informations veuillez envoyer un mail à une de ces adresses mail suivantes :  <br>
-                        Aubin Abadie  <br>
-                        _ aubin.abadie@gmail.com  <br>
-                        Adam Megherat  <br>
-                        _adammegherat@gmail.com  <br>
-                        Alice Burette  <br>
-                        _aliceburette11@gmail.com  <br>
-                        Yvan Sanson  <br>
-                        _sansonyvan@gmail.com  <br>
-                        Alexandre Kueny   <br>
-                        _Alexandre.kueny3@gmail.com   <br>
-                        Paul Arnaud  <br>
-                        _paularnaud59390@gmail.com  <br>
-                        Si vous voulez contacter nos professeurs référants :  <br>
-                        M Fiorio Christophe  <br>
-                        christophe.fiorio@umontpellier.fr  <br>
-                        Mme Anne-laure Villaret  <br>
-                        anne-laure.villaret@umontpellier.fr  <br>
-                        N'hésitez pas à faire remonter si vous constatez un soucis sur notre  application, ou même pour toutes autres remarques.  <br>
-                        Nous sommes conscients que certaines fonctionnalités ne sont pas otpimales, veuillez nous en excuser.  <br>
-                        
-                        
+                    <div class="grid-container full">
+                            <div class="grid-x grid-margin-x">
 
-
+                                <div class="cell auto">
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Informations générales</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>Cette application a été créée durant l'année 2017/2018 dans le cadre d'un projet.
+                                            Elle a été  conçue entiérement  par 6 élèves de la séction  IG3 de Polytech Montpellier.
+                                            N'hésitez pas à faire remonter si vous constatez un soucis sur notre  application, ou même pour toutes autres remarques.
+                                            Nous sommes conscients que certaines fonctionnalités ne sont pas otpimales, veuillez nous en excuser.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Contacts étudiants</h4>
+                                        </div>
+                                        <div class="card-section">
+                                            <p>Pour contacter directement l'un des élèves, utilisez les adresses suivantes :
+                                            </br>
+                                            <a href="mailto:aubin.abadie@etu.umontpellier.fr">Aubin ABADIE</a> </br>
+                                            <a href="mailto:adam.megherat@etu.umontpellier.fr">Adam MEGHERAT</a></br>
+                                            <a href="mailto:alice.burette@etu.umontpellier.fr">Alice BURETTE</a></br>
+                                            <a href="mailto:yvan.sanson@etu.umontpellier.fr">Yvan SANSON</a></br>
+                                            <a href="mailto:alexandre.kueny@etu.umontpellier.fr">Alexandre KUENY</a></br>
+                                            <a href="mailto:paul.arnaud@etu.umontpellier.fr">Paul ARNAUD</a></br>
+                                            </p>
+                                        </div>
+                                </div>
+                                <div class="cell auto">
+                                    <div class="card">
+                                        <div class="card-divider">
+                                            <h4>Contacts référents</h4>
+                                        </div>
+                                        <div class="card-section">
+                                                <p>Si vous voulez contacter nos professeurs référents : </br>
+                                                <a href="mailto:christophe.fiorio@umontpellier.fr">M. Christophe FIORIO</a></br>
+                                                <a href="mailto:anne-laure.villaret@umontpellier.fr">Mme. Anne-Laure VILLARET</a></br>
+                                                </p>
+                                               
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -138,6 +160,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/editors.js"></script>
+<script type="text/javascript" src="../../assets/javascript/info.js"></script>
 </body>
 </html>
