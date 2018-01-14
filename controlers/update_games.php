@@ -29,11 +29,15 @@
         if ((!isset($_POST['prototype'])) ||  ($_POST['prototype'] == '')) {
 			$update = false;
 		}
+        
+        if ((!isset($_POST['renvoi'])) ||  ($_POST['renvoi'] == '')) {
+			$insert = false;
+		}
 
 		if ($update) {
 			$redirect = false; // Pour ne rediriger que si on a réussi l'opération.
 
-			$result = $bdd->prepare('UPDATE game SET Name=:v1, Rules=:v2, Quantity=:v3, IsEndowment=:v4, IsPrototype=:v5, ID_GameSize=:v6, ID_GameType=:v7 WHERE ID_Game=:id');
+			$result = $bdd->prepare('UPDATE game SET Name=:v1, Rules=:v2, Quantity=:v3, IsEndowment=:v4, IsPrototype=:v5, ToReturn=:v6, ID_GameSize=:v7, ID_GameType=:v8 WHERE ID_Game=:id');
             
 			$result->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
             $result->bindParam(':v1', $_POST['name'], PDO::PARAM_STR);
@@ -45,8 +49,9 @@
             $result->bindParam(':v3', $_POST['quantity'], PDO::PARAM_INT);
             $result->bindParam(':v4', $_POST['dotation'], PDO::PARAM_STR);
             $result->bindParam(':v5', $_POST['prototype'], PDO::PARAM_STR);
-            $result->bindParam(':v6', $_POST['size'], PDO::PARAM_INT);
-            $result->bindParam(':v7', $_POST['type'], PDO::PARAM_INT);
+            $result->bindParam(':v6', $_POST['renvoi'], PDO::PARAM_STR);
+            $result->bindParam(':v7', $_POST['size'], PDO::PARAM_INT);
+            $result->bindParam(':v8', $_POST['type'], PDO::PARAM_INT);
         
 			try {
 				$result->execute();
