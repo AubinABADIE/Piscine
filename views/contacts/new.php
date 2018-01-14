@@ -103,7 +103,9 @@
                         <h5 style="margin: 0">Création d'un nouveau contact</h5>
                     </div>
                     <div class="cell auto content-cell">
-                        <form id="FormNewContact" action="../../controlers/insert_contacts.php" method="post">
+                        <?php
+                        echo '<form id="FormNewContact" action="../../controlers/insert_contacts.php?id='.$_GET['id'].'" method="post">'
+                        ?>
                             <h3>Informations du contact</h3>
                             <label>Nom :
                                 <input name="lastname" id="NomRespEdit" type="text" placeholder="Nom" required>
