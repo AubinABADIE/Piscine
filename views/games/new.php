@@ -149,6 +149,11 @@
                                     <input type="radio" name="prototype" id="ProtYes" value="1" required><label>Oui</label>
                                     <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
                                 </fieldset>
+                                <fieldset>
+                                    <legend>Est-il à renvoyer ?</legend>
+                                    <input type="radio" name="prototype" id="RenvoiYes" value="1" required><label>Oui</label>
+                                    <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
+                                </fieldset>
                             </div>
                             
                             <input type="submit" class="button" value="Enregistrer">
