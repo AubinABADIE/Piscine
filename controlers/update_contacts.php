@@ -48,7 +48,9 @@
 			}
 
 			if ($redirect) {
-				header('Location: ../views/editors/show.php');
+                $result = $bdd->query('SELECT ID_Editor FROM contact WHERE ID_Contact = "'.$_GET['id'].'"');
+                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+				header('Location: ../views/editors/show.php?id='.$data[0][ID_Editor]);
 				exit();
 			}
 		}
