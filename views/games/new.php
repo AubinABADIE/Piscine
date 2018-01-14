@@ -69,6 +69,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a class="sidebar-btn" id="lodgment-btn" href="../lodgments/index.php">
+                                    <i class="fa fa-bed fa-fw" aria-hidden="true"></i>
+                                    <span class="sidebar-menu-text">Logements</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a class="sidebar-btn" id="spaces-btn" href="../spaces/index.php">
                                     <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
@@ -141,6 +147,11 @@
                                 <fieldset>
                                     <legend>Est-ce un prototype ?</legend>
                                     <input type="radio" name="prototype" id="ProtYes" value="1" required><label>Oui</label>
+                                    <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Est-il à renvoyer ?</legend>
+                                    <input type="radio" name="prototype" id="RenvoiYes" value="1" required><label>Oui</label>
                                     <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
                                 </fieldset>
                             </div>

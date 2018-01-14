@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/reservations.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/lodgment.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
-
     <div class="cell shrink" id="topbar">
         <div class="grid-container full">
             <div class="grid-x">
@@ -62,9 +61,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="reservations-btn" href="../reservations/index.php">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidebar-btn active" id="lodgment-btn" href="../lodgments/index.php">
+                                    <i class="fa fa-bed fa-fw" aria-hidden="true"></i>
+                                    <span class="sidebar-menu-text">Logements</span>
                                 </a>
                             </li>
                             <li>
@@ -99,27 +104,39 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Modification du logement</h5>
+                        <h5 style="margin: 0">Logements</h5>
                     </div>
-
                     <div class="cell auto content-cell">
-
-                        <form id="FormNewLodgment">
-                            <label>Adresse
-                                <input type="text" id="NewAdress" placeholder="Adresse" required>
-                            </label>
-                            <label>Ville
-                                <input type="text" id="NewCity" placeholder="Ville" required>
-                            </label>
-                            <label>Capacité (nombre de personnes max)
-                                <input type="number" id="NewCapacity" placeholder="Capacité" required>
-                            </label>
-                            <label>Prix à la nuit
-                                <input type="number" id="NewNightPrice" placeholder="Prix" required>
-                            </label>
-                            <input type="submit" class="button" value="Enregistrer">
-                        </form>
-
+                    <div class="grid-container full">
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell auto">
+                                <div class="table-scroll">
+                                    <table class="selectable" id="editors-table" style="width: 100%">
+                                        <thead>
+                                            <th>Adresse</th>
+                                            <th>Ville</th>
+                                            <th>Capacité</th>
+                                            <th>Prix à la nuit</th>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        require ('../../controlers/select_lodgments.php');
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="cell shrink">
+                                <div class="button-group stacked" id="lodgment-action-btn">
+                                    <a class="button" id="edit-lodgment-btn">Modifier</a>
+                                    <a class="button" href="new.php">Ajouter</a>
+                                    <a class="button alert" id="delete-lodgment-btn">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        
                     </div>
 
                 </div>
@@ -133,6 +150,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/reservations.js"></script>
+<script type="text/javascript" src="../../assets/javascript/lodgments.js"></script>
 </body>
 </html>
