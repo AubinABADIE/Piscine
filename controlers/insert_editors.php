@@ -41,6 +41,29 @@
             } else {
                 $result->bindParam(7, $_POST['phone'], PDO::PARAM_STR);
             }
+            $name = $_POST['name'];
+            
+            try {
+				$result->execute();
+				$result->closeCursor();
+                unset($result);
+			} catch (PDOException $exception) {
+				echo "<!-- Erreur lors de l\'insertion.\n" . $exception->getMessage() . "\n -->";
+			}
+            
+            $result = $bdd->query('SELECT ID_Editor FROM editor WHERE Name = "'.$name.'"');
+            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+            $id = $data[0]['ID_Editor'];
+            $result->closeCursor();
+            unset($result);
+			
+            
+            $result = $bdd->prepare('INSERT INTO trace(ID_Trace, Date_First_Contact, Date_Second_Contact, Replied, ID_Editor) VALUES (?, ?, ?, ?, ?)');
+            $result->bindParam(1, $myNull, PDO::PARAM_NULL);
+            $result->bindParam(2, $myNull, PDO::PARAM_NULL);
+            $result->bindParam(3, $myNull, PDO::PARAM_NULL);
+            $result->bindParam(4, $myNull, PDO::PARAM_NULL);
+            $result->bindParam(5, $id, PDO::PARAM_INT);
             
 			try {
 				$result->execute();

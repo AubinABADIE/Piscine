@@ -107,7 +107,7 @@
                         <div class="grid-container full">
                             <div class="grid-x">
                                 <div class="cell auto">
-                                    <form id = "FormNewEditor" action="../../controlers/insert_editors.php" method="post">
+                                    <form id="FormNewEditor" action="../../controlers/insert_editors.php" method="post">
                                         <div class="grid-x grid-margin-x">
                                             <div class="cell auto">
                                                 <h3>Informations de l'éditeur</h3>
