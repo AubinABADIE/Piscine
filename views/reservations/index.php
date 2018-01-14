@@ -113,6 +113,7 @@
                                                 <th>Date</th>
                                                 <th>Commentaires</th>
                                                 <th>Logement</th>
+                                                <th>Espace</th>
                                             </thead>
                                             <tbody>
                                                 <?php
