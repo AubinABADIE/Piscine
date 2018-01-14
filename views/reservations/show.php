@@ -112,7 +112,9 @@
 
                         <div class="button-group">
                             <a class="button" href="edit.php">Modifier</a>
-                            <a class="button alert" id="delete-reservation-btn">Supprimer</a>
+                            <?php
+                            echo '<a class="button alert" id="delete-reservation-btn" name="'.$_GET['id'].'">Supprimer</a>'
+                            ?>
                         </div>
 
                         <div class="grid-container full">
