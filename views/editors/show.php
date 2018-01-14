@@ -118,20 +118,12 @@
                     <div class="cell auto content-cell">
                         <div class="button-group">
                             <?php
-                            require ('../../controlers/connect_bdd.php');
-
-                            $id = $_GET['id'];
-                            $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
-                            $result = $bdd->query($query);
-                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
-
-                            foreach ($data as $value) {
-                                echo '<a class="button" href="edit.php?id='.$id.'">Modifier</a>';
-                                echo '<a class="button alert" id="delete-editor-btn">Supprimer</a>';
-                            }
-
-                            $result->closeCursor();
-                            unset($result);
+                                $id = $_GET['id'];
+                                
+                                foreach ($data as $value) {
+                                    echo '<a class="button" href="edit.php?id='.$id.'">Modifier</a>';
+                                    echo '<a class="button alert" id="delete-editor-btn">Supprimer</a>';
+                                }
                             ?>
                         </div>
 
@@ -148,35 +140,55 @@
                                                 require ('../../controlers/connect_bdd.php');
 
                                                 $id = $_GET['id'];
-                                                $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
-                                                $result = $bdd->query($query);
+                                                $result = $bdd->query('SELECT * FROM editor WHERE ID_Editor = "'.$id.'"');
                                                 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                 foreach ($data as $value) {
-                                                    echo '<p>Nom : '.$value['Name'].'</p>';
-                                                    echo '<p>Email : '.$value['Email'].'</p>';
-                                                    echo '<p>Téléphone : '.$value['Phone'].'</p>';
-                                                    echo '<p>Adresse : '.$value['Address'].' '.$value['Postal_Code'].' '.$value['Town'].'</p>';
+                                                    echo '<p><b>Nom : </b>'.$value['Name'].'</p>';
+                                                    echo '<p><b>Email : </b>'.$value['Email'].'</p>';
+                                                    echo '<p><b>Téléphone : </b>'.$value['Phone'].'</p>';
+                                                    echo '<p><b>Adresse : </b>'.$value['Address'].' '.$value['Postal_Code'].' '.$value['Town'].'</p>';
                                                 }
 
                                                 $result->closeCursor();
                                                 unset($result);
                                             ?>
                                             <br>
+                                            <h5><b>Contacts :</b></h5>
                                             <table>
                                                 <thead>
                                                     <th>Nom</th>
                                                     <th>Prénom</th>
+                                                    <th>Poste</th>
                                                     <th>Adresse mail</th>
                                                     <th>Téléphone</th>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                        require ('../../controlers/connect_bdd.php');
 
+                                                        $id = $_GET['id'];
+                                                        $result = $bdd->query('SELECT * FROM contact WHERE ID_Editor = "'.$id.'"');
+                                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                        foreach ($data as $value) {
+                                                            echo '<tr id="'.$value['ID_Contact'].'">';
+                                                            echo '<td>'.$value['Lastname'].'</td>';
+                                                            echo '<td>'.$value['Firstname'].'</td>';
+                                                            echo '<td>'.$value['Job'].'</td>';
+                                                            echo '<td>'.$value['Email'].'</td>';
+                                                            echo '<td>'.$value['Phone'].'</td>';
+                                                            echo '</tr>';
+                                                        }
+
+                                                        $result->closeCursor();
+                                                        unset($result);
+                                                    ?>
                                                 </tbody>
                                             </table>
-                                            <div class="button-group stacked" id="contact-action-btn">
-                                                <a class="button" id="edit-contact-btn">Modifier</a>
-                                                <a class="button" href="new.php">Creer</a>
+                                            <div class="button-group" id="contact-action-btn">
+                                                <a class="button" href="../contact/edit.php">Modifier</a>
+                                                <a class="button" href="../contact/new.php">Creer</a>
                                                 <a class="button alert" id="delete-contact-btn">Supprimer</a>
                                             </div>
                                         </div>
@@ -195,8 +207,10 @@
                                                 <tbody>
                                                     <?php
                                                         require ('../../controlers/connect_bdd.php');
-
-                                                        $result = $bdd->query('SELECT b.`ID_Booking`, b.`Date_Booking`, b.`Is_Canceled` FROM (`booking` b INNER JOIN game g ON (b.`ID_Game` = g.ID_Game)) INNER JOIN editor e ON (g.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
+                                                    
+                                                        $id = $_GET['id'];
+                                                    
+                                                        $result = $bdd->query('SELECT b.ID_Booking, b.Date_Booking, b.Is_Canceled FROM booking b INNER JOIN editor e ON (b.ID_Editor = e.ID_Editor) WHERE e.ID_Editor = "'.$id.'"');
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
@@ -222,7 +236,7 @@
                                 <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Contacts</h4>
+                                            <h4>Prise de contact</h4>
                                         </div>
                                         <div class="card-section">
                                             <?php
@@ -263,11 +277,11 @@
                                                     <?php
                                                         require ('../../controlers/connect_bdd.php');
 
-                                                        $result = $bdd->query('SELECT g.Name, g.Quantity, g.IsEndowment, g.IsPrototype, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "'.$id.'"');
+                                                        $result = $bdd->query('SELECT g.ID_Game, g.Name, g.Quantity, g.IsEndowment, g.IsPrototype, s.Label AS Size, t.label AS Type FROM (game g INNER JOIN gamesize s ON (g.ID_GameSize = s.ID_GameSize)) INNER JOIN gametype t ON (g.ID_GameType = t.ID_GameType) WHERE g.ID_Editor = "'.$id.'"');
                                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
                                                         foreach ($data as $value) {
-                                                            echo '<tr>';
+                                                            echo '<tr id="'.$value['ID_Game'].'">';
                                                             echo '<td>'.$value['Name'].'</td>';
                                                             echo '<td>'.$value['Quantity'].'</td>';
                                                             echo '<td>'.$value['Size'].'</td>';
@@ -291,9 +305,9 @@
                                                 </tbody>
                                             </table>
                                             <br>
-                                            <div class="button-group stacked" id="game-action-btn">
-                                                <a class="button" id="edit-game-btn">Modifier</a>
-                                                <a class="button" href="new.php">Creer</a>
+                                            <div class="button-group" id="game-action-btn">
+                                                <a class="button" href="../games/edit.php">Modifier</a>
+                                                <a class="button" href="../games/new.php">Creer</a>
                                                 <a class="button alert" id="delete-game-btn">Supprimer</a>
                                             </div>
                                         </div>
@@ -314,5 +328,7 @@
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
 <script type="text/javascript" src="../../assets/javascript/editors.js"></script>
+<script type="text/javascript" src="../../assets/javascript/games.js"></script>
+<script type="text/javascript" src="../../assets/javascript/contacts.js"></script>
 </body>
 </html>

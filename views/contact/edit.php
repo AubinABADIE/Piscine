@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/games.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/contact.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -92,48 +92,73 @@
 
             <div class="cell auto">
                 <div class="grid-y grid-frame">
-
+                    
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Consultation du jeu</h5>
+                        <h5 style="margin: 0">
+                            Modification
+                            <?php
+                            require ('../../controlers/connect_bdd.php');
+
+                            $id = $_GET['id'];
+                            $query = 'SELECT * FROM editor WHERE ID_Editor = "'.$id.'"';
+                            $result = $bdd->query($query);
+                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                            foreach ($data as $value) {
+                                echo $value['Name'];
+                            }
+
+                            $result->closeCursor();
+                            unset($result);
+                            ?>
+                        </h5>
                     </div>
                     <div class="cell auto content-cell">
-
-                        <div class="button-group">
-                            <a class="button alert" id="delete-game-btn">Supprimer</a>
-                        </div>
                         <div class="grid-container full">
-                            <div class="grid-x grid-margin-x">
+                            <div class="grid-x">
                                 <div class="cell auto">
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Titre du jeu</h4>
+                                    <form id="FormEditEditor" action="../../controlers/update_contacts.php" method="post">
+                                        <div class="grid-x grid-margin-x">
+                                            <?php
+                                                require ('../../controlers/connect_bdd.php');
+
+                                                $id = $_GET['id'];
+                                                $query = 'SELECT * FROM contact WHERE ID_Contact = "' . $id . '"';
+                                                $result = $bdd->query($query);
+                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                $result->closeCursor();
+                                                unset($result);
+
+                                                echo '
+                                                <div class="cell auto">
+                                                    <h3>Informations du contact</h3>
+                                                    <label>Nom :
+                                                        <input name="lastname" id="NomRespEdit" type="text" placeholder="Nom" value="' . $data[0]['Lastname'] . '" required>
+                                                    </label>
+                                                    <label>Prénom :
+                                                        <input name="firstname" id="PrenomRespEdit" type="text" placeholder="Prénom" value="' . $data[0]['Firstname'] . '"  required>
+                                                    </label>
+                                                    <label>Poste dans l\'entreprise :
+                                                        <input name="job" id="PosteRespEdit" type="text", placeholder="Poste" value="' . $data[0]['Job'] . '">
+                                                    </label>
+                                                    <label>Mail :
+                                                        <input name="email" id="MailRespEdit" type="email", placeholder="Email" value="' . $data[0]['Email'] . '">
+                                                    </label>
+                                                    <label>Téléphone :
+                                                        <input name="phone" id="TelRespEdit" type="text", placeholder="Téléphone" value="' . $data[0]['Phone'] . '">
+                                                    </label>
+                                                </div>
+                                                ';
+                                            ?>
                                         </div>
-                                        <div class="card-section">
-                                            <p>Titre du jeu</p>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Description</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos à propos du jeu</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell auto">
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Taille</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <p>Infos à propos de la taille</p>
-                                        </div>
-                                    </div>
+                                        <input type="submit" value="Enregistrer" class="button"/>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -144,6 +169,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/games.js"></script>
+<script type="text/javascript" src="../../assets/javascript/contact.js"></script>
 </body>
 </html>

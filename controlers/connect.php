@@ -5,7 +5,7 @@
     session_start();
 
 	if(isset($_POST['id']) && isset($_POST['pwd'])){
-		$result = $bdd->prepare('SELECT * FROM user WHERE Pseudo = :username limit 1');
+		$result = $bdd->prepare('SELECT * FROM user WHERE Pseudo=:username limit 1');
 		$result->bindValue(':username', $_POST['id'], PDO::PARAM_STR);
 		if (!$result->execute()) {
 			$status = ERROR_USERUNKNOWN;

@@ -1,4 +1,4 @@
-var selected_id;
+var selectedEditor_id;
 
 $("#delete-editor-btn").click(function () {
     if (confirm("Confirmer la suppression ?")) {
@@ -6,24 +6,10 @@ $("#delete-editor-btn").click(function () {
     }
 });
 
-$("#delete-contact-btn").click(function () {
-    if (confirm("Confirmer la suppression du contact ?")) {
-        console.log("delete")
-    }
-});
-
-$("#delete-game-btn").click(function () {
-    if (confirm("Confirmer la suppression du jeu ?")) {
-        console.log("delete")
-    }
-});
-
-
-
 $("tbody tr").click(function () {
-    $("#" + selected_id).removeClass("selected");
-    selected_id = $(this).attr('id');
+    $("#" + selectedEditor_id).removeClass("selected");
+    selectedEditor_id = $(this).attr('id');
     $(this).addClass("selected");
-    $("#show-editor-btn").attr("href", "show.php?id=" + selected_id);
-    $("#edit-editor-btn").attr("href", "edit.php?id=" + selected_id);
+    $("#show-editor-btn").attr("href", "show.php?id=" + selectedEditor_id);
+    $("#edit-editor-btn").attr("href", "edit.php?id=" + selectedEditor_id);
 });

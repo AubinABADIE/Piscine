@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../assets/stylesheets/foundation.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../../assets/stylesheets/layout.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/stylesheets/games.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/stylesheets/contact.css" type="text/css">
 </head>
 <body class="hide">
 <div class="grid-y grid-frame">
@@ -94,46 +94,27 @@
                 <div class="grid-y grid-frame">
 
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Création d'un nouveau jeu</h5>
+                        <h5 style="margin: 0">Création d'un nouveau contact</h5>
                     </div>
                     <div class="cell auto content-cell">
-                        <form id="FormNewGame">
-                            <h3>Informations du jeu</h3>
-                            <label>Titre :
-                                <input id="GameTitleNew" type="text" placeholder="Titre" required>
+                        <form id="FormNewContact">
+                            <h3>Informations du contact</h3>
+                            <label>Nom :
+                                <input id="NomRespEdit" type="text" placeholder="Nom" required>
                             </label>
-                            <label>Description :</label>
-                            <textarea type="textfield" id="GameDescNew" placeholder="Description du jeu" required></textarea>
-                            <label>Quantité :</label>
-                            <input id="GameQtyNew" type="number" value="0" min="0">
-                            <label>Taille :
-                                <select required>
-                                    <option value="" disabled selected>Sélectionner une taille</option>
-                                    <option value="1">Petit</option>
-                                    <option value="2">Moyen</option>
-                                    <option value="3">Surdimensionné</option>
-                                </select>
+                            <label>Prénom :
+                                <input id="PrenomRespEdit" type="text" placeholder="Prénom" required>
                             </label>
-                            <label>Type :
-                                <select required>
-                                    <option value="" disabled selected>Sélectionner un type</option>
-                                    <option value="1">Occasionnel/Famille</option>
-                                    <option value="2">Ambiance</option>
-                                    <option value="3">Expert</option>
-                                    <option value="4">Enfant</option>
-                                    <option value="5">Classique</option>
-                                </select>
+
+                            <label>Poste dans l'entreprise :
+                                <input id="PosteRespEdit" type="text", placeholder="Poste" required>
                             </label>
-                            <fieldset>
-                                <legend>Est-ce une dotation ?</legend>
-                                <input type="radio" name="dotation" id="DotYes" value="1" required><label>Oui</label>
-                                <input type="radio" name="dotation" id="DotNo" value="0" required checked><label>Non</label>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Est-ce un prototype ?</legend>
-                                <input type="radio" name="prototype" id="ProtYes" value="1" required><label>Oui</label>
-                                <input type="radio" name="prototype" id="ProtNo" value="0" required checked><label>Non</label>
-                            </fieldset>
+                            <label>Mail :
+                                <input id="MailRespEdit" type="email", placeholder="Email" required>
+                            </label>
+                            <label>Téléphone :
+                                <input id="TelRespEdit" type="text", placeholder="Téléphone" required>
+                            </label>
                             <input type="submit" class="button" value="Enregistrer">
                         </form>
                     </div>
@@ -147,6 +128,6 @@
 <script type="text/javascript" src="../../assets/javascript/jquery.session.js"></script>
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
-<script type="text/javascript" src="../../assets/javascript/games.js"></script>
+<script type="text/javascript" src="../../assets/javascript/contact.js"></script>
 </body>
 </html>

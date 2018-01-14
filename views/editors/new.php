@@ -104,50 +104,42 @@
                                     <form id = "FormNewEditor">
                                         <div class="grid-x grid-margin-x">
                                             <div class="cell auto">
-                                                <h3>Informtions du contact prioritaire</h3>
-                                                <label>Nom du responsable :
-                                                    <input id="NomRespNew" type="text" placeholder="Nom" required>
-                                                </label>  
-                                                <label>Prénom :
-                                                    <input id="PrenomRespNew" type="text" placeholder="Prénom" required>
-                                                </label>
-                                                
-                                                <label>Poste dans l'entreprise :
-                                                    <input id="PosteRespNew" type="text", placeholder="Poste" required>
-                                                </label>
-                                                <label>Mail :
-                                                    <input id="MailRespNew" type="email", placeholder="email" required>
-                                                </label>
-                                                <label>Téléphone :
-                                                    <input id="TelRespNew" type="number", placeholder="Téléphone" required>
-                                                </label>
-                                            </div>
-                                            <div class="cell auto">
                                                 <h3>Informations de l'éditeur</h3>
                                                 <label>Nom de l'éditeur :
                                                     <input id="NomEdNew" type="text" placeholder="Nom" required>
                                                 </label>
                                                 <label>Adresse :
-                                                    <input id="AdrEdNew" type = "text" placeholder="N°Rue, rue" required>
+                                                    <input id="AdrEdNew" type = "text" placeholder="N°Rue, rue">
                                                 </label>
                                                 <label>Code Postal :
-                                                    <input id="CPEdNew" type="number", placeholder="CP" required>
+                                                    <input id="CPEdNew" type="number", placeholder="Code postal">
                                                 </label>
                                                 <label>Ville :
-                                                    <input id="VilleEdNew" type="text", placeholder="Ville" required>
+                                                    <input id="VilleEdNew" type="text", placeholder="Ville">
                                                 </label>
 
                                                 <label>Mail :
-                                                    <input id="MailEdNew" type="email", placeholder="email" required>
+                                                    <input id="MailEdNew" type="email", placeholder="Email">
                                                 </label>
 
                                                 <label>Téléphone :
-                                                    <input id="TelEdNew" type="number", placeholder="Téléphone" required>
+                                                    <input id="TelEdNew" type="number", placeholder="Téléphone">
                                                 </label>
                                             </div>
+                                            <div class="cell auto">
+                                                    <h3>Dates de prise de contact</h3>
+                                                    <label>Date de premier contact :
+                                                        <input name="DFirstEdNew" id="DateRDV1Edit" type="date" placeholder="Premier contact" required>
+                                                    </label>
+                                                    <label>Date de second contact :
+                                                        <input name="DSecondEdNew" id="DateRDV2Edit" type="date" placeholder="Second contact">
+                                                    </label>
+                                                    <label>Date de réponse :
+                                                        <input name="DRepliedEdNew" id="DateRepEdit" type="date" placeholder="Réponse">
+                                                    </label>
+                                                </div>
                                         </div>
                                         <input type="submit" class="button" value="Enregistrer">
-                                        
                                     </form>
                                 </div>
                             </div>

@@ -1,48 +1,87 @@
 <?php
 
     require('connect_bdd.php');
-
+    
 	$update = true;
+    $myNull = null;
 
 	if (count($_POST) > 0) {
-		if ((!isset($_POST['value1'])) || ($_POST['value1'] == '')) {
-			/* S'il manque la valeur 1 on n'insère pas. */
+		if ((!isset($_POST['name'])) || ($_POST['name'] == '')) {
 			$update = false;
 		}
 
-		if ((!isset($_POST['value2'])) ||  $_POST['value2'] == '')) {
-			/* S'il manque la valeur 2 on n'insère pas. */
-			$update = false;
-		}
-
-		if ((!isset($_POST['value3'])) || ($_POST['value3'] == '')) {
-			/* S'il manque la valeur 3 on n'insère pas. */
+		if ((!isset($_POST['dfirst'])) ||  ($_POST['dfirst'] == '')) {
 			$update = false;
 		}
 
 		if ($update) {
 			$redirect = false; // Pour ne rediriger que si on a réussi l'opération.
 
-			$stmt = $pdo->prepare('update table set value1 = :v1, value2 = :v2, value3 = :v3 where id = :id;');
-
-			$stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-			$stmt->bindParam(':v1', $_POST['value1'], PDO::PARAM_STR);
-			$stmt->bindParam(':v2', $_POST['value2'], PDO::PARAM_STR);
-			$stmt->bindParam(':v3', $_POST['value3'], PDO::PARAM_STR);
+			$result = $bdd->prepare('UPDATE editor SET Name=:v1, Address=:v2, Town=:v3, Postal_Code=:v4, Email=:v5, Phone=:v6 WHERE ID_Editor=:id');
+            
+			$result->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+            $result->bindParam(':v1', $_POST['name'], PDO::PARAM_STR);
+            if(is_null($_POST['address']) || $_POST['address'] == ''){
+                $result->bindParam(':v2', $myNull, PDO::PARAM_NULL);
+            } else {
+                $result->bindParam(':v2', $_POST['address'], PDO::PARAM_STR);
+            }
+            if(is_null($_POST['town']) || $_POST['town'] == ''){
+                $result->bindParam(':v3', $myNull, PDO::PARAM_NULL);
+            } else {
+                $result->bindParam(':v3', $_POST['town'], PDO::PARAM_STR);
+            }
+            if(is_null($_POST['postalcode']) || $_POST['postalcode'] == ''){
+                $result->bindParam(':v4', $myNull, PDO::PARAM_NULL);
+            } else {
+                $result->bindParam(':v4', $_POST['postalcode'], PDO::PARAM_STR);
+            }
+            if(is_null($_POST['email']) || $_POST['email'] == ''){
+                $result->bindParam(':v5', $myNull, PDO::PARAM_NULL);
+            } else {
+                $result->bindParam(':v5', $_POST['email'], PDO::PARAM_STR);
+            }
+            if(is_null($_POST['phone']) || $_POST['phone'] == ''){
+                $result->bindParam(':v6', $myNull, PDO::PARAM_NULL);
+            } else {
+                $result->bindParam(':v6', $_POST['phone'], PDO::PARAM_STR);
+            }
 
 			try {
-				$stmt->execute();
-				$stmt->closeCursor();
+				$result->execute();
+				$result->closeCursor();
+                unset($result);
+			} catch (PDOException $exception) {
+				echo "<!-- Erreur lors de la mise à jour.\n" . $exception->getMessage() . "\n -->";
+			}
+            
+            $result = $bdd->prepare('UPDATE trace SET Date_First_Contact=:v1, Date_Second_Contact=:v2, Replied=:v3 WHERE ID_Editor=:id');
+
+			$result->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+			$result->bindParam(':v1', $_POST['dfirst'], PDO::PARAM_STR);
+            if(is_null($_POST['dsecond']) || $_POST['dsecond'] == ''){
+                $result->bindParam(':v2', $myNull, PDO::PARAM_NULL);
+            } else {
+                $result->bindParam(':v2', $_POST['dsecond'], PDO::PARAM_STR);
+            }
+			if(is_null($_POST['replied']) || $_POST['replied'] == ''){
+                $result->bindParam(':v3', $myNull, PDO::PARAM_NULL);
+            } else {
+                $result->bindParam(':v3', $_POST['replied'], PDO::PARAM_STR);
+            }
+			
+
+			try {
+				$result->execute();
+				$result->closeCursor();
+                unset($result);
 				$redirect = true;
 			} catch (PDOException $exception) {
 				echo "<!-- Erreur lors de la mise à jour.\n" . $exception->getMessage() . "\n -->";
 			}
 
-			$stmt = null;
-
 			if ($redirect) {
-				/* Mise à jour correctement effectuée, on redirige vers la page de l'article. */
-				header('Location: ./page.php');
+				header('Location: ../views/editors/index.php');
 				exit();
 			}
 		}
