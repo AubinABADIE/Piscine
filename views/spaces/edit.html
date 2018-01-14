@@ -98,63 +98,42 @@
             <div class="cell auto">
                 <div class="grid-y grid-frame">
                     <div class="cell shrink title-cell">
-                        <h5 style="margin: 0">Espaces</h5>
+                        <h5 style="margin: 0">Modification de l'espace</h5>
                     </div>
                     <div class="cell auto content-cell">
                         <div class="grid-container full">
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
-                                    <p>Nombre d'emplacements réservés : </p>
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Zones types</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <div class="table-scroll">
-                                                <table style="width: 100%">
-                                                    <thead>
-                                                        <th>Nom</th>
-                                                        <th>Nombre d'emplacements réservés</th>
-                                                    </thead>
-                                                    <tbody>
-                                                        
-                                                    </tbody>
-                                                </table>
-                                                <div class="button-group inline" id="editors-action-btn">
-                                                    <a class="button" id="edit-editor-btn">Modifier</a>
-                                                    <a class="button" href="new.php">Ajouter</a>
-                                                    <a class="button alert" id="delete-editor-btn">Supprimer</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h5>Modification d'une zone de type de jeu</h5>
+                                   <form id="FormEditSpaceType">
+                                       <label>Libellé
+                                           <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
+                                       </label>
+                                       <label>Type de jeu
+                                            <select multiple id="EditType" required>
+                                                <option value="1" selected>Occasionnel/Famille</option>
+                                                <option value="2">Ambiance</option>
+                                                <option value="3">Expert</option>
+                                                <option value="4">Enfant</option>
+                                                <option value="5">Classique</option>
+                                            </select>
+                                       </label>
+                                       <input type="submit" class="button" value="Enregistrer">
+                                   </form>
                                 </div>
                                 <div class="cell auto">
-                                    <p>Capacité du festival : </p>
-                                    <div class="card">
-                                        <div class="card-divider">
-                                            <h4>Zones éditeurs</h4>
-                                        </div>
-                                        <div class="card-section">
-                                            <div class="table-scroll">
-                                                <table style="width: 100%">
-                                                    <thead>
-                                                        <th>Nom</th>
-                                                        <th>Editeur</th>
-                                                        <th>Nombre d'emplacements réservés</th>
-                                                    </thead>
-                                                    <tbody>
-                                                        
-                                                    </tbody>
-                                                </table>
-                                                <div class="button-group inline" id="editors-action-btn">
-                                                    <a class="button" id="edit-editor-btn">Modifier</a>
-                                                    <a class="button" href="new.php">Ajouter</a>
-                                                    <a class="button alert" id="delete-editor-btn">Supprimer</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h5>Modification d'une zone éditeur</h5>
+                                    <form id="FormEditSpaceEditor">
+                                        <label>Libellé
+                                            <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
+                                        </label>
+                                        <label>Editeur associé
+                                            <select multiple id="EditEditor" required>
+
+                                            </select>
+                                        </label>
+                                        <input type="submit" class="button" value="Enregistrer">
+                                    </form>
                                 </div>
                             </div>
                         </div>
