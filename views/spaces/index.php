@@ -110,20 +110,41 @@
                         <div class="grid-container full">
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
-                                    <p>Nombre d'emplacements réservés : </p>
+                                    <p>
+                                        <b>Nombre d'emplacements réservés : </b>
+                                        <?php
+                                            require('../../controlers/connect_bdd.php');
+
+                                            $result = $bdd->query('SELECT Quantity FROM reserved_place');
+                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                            $qty = 0;
+                                            foreach ($data as $value) {
+                                                $qty += $value['Quantity'];
+                                            }
+                                            echo $qty;
+
+                                            $result->closeCursor();
+                                            unset($result);
+                                        ?>
+                                    </p>
+                                    <br>
                                     <div class="card">
                                         <div class="card-divider">
                                             <h4>Zones types</h4>
                                         </div>
                                         <div class="card-section">
                                             <div class="table-scroll">
-                                                <table style="width: 100%">
+                                                <table class="selectable" id="spacetype-table" style="width: 100%">
                                                     <thead>
                                                         <th>Nom</th>
+                                                        <th>Type de jeu</th>
                                                         <th>Nombre d'emplacements réservés</th>
                                                     </thead>
                                                     <tbody>
-                                                        
+                                                        <?php
+                                                            require ('../../controlers/select_spacetype.php');
+                                                        ?>
                                                     </tbody>
                                                 </table>
                                                 <div class="button-group inline" id="space-action-btn">
@@ -136,21 +157,37 @@
                                     </div>
                                 </div>
                                 <div class="cell auto">
-                                    <p>Capacité du festival : </p>
+                                    <p>
+                                        <b>Capacité du festival : </b>
+                                        <?php
+                                            require('../../controlers/connect_bdd.php');
+
+                                            $result = $bdd->query('SELECT Capacity FROM festival');
+                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                        
+                                            echo $data[0]['Capacity'];
+
+                                            $result->closeCursor();
+                                            unset($result);
+                                        ?>
+                                    </p>
+                                    <br>
                                     <div class="card">
                                         <div class="card-divider">
                                             <h4>Zones éditeurs</h4>
                                         </div>
                                         <div class="card-section">
                                             <div class="table-scroll">
-                                                <table style="width: 100%">
+                                                <table class="selectable" id="spaceeditor-table" style="width: 100%">
                                                     <thead>
                                                         <th>Nom</th>
                                                         <th>Editeur</th>
                                                         <th>Nombre d'emplacements réservés</th>
                                                     </thead>
                                                     <tbody>
-                                                        
+                                                        <?php
+                                                            require ('../../controlers/select_spaceeditor.php');
+                                                        ?>
                                                     </tbody>
                                                 </table>
                                                 <div class="button-group inline" id="space-action-btn">
