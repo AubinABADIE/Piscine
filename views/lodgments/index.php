@@ -114,7 +114,6 @@
                                     <table class="selectable" id="editors-table" style="width: 100%">
                                         <thead>
                                             <th>Adresse</th>
-                                            <th>Ville</th>
                                             <th>Capacité</th>
                                             <th>Prix à la nuit</th>
                                         </thead>
