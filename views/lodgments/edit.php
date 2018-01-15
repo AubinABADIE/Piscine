@@ -108,7 +108,6 @@
                     </div>
 
                     <div class="cell auto content-cell">
-
                         <form id="FormNewLodgment">
                             <label>Adresse
                                 <input type="text" id="NewAdress" placeholder="Adresse" required>
