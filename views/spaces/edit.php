@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="spaces-btn">
+                                <a class="sidebar-btn active" id="spaces-btn" href="index.php">
                                     <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
