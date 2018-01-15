@@ -6,9 +6,6 @@
     $myNull = null;
 
 	if (count($_POST) > 0) {
-        
-        echo $_GET['id'];
-        
 		if ((!isset($_POST['name'])) || ($_POST['name'] == '')) {
 			$update = false;
 		}
@@ -22,7 +19,7 @@
 
 			$result = $bdd->prepare('UPDATE editor SET Name=:v1, Address=:v2, Town=:v3, Postal_Code=:v4, Email=:v5, Phone=:v6 WHERE ID_Editor=:id');
             
-			$result->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+			$result->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
             $result->bindParam(':v1', $_POST['name'], PDO::PARAM_STR);
             if(is_null($_POST['address']) || $_POST['address'] == ''){
                 $result->bindParam(':v2', $myNull, PDO::PARAM_NULL);
@@ -60,7 +57,7 @@
             
             $result = $bdd->prepare('UPDATE trace SET Date_First_Contact=:v1, Date_Second_Contact=:v2, Replied=:v3 WHERE ID_Editor=:id');
 
-			$result->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+			$result->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
 			$result->bindParam(':v1', $_POST['dfirst'], PDO::PARAM_STR);
             if(is_null($_POST['dsecond']) || $_POST['dsecond'] == ''){
                 $result->bindParam(':v2', $myNull, PDO::PARAM_NULL);
@@ -84,7 +81,7 @@
 			}
 
 			if ($redirect) {
-				//header('Location: ../views/editors/show.php?id='.$_GET['id']);
+				header('Location: ../views/editors/show.php?id='.$_POST['id']);
 				exit();
 			}
 		}

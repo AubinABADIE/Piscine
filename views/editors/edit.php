@@ -137,7 +137,7 @@
                             <div class="grid-x">
                                 <div class="cell auto">
 									<?php
-									echo '<form id="FormEditEditor" action="../../controlers/update_editors.php?id='.$GET['id'].' method="post">'
+									echo '<form id="FormEditEditor" action="../../controlers/update_editors.php?id='.$_GET['id'].' method="post">'
 									?>
                                         <div class="grid-x grid-margin-x">
                                             <?php
