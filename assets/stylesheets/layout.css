@@ -81,3 +81,7 @@
     position: sticky;
     top: 0px;
 }
+
+tbody {
+    cursor: pointer;
+}
