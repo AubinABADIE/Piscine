@@ -139,21 +139,21 @@
                                             <select id="EditType">';
                                            
                                         
-                                        $result = $bdd->query('SELECT * FROM gametype');
-                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                        $result2 = $bdd->query('SELECT * FROM gametype');
+                                        $data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
 
 
-                                        foreach ($data as $value) {
-                                            echo '<option value="'.$value['ID_GameType'].'" ';
-						if ($value['ID_GameType'] == $data[0]['ID_GameType'])
+                                        foreach ($data2 as $value2) {
+                                            echo '<option value="'.$value2['ID_GameType'].'" ';
+						if ($value2['ID_GameType'] == $data[0]['ID_GameType'])
 						{
 							echo "selected";
 						}
-						echo '>'.$value['Label'].'</option>';
+						echo '>'.$value2['Label'].'</option>';
                                         }
 
-                                        $result->closeCursor();
-                                        unset($result);
+                                        $result2->closeCursor();
+                                        unset($result2);
 
                                         echo '
                                             </select>
