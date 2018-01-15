@@ -175,10 +175,6 @@
                                             $result = $bdd->query($query);
                                             $data = $result->fetchAll(PDO::FETCH_ASSOC);
                 
-                                            foreach ($data as $value) {
-                                                echo $value['Name'];
-                                            }
-                
                                             $result->closeCursor();
                                             unset($result);
 
@@ -189,21 +185,21 @@
                                             <label>Editeur associé :
                                                 <select id="EditEditor" required>';
 
-                                                    $result2 = $bdd->query('SELECT * FROM editor');
-				                        			$data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+                                            $result2 = $bdd->query('SELECT * FROM editor');
+                                            $data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
 
 
-										            foreach ($data2 as $value2) {
-										                echo '<option value="'.$value2['ID_GameType'].'" ';
-														if ($value2['ID_Editor'] == $data[0]['ID_Editor'])
-														{
-															echo "selected";
-														}
-														echo '>'.$value2['Name'].'</option>';
-										            }
+                                            foreach ($data2 as $value2) {
+                                                echo '<option value="'.$value2['ID_GameType'].'" ';
+                                                if ($value2['ID_Editor'] == $data[0]['ID_Editor'])
+                                                {
+                                                    echo "selected";
+                                                }
+                                                echo '>'.$value2['Name'].'</option>';
+                                            }
 
-								                $result2->closeCursor();
-								                unset($result2);
+                                            $result2->closeCursor();
+                                            unset($result2);
 
                                             echo '
                                                 </select>
