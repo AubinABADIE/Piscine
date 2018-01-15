@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="spaces-btn">
+                                <a class="sidebar-btn active" id="spaces-btn" href="../spaces/index.php">
                                     <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
@@ -152,7 +152,7 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="button-group inline" id="space-action-btn">
-                                                    <a class="button" href="edit.php" id="edit-space-btn">Modifier</a>
+                                                    <a class="button" id="edit-space-btn">Modifier</a>
                                                     <a class="button" href="new.php">Ajouter</a>
                                                     <a class="button alert" id="delete-space-btn">Supprimer</a>
                                                 </div>
@@ -195,7 +195,7 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="button-group inline" id="space-action-btn">
-                                                    <a class="button" href="edit.php" id="edit-space-btn">Modifier</a>
+                                                    <a class="button" id="edit-space-btn">Modifier</a>
                                                     <a class="button" href="new.php">Ajouter</a>
                                                     <a class="button alert" id="delete-space-btn">Supprimer</a>
                                                 </div>
