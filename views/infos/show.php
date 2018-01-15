@@ -128,7 +128,6 @@
                                             <p>Cette application a été créée durant l'année 2017/2018 dans le cadre d'un projet.
                                             Elle a été conçue entièrement par 6 élèves de la section  IG3 de Polytech Montpellier.
                                             N'hésitez pas à faire remonter si vous constatez un souci sur notre  application, ou même pour toutes autres remarques.
-                                            Nous sommes conscients que certaines fonctionnalités ne sont pas optimales, veuillez nous en excuser.
                                             </p>
                                         </div>
                                     </div>
