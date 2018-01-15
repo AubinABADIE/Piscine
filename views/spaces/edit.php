@@ -144,7 +144,12 @@
 
 
                                         foreach ($data as $value) {
-                                            echo '<option value="'.$value['ID_GameType'].'"'.if ($value['ID_GameType'] == $data[0]['ID_GameType']) {echo "selected"}.'>'.$value['Label'].'</option>';
+                                            echo '<option value="'.$value['ID_GameType']'.'" ';
+						if ($value['ID_GameType'] == $data[0]['ID_GameType'])
+						{
+							echo "selected"
+						}
+						echo '>'.$value['Label'].'</option>';
                                         }
 
                                         $result->closeCursor();
