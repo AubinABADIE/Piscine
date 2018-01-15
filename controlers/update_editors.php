@@ -6,6 +6,9 @@
     $myNull = null;
 
 	if (count($_POST) > 0) {
+        
+        echo $_GET['id'];
+        
 		if ((!isset($_POST['name'])) || ($_POST['name'] == '')) {
 			$update = false;
 		}
@@ -50,7 +53,7 @@
 			try {
 				$result->execute();
 				$result->closeCursor();
-                unset($result);
+                                unset($result);
 			} catch (PDOException $exception) {
 				echo "<!-- Erreur lors de la mise à jour.\n" . $exception->getMessage() . "\n -->";
 			}
@@ -81,7 +84,7 @@
 			}
 
 			if ($redirect) {
-				header('Location: ../views/editors/show.php?id='.$_GET['id']);
+				//header('Location: ../views/editors/show.php?id='.$_GET['id']);
 				exit();
 			}
 		}
