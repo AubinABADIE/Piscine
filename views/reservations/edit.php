@@ -118,17 +118,37 @@
                             <label>
                                 Editeur
                                 <select>
-                                    <option value="editeur1">editeur 1</option>
-                                    <option value="editeur2">editeur 2</option>
-                                    <option value="editeur3">editeur 3</option>
-                                    <option value="editeur4">editeur 4</option>
+		                        <?php
+		                            require('../../controlers/connect_bdd.php');
+
+		                            $result = $bdd->query('SELECT * FROM editor');
+		                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+		                            foreach ($data as $value) {
+		                                echo '<option value="'.$value['ID_Editor'].'">'.$value['Name'].'</option>';
+		                            }
+
+		                            $result->closeCursor();
+		                            unset($result);
+	                            ?>
                                 </select>
                             </label>
                             <label>
                                 Jeux
                                 <select multiple="multiple">
-                                    <option value="jeu1">jeu 1</option>
-                                    <option value="jeu2">jeu 2</option>
+                                    <?php
+                                                require('../../controlers/connect_bdd.php');
+
+                                                $result = $bdd->query('SELECT * FROM game');
+                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                foreach ($data as $value) {
+                                                    echo '<option value="'.$value['ID_Game'].'">'.$value['Name'].'</option>';
+                                                }
+
+                                                $result->closeCursor();
+                                                unset($result);
+                                                ?>
                                 </select>
                             </label>
                             <label>
