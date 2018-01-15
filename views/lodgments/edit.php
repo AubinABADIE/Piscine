@@ -114,7 +114,6 @@
                     </div>
 
                     <div class="cell auto content-cell">
-
                         <form id="FormNewLodgment">
 							<?php
 							require ('../../controlers/connect_bdd.php');

@@ -116,51 +116,51 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
                                     <h5>Modification d'une zone de type de jeu</h5>
-                                   <form id="FormEditSpaceType">
-                                    <?php 
-                                        require ('../../controlers/connect_bdd.php');
+                                    <form id="FormEditSpaceType">
+                                        <?php 
+                                            require ('../../controlers/connect_bdd.php');
 
-                                        $id = $_GET['id'];
-                                        $query = 'SELECT s.*, t.Label AS Type FROM space s INNER JOIN gametype t ON (s.ID_GameType = t.ID_GameType) WHERE ID_Space = "'.$id.'"';
-                                        $result = $bdd->query($query);
-                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
-            
-                                        foreach ($data as $value) {
-                                            echo $value['Name'];
-                                        }
-            
-                                        $result->closeCursor();
-                                        unset($result);
+                                            $id = $_GET['id'];
+                                            $query = 'SELECT s.*, t.Label AS Type FROM space s INNER JOIN gametype t ON (s.ID_GameType = t.ID_GameType) WHERE ID_Space = "'.$id.'"';
+                                            $result = $bdd->query($query);
+                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                                        echo '
-                                        <label>Libellé :
-                                           <input name="Lib1" id="EditTypeName" type="text" value="'.$data[0]['Label'].'" required>
-                                        </label>
-                                        <label>Type de jeu :
-                                            <select id="EditType">';
-                                           
-                                        
-                                        $result2 = $bdd->query('SELECT * FROM gametype');
-                                        $data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach ($data as $value) {
+                                                echo $value['Name'];
+                                            }
+
+                                            $result->closeCursor();
+                                            unset($result);
+
+                                            echo '
+                                            <label>Libellé :
+                                               <input name="Lib1" id="EditTypeName" type="text" value="'.$data[0]['Label'].'" required>
+                                            </label>
+                                            <label>Type de jeu :
+                                                <select id="EditType">';
 
 
-                                        foreach ($data2 as $value2) {
-                                            echo '<option value="'.$value2['ID_GameType'].'" ';
-						if ($value2['ID_GameType'] == $data[0]['ID_GameType'])
-						{
-							echo "selected";
-						}
-						echo '>'.$value2['Label'].'</option>';
-                                        }
+                                            $result2 = $bdd->query('SELECT * FROM gametype');
+                                            $data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
 
-                                        $result2->closeCursor();
-                                        unset($result2);
 
-                                        echo '
-                                            </select>
-                                        </label>
-                                        ';
-                                    ?>
+                                            foreach ($data2 as $value2) {
+                                                echo '<option value="'.$value2['ID_GameType'].'" ';
+                                                if ($value2['ID_GameType'] == $data[0]['ID_GameType'])
+                                                {
+                                                    echo "selected";
+                                                }
+                                                echo '>'.$value2['Label'].'</option>';
+                                            }
+
+                                            $result2->closeCursor();
+                                            unset($result2);
+
+                                            echo '
+                                                </select>
+                                            </label>
+                                            ';
+                                        ?>
                                        
                                        <input type="submit" class="button" value="Enregistrer">
                                    </form>
@@ -209,9 +209,7 @@
                                                 </select>
                                             </label>
                                             ';
-                                                ?>
-                                            </select>
-                                        </label>
+                                        ?>
                                         <input type="submit" class="button" value="Enregistrer">
                                     </form>
                                 </div>
