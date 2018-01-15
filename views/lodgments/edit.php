@@ -126,16 +126,16 @@
                             $result->closeCursor();
                             unset($result);
                             echo '<label>Adresse
-                                <input type="text" id="NewAdress" placeholder="Adresse" value="'.$data[0]['Adress'].'" required>
+                                <input type="text" id="NewAdress" placeholder="Adresse" value="'.$data[0]['Address'].'" required>
                             </label>
                             <label>Ville
                                 <input type="text" id="NewCity" placeholder="Ville" value="'.$data[0]['Town'].'" required>
                             </label>
                             <label>Capacité (nombre de personnes max)
-                                <input type="number" id="NewCapacity" placeholder="Capacité" value="'.$data[0]['PostalCode'].'" required>
+                                <input type="number" id="NewCapacity" placeholder="Capacité" value="'.$data[0]['Postal_Code'].'" required>
                             </label>
                             <label>Prix à la nuit
-                                <input type="number" id="NewNightPrice" placeholder="Prix"  value="'.$data[0]['NightPrice'].'" required>
+                                <input type="number" id="NewNightPrice" placeholder="Prix"  value="'.$data[0]['Night_Price'].'" required>
                             </label>
                             <input type="submit" class="button" value="Enregistrer">'
 							?>
