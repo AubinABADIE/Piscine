@@ -120,7 +120,7 @@
                                            <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
                                        </label>
                                        <label>Type de jeu :
-                                            <select multiple id="EditType">
+                                            <select id="EditType">
                                             <option value="" disabled selected>Sélectionner un type</option>
                                             <?php
                                             require('../../controlers/connect_bdd.php');
@@ -147,7 +147,7 @@
                                             <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
                                         </label>
                                         <label>Editeur associé :
-                                            <select multiple id="EditEditor" required>
+                                            <select id="EditEditor" required>
                                             <option value="" disabled selected>Sélectionner un éditeur</option>
                                             <?php
                                                 require('../../controlers/connect_bdd.php');
