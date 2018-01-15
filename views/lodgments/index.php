@@ -115,7 +115,7 @@
                         <div class="grid-x grid-margin-x">
                             <div class="cell auto">
                                 <div class="table-scroll">
-                                    <table class="selectable" id="editors-table" style="width: 100%">
+                                    <table class="selectable" id="lodgment-table" style="width: 100%">
                                         <thead>
                                             <th>Adresse</th>
                                             <th>Capacité</th>
