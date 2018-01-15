@@ -83,12 +83,13 @@
                                     <span class="sidebar-menu-text">Espaces</span>
                                 </a>
                             </li>
+                            <!-- 
                             <li>
                                 <a class="sidebar-btn" id="alerts-btn">
                                     <i class="fa fa-exclamation fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Alertes</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <div class="cell shrink">
