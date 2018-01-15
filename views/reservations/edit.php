@@ -173,10 +173,16 @@
                                 <label>
                                     Logement
                                     <select>
-                                        <option value="logement1">logement 1</option>
-                                        <option value="logement2">logement 2</option>
-                                        <option value="logement3">logement 3</option>
-                                        <option value="logement4">logement 4</option>
+										<?php
+											require('../../controlers/connect_bdd.php');
+						                    $result = $bdd->query('SELECT * FROM lodgment');
+						                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+						                    foreach ($data as $value) {
+						                        echo '<option value="'.$value['ID_Lodgment'].'">'.$value['Address'].'</option>';
+						                    }
+						                    $result->closeCursor();
+						                    unset($result);
+										?>
                                     </select>
                                 </label>
                             </div>
