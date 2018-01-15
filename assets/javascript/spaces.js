@@ -25,7 +25,7 @@ $("table.selectable#spaceeditor-table tbody tr").click(function () {
     $("#delete-spaceeditor-btn").attr("name", selectedSpace_id);
 });
 
-$("table.selectable#space-table tbody tr").click(function () {
+$("table.selectable#spaces-table tbody tr").click(function () {
     console.log(selectedSpace_id);
     $("#" + selectedSpace_id + ".spaceeditor-line").removeClass("selected");
     selectedSpace_id = $(this).attr('id');
