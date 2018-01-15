@@ -40,8 +40,8 @@
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
-                            <a class="button" data-method="delete">
-                                <i class="fa fa-sign-out" aria-hidden="true" id="disconnect-btn"></i>
+                            <a class="button" id="disconnect-btn" data-method="delete">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
                                 Disconnect
                             </a>
                         </div>
