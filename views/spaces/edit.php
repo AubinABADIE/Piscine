@@ -116,51 +116,87 @@
                                 <div class="cell auto">
                                     <h5>Modification d'une zone de type de jeu</h5>
                                    <form id="FormEditSpaceType">
-                                       <label>Libellé :
-                                           <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
-                                       </label>
-                                       <label>Type de jeu :
-                                            <select multiple id="EditType">
-                                            <option value="" disabled selected>Sélectionner un type</option>
-                                            <?php
-                                            require('../../controlers/connect_bdd.php');
+                                    <?php 
+                                        require ('../../controlers/connect_bdd.php');
 
-                                            $result = $bdd->query('SELECT * FROM gametype');
-                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                        $id = $_GET['id'];
+                                        $query = 'SELECT s.*, t.Label AS Type FROM space s INNER JOIN gametype t ON (s.ID_GameType = t.ID_GameType) WHERE ID_Space = "'.$id.'"';
+                                        $result = $bdd->query($query);
+                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+            
+                                        foreach ($data as $value) {
+                                            echo $value['Name'];
+                                        }
+            
+                                        $result->closeCursor();
+                                        unset($result);
 
-                                            foreach ($data as $value) {
-                                                echo '<option value="'.$value['ID_GameType'].'">'.$value['Label'].'</option>';
-                                            }
+                                        echo '
+                                        <label>Libellé :
+                                           <input name="Lib1" id="EditTypeName" type="text" placeholder="'.$data[0]['Label'].'" required>
+                                        </label>
+                                        <label>Type de jeu :
+                                            <select id="EditType">
+                                            <option value="'.$data[0]['ID_GameType'].'" selected>'.$data[0]['Type'].'</option>';
+                                        
+                                        $result = $bdd->query('SELECT * FROM gametype');
+                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                                            $result->closeCursor();
-                                            unset($result);
-                                            ?>
+                                        foreach ($data as $value) {
+                                            echo '<option value="'.$value['ID_GameType'].'">'.$value['Label'].'</option>';
+                                        }
+
+                                        $result->closeCursor();
+                                        unset($result);
+
+                                        echo '
                                             </select>
-                                       </label>
+                                        </label>
+                                        ';
+                                    ?>
+                                       
                                        <input type="submit" class="button" value="Enregistrer">
                                    </form>
                                 </div>
                                 <div class="cell auto">
                                     <h5>Modification d'une zone éditeur</h5>
                                     <form id="FormEditSpaceEditor">
-                                        <label>Libellé :
-                                            <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
-                                        </label>
-                                        <label>Editeur associé :
-                                            <select multiple id="EditEditor" required>
-                                            <option value="" disabled selected>Sélectionner un éditeur</option>
-                                            <?php
-                                                require('../../controlers/connect_bdd.php');
+                                        <?php 
+                                            require ('../../controlers/connect_bdd.php');
 
-                                                $result = $bdd->query('SELECT * FROM editor');
-                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                            $id = $_GET['id'];
+                                            $query = 'SELECT s.*, e.Name FROM space s INNER JOIN editor e ON (s.ID_Editor = e.ID_Editor) WHERE ID_Space = "'.$id.'"';
+                                            $result = $bdd->query($query);
+                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                
+                                            foreach ($data as $value) {
+                                                echo $value['Name'];
+                                            }
+                
+                                            $result->closeCursor();
+                                            unset($result);
 
-                                                foreach ($data as $value) {
-                                                    echo '<option value="'.$value['ID_Editor'].'">'.$value['Name'].'</option>';
-                                                }
+                                            echo '
+                                            <label>Libellé :
+                                            <input name="Lib1" id="EditTypeName" type="text" placeholder="'.$data[0]['Label'].'" required>
+                                            </label>
+                                            <label>Editeur associé :
+                                                <select id="EditEditor" required>
+                                                <option value="'.$data[0]['ID_Editor'].'" selected>'.$data[0]['Name'].'</option>';
 
-                                                $result->closeCursor();
-                                                unset($result);
+                                                    $result = $bdd->query('SELECT * FROM editor');
+                                                    $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    foreach ($data as $value) {
+                                                        echo '<option value="'.$value['ID_Editor'].'">'.$value['Name'].'</option>';
+                                                    }
+
+                                                    $result->closeCursor();
+                                                    unset($result);
+                                            echo '
+                                                </select>
+                                            </label>
+                                            ';
                                                 ?>
                                             </select>
                                         </label>
