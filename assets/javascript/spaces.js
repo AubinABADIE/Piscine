@@ -25,6 +25,15 @@ $("table.selectable#spaceeditor-table tbody tr").click(function () {
     $("#delete-spaceeditor-btn").attr("name", selectedSpace_id);
 });
 
+$("table.selectable#space-table tbody tr").click(function () {
+    console.log(selectedSpace_id);
+    $("#" + selectedSpace_id + ".spaceeditor-line").removeClass("selected");
+    selectedSpace_id = $(this).attr('id');
+    $(this).addClass("selected");
+    $("#edit-space-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
+    $("#delete-space-btn").attr("name", selectedSpace_id);
+});
+
 
 function changeForm()
 {
