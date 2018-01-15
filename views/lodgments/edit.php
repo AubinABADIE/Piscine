@@ -66,9 +66,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-btn active" id="reservations-btn" href="../reservations/index.php">
+                                <a class="sidebar-btn" id="reservations-btn" href="../reservations/index.php">
                                     <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>
                                     <span class="sidebar-menu-text">Réservations</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidebar-btn active" id="lodgment-btn" href="../lodgments/index.php">
+                                    <i class="fa fa-bed fa-fw" aria-hidden="true"></i>
+                                    <span class="sidebar-menu-text">Logements</span>
                                 </a>
                             </li>
                             <li>
