@@ -116,6 +116,7 @@
                                 <div class="cell auto">
                                     <h5>Modification d'une zone de type de jeu</h5>
                                    <form id="FormEditSpaceType">
+<<<<<<< HEAD
                                     <?php 
                                         require ('../../controlers/connect_bdd.php');
 
@@ -141,6 +142,19 @@
                                         
                                         $result = $bdd->query('SELECT * FROM gametype');
                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
+=======
+                                       <label>Libellé :
+                                           <input name="Lib1" id="EditTypeName" type="text" placeholder="Libellé" required>
+                                       </label>
+                                       <label>Type de jeu :
+                                            <select id="EditType">
+                                            <option value="" disabled selected>Sélectionner un type</option>
+                                            <?php
+                                            require('../../controlers/connect_bdd.php');
+
+                                            $result = $bdd->query('SELECT * FROM gametype');
+                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+>>>>>>> cfa788a6d255b9e534779b4bf4b0bba6d96c4def
 
                                         foreach ($data as $value) {
                                             echo '<option value="'.$value['ID_GameType'].'">'.$value['Label'].'</option>';
@@ -163,7 +177,6 @@
                                     <form id="FormEditSpaceEditor">
                                         <?php 
                                             require ('../../controlers/connect_bdd.php');
-
                                             $id = $_GET['id'];
                                             $query = 'SELECT s.*, e.Name FROM space s INNER JOIN editor e ON (s.ID_Editor = e.ID_Editor) WHERE ID_Space = "'.$id.'"';
                                             $result = $bdd->query($query);
