@@ -53,7 +53,7 @@
 			try {
 				$result->execute();
 				$result->closeCursor();
-                unset($result);
+                                unset($result);
 			} catch (PDOException $exception) {
 				echo "<!-- Erreur lors de la mise à jour.\n" . $exception->getMessage() . "\n -->";
 			}
