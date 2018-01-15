@@ -12,8 +12,8 @@ $("table.selectable#spacetype-table tbody tr").click(function () {
     $("#" + selectedSpace_id + ".spacetype-line").removeClass("selected");
     selectedSpace_id = $(this).attr('id');
     $(this).addClass("selected");
-    $("#edit-space-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
-    $("#delete-space-btn").attr("name", selectedSpace_id);
+    $("#edit-spacetype-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
+    $("#delete-spacetype-btn").attr("name", selectedSpace_id);
 });
 
 $("table.selectable#spaceeditor-table tbody tr").click(function () {
@@ -21,8 +21,8 @@ $("table.selectable#spaceeditor-table tbody tr").click(function () {
     $("#" + selectedSpace_id + ".spaceeditor-line").removeClass("selected");
     selectedSpace_id = $(this).attr('id');
     $(this).addClass("selected");
-    $("#edit-space-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
-    $("#delete-space-btn").attr("name", selectedSpace_id);
+    $("#edit-spaceeditor-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
+    $("#delete-spaceeditor-btn").attr("name", selectedSpace_id);
 });
 
 
