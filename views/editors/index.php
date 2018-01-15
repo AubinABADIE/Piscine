@@ -40,7 +40,7 @@
                     </button>
                     <div class="dropdown-pane" id="user-dropdown" data-dropdown data-close-on-click="true">
                         <div class="button-group expanded small" style="margin-bottom: 0">
-                            <a class="button" data-method="delete" action="../../controlers/session_deconnect.php">
+                            <a class="button" data-method="delete" id="disconnect-btn">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                                 Disconnect
                             </a>
@@ -157,5 +157,6 @@
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
 <script type="text/javascript" src="../../assets/javascript/editors.js"></script>
+<script type="text/javascript" src="../../assets/javascript/sessions.js"></script>
 </body>
 </html>
