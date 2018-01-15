@@ -133,7 +133,7 @@
 
                                         echo '
                                         <label>Libellé :
-                                           <input name="Lib1" id="EditTypeName" type="text" placeholder="'.$data[0]['Label'].'" required>
+                                           <input name="Lib1" id="EditTypeName" type="text" value="'.$data[0]['Label'].'" required>
                                         </label>
                                         <label>Type de jeu :
                                             <select id="EditType">
@@ -178,7 +178,7 @@
 
                                             echo '
                                             <label>Libellé :
-                                            <input name="Lib1" id="EditTypeName" type="text" placeholder="'.$data[0]['Label'].'" required>
+                                            <input name="Lib1" id="EditTypeName" type="text" value="'.$data[0]['Label'].'" required>
                                             </label>
                                             <label>Editeur associé :
                                                 <select id="EditEditor" required>
