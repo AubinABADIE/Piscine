@@ -6,6 +6,9 @@
     $myNull = null;
 
 	if (count($_POST) > 0) {
+        
+        echo $_GET['id'];
+        
 		if ((!isset($_POST['name'])) || ($_POST['name'] == '')) {
 			$update = false;
 		}
@@ -81,7 +84,7 @@
 			}
 
 			if ($redirect) {
-				header('Location: ../views/editors/show.php?id='.$_GET['id']);
+				//header('Location: ../views/editors/show.php?id='.$_GET['id']);
 				exit();
 			}
 		}
