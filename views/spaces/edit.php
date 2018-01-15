@@ -187,18 +187,24 @@
                                             <input name="Lib1" id="EditTypeName" type="text" value="'.$data[0]['Label'].'" required>
                                             </label>
                                             <label>Editeur associé :
-                                                <select id="EditEditor" required>
-                                                <option value="'.$data[0]['ID_Editor'].'" selected>'.$data[0]['Name'].'</option>';
+                                                <select id="EditEditor" required>';
 
-                                            $result = $bdd->query('SELECT * FROM editor');
-                                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                                    $result2 = $bdd->query('SELECT * FROM editor');
+				                        			$data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
 
-                                            foreach ($data as $value) {
-                                                echo '<option value="'.$value['ID_Editor'].'">'.$value['Name'].'</option>';
-                                            }
 
-                                            $result->closeCursor();
-                                            unset($result);
+										            foreach ($data2 as $value2) {
+										                echo '<option value="'.$value2['ID_GameType'].'" ';
+														if ($value2['ID_Editor'] == $data[0]['ID_Editor'])
+														{
+															echo "selected";
+														}
+														echo '>'.$value2['Name'].'</option>';
+										            }
+
+								                $result2->closeCursor();
+								                unset($result2);
+
                                             echo '
                                                 </select>
                                             </label>
