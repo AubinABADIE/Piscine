@@ -136,15 +136,15 @@
                                            <input name="Lib1" id="EditTypeName" type="text" value="'.$data[0]['Label'].'" required>
                                         </label>
                                         <label>Type de jeu :
-                                            <select id="EditType">
-                                            <option value="'.$data[0]['ID_GameType'].'" selected>'.$data[0]['Type'].'</option>';
+                                            <select id="EditType">';
+                                           
                                         
                                         $result = $bdd->query('SELECT * FROM gametype');
                                         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
                                         foreach ($data as $value) {
-                                            echo '<option value="'.$value['ID_GameType'].'">'.$value['Label'].'</option>';
+                                            echo '<option value="'.$value['ID_GameType'].'"'.if ($value['ID_GameType'] == $data[0]['ID_GameType']) {echo "selected"}.'>'.$value['Label'].'</option>';
                                         }
 
                                         $result->closeCursor();
