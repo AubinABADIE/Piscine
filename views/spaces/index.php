@@ -152,7 +152,7 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="button-group inline" id="space-action-btn">
-                                                    <a class="button" id="edit-space-btn">Modifier</a>
+                                                    <a class="button" id="edit-spacetype-btn">Modifier</a>
                                                     <a class="button" href="new.php">Ajouter</a>
                                                     <a class="button alert" id="delete-space-btn">Supprimer</a>
                                                 </div>
@@ -195,7 +195,7 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="button-group inline" id="space-action-btn">
-                                                    <a class="button" id="edit-space-btn">Modifier</a>
+                                                    <a class="button" id="edit-spaceeditor-btn">Modifier</a>
                                                     <a class="button" href="new.php">Ajouter</a>
                                                     <a class="button alert" id="delete-space-btn">Supprimer</a>
                                                 </div>
