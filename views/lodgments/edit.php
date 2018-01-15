@@ -115,19 +115,30 @@
 
                     <div class="cell auto content-cell">
                         <form id="FormNewLodgment">
-                            <label>Adresse
-                                <input type="text" id="NewAdress" placeholder="Adresse" required>
+							<?php
+							require ('../../controlers/connect_bdd.php');
+
+                            $id = $_GET['id'];
+                            $query = 'SELECT * FROM lodgment WHERE ID_Lodgment = "' . $id . '"';
+                            $result = $bdd->query($query);
+                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                            $result->closeCursor();
+                            unset($result);
+                            echo '<label>Adresse
+                                <input type="text" id="NewAdress" placeholder="Adresse" value="'.$data[0]['Adress'].'" required>
                             </label>
                             <label>Ville
-                                <input type="text" id="NewCity" placeholder="Ville" required>
+                                <input type="text" id="NewCity" placeholder="Ville" value="'.$data[0]['Town'].'" required>
                             </label>
                             <label>Capacité (nombre de personnes max)
-                                <input type="number" id="NewCapacity" placeholder="Capacité" required>
+                                <input type="number" id="NewCapacity" placeholder="Capacité" value="'.$data[0]['PostalCode'].'" required>
                             </label>
                             <label>Prix à la nuit
-                                <input type="number" id="NewNightPrice" placeholder="Prix" required>
+                                <input type="number" id="NewNightPrice" placeholder="Prix"  value="'.$data[0]['NightPrice'].'" required>
                             </label>
-                            <input type="submit" class="button" value="Enregistrer">
+                            <input type="submit" class="button" value="Enregistrer">'
+							?>
                         </form>
 
                     </div>
