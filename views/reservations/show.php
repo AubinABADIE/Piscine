@@ -128,7 +128,7 @@
                                 <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Logements</h4>
+                                            <h4>Logements reservés</h4>
                                         </div>
                                         <div class="card-section">
                                             <table class="selectable" id="lodgment-table">
@@ -246,7 +246,7 @@
                                 <div class="cell auto">
                                     <div class="card">
                                         <div class="card-divider">
-                                            <h4>Emplacements</h4>
+                                            <h4>Emplacements reservés</h4>
                                         </div>
                                         <div class="card-section">
                                             <table class="selectable" id="spaces-table">
