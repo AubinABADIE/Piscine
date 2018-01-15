@@ -144,10 +144,10 @@
 
 
                                         foreach ($data as $value) {
-                                            echo '<option value="'.$value['ID_GameType']'.'" ';
+                                            echo '<option value="'.$value['ID_GameType'].'" ';
 						if ($value['ID_GameType'] == $data[0]['ID_GameType'])
 						{
-							echo "selected"
+							echo "selected";
 						}
 						echo '>'.$value['Label'].'</option>';
                                         }
