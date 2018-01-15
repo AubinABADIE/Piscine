@@ -123,9 +123,9 @@
                                             <th>Prix à la nuit</th>
                                         </thead>
                                         <tbody>
-                                        <?php
-                                        require ('../../controlers/select_lodgments.php');
-                                        ?>
+                                            <?php
+                                                require ('../../controlers/select_lodgments.php');
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

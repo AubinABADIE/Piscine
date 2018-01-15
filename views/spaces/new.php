@@ -116,7 +116,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
                                     <h5>Création d'une zone de type de jeu</h5>
-                                   <form id="FormNewSpaceType">
+                                    <form id="FormNewSpaceType" action="index.php" method="get">
                                        <label>Libellé :
                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
                                        </label>

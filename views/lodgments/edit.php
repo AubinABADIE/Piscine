@@ -114,30 +114,32 @@
                     </div>
 
                     <div class="cell auto content-cell">
-                        <form id="FormNewLodgment">
+                        <form id="FormNewLodgment" action="index.php" method="get">
 							<?php
-							require ('../../controlers/connect_bdd.php');
+                                require ('../../controlers/connect_bdd.php');
 
-                            $id = $_GET['id'];
-                            $query = 'SELECT * FROM lodgment WHERE ID_Lodgment = "' . $id . '"';
-                            $result = $bdd->query($query);
-                            $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                $id = $_GET['id'];
+                                $query = 'SELECT * FROM lodgment WHERE ID_Lodgment = "' . $id . '"';
+                                $result = $bdd->query($query);
+                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                            $result->closeCursor();
-                            unset($result);
-                            echo '<label>Adresse
-                                <input type="text" id="NewAdress" placeholder="Adresse" value="'.$data[0]['Address'].'" required>
-                            </label>
-                            <label>Ville
-                                <input type="text" id="NewCity" placeholder="Ville" value="'.$data[0]['Town'].'" required>
-                            </label>
-                            <label>Capacité (nombre de personnes max)
-                                <input type="number" id="NewCapacity" placeholder="Capacité" value="'.$data[0]['Postal_Code'].'" required>
-                            </label>
-                            <label>Prix à la nuit
-                                <input type="number" id="NewNightPrice" placeholder="Prix"  value="'.$data[0]['Night_Price'].'" required>
-                            </label>
-                            <input type="submit" class="button" value="Enregistrer">'
+                                $result->closeCursor();
+                                unset($result);
+                                echo '
+                                    <label>Adresse
+                                        <input type="text" id="NewAdress" placeholder="Adresse" value="'.$data[0]['Address'].'" required>
+                                    </label>
+                                    <label>Ville
+                                        <input type="text" id="NewCity" placeholder="Ville" value="'.$data[0]['Town'].'" required>
+                                    </label>
+                                    <label>Capacité (nombre de personnes max)
+                                        <input type="number" id="NewCapacity" placeholder="Capacité" value="'.$data[0]['Postal_Code'].'" required>
+                                    </label>
+                                    <label>Prix à la nuit
+                                        <input type="number" id="NewNightPrice" placeholder="Prix"  value="'.$data[0]['Night_Price'].'" required>
+                                    </label>
+                                    <input type="submit" class="button" value="Enregistrer">
+                                ';
 							?>
                         </form>
 

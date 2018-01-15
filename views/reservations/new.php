@@ -116,7 +116,7 @@
 
                     <div class="cell auto content-cell">
 
-                        <form>
+                        <form action="index.php" method="get">
                             <label>
                                 Editeur
                                 <select>

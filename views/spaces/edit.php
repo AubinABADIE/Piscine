@@ -116,7 +116,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
                                     <h5>Modification d'une zone de type de jeu</h5>
-                                    <form id="FormEditSpaceType">
+                                    <form id="FormEditSpaceType" action="index.php" method="get">
                                         <?php 
                                             require ('../../controlers/connect_bdd.php');
 
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="cell auto">
                                     <h5>Modification d'une zone éditeur</h5>
-                                    <form id="FormEditSpaceEditor">
+                                    <form id="FormEditSpaceEditor" action="index.php" method="get">
                                         <?php 
                                             require ('../../controlers/connect_bdd.php');
                                             $id = $_GET['id'];

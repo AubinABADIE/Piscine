@@ -115,7 +115,7 @@
 
                     <div class="cell auto content-cell">
 
-                        <form>
+                        <form action="index.php" method="get">
                             <label>
                                 Editeur
                                 <select>
@@ -138,18 +138,18 @@
                                 Jeux
                                 <select multiple="multiple">
                                     <?php
-                                                require('../../controlers/connect_bdd.php');
+                                        require('../../controlers/connect_bdd.php');
 
-                                                $result = $bdd->query('SELECT * FROM game');
-                                                $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                                        $result = $bdd->query('SELECT * FROM game');
+                                        $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                                                foreach ($data as $value) {
-                                                    echo '<option value="'.$value['ID_Game'].'">'.$value['Name'].'</option>';
-                                                }
+                                        foreach ($data as $value) {
+                                            echo '<option value="'.$value['ID_Game'].'">'.$value['Name'].'</option>';
+                                        }
 
-                                                $result->closeCursor();
-                                                unset($result);
-                                                ?>
+                                        $result->closeCursor();
+                                        unset($result);
+                                    ?>
                                 </select>
                             </label>
                             <label>
@@ -187,7 +187,7 @@
                                     </select>
                                 </label>
                             </div>
-                            <input type="submit" class="button" value="Enregistrer">
+                            <input type="submit" class="button" value="Enregistrer" href="index.php"> 
                         </form>
 
                     </div>

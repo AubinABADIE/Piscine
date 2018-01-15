@@ -115,7 +115,7 @@
 
                     <div class="cell auto content-cell">
 
-                        <form id="FormNewLodgment">
+                        <form id="FormNewLodgment" action="index.php" method="get">
                             <label>Adresse
                                 <input type="text" id="NewAdress" placeholder="Adresse" required>
                             </label>
@@ -128,7 +128,7 @@
                             <label>Prix à la nuit
                                 <input type="number" id="NewNightPrice" placeholder="Prix" required>
                             </label>
-                            <input type="submit" class="button" value="Enregistrer">
+                            <input type="submit" class="button" value="Enregistrer" href="index.php">
                         </form>
 
                     </div>
