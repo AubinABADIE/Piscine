@@ -27,7 +27,7 @@ $("table.selectable#spaceeditor-table tbody tr").click(function () {
 
 $("table.selectable#spaces-table tbody tr").click(function () {
     console.log(selectedSpace_id);
-    $("#" + selectedSpace_id + ".spaceeditor-line").removeClass("selected");
+    $("#" + selectedSpace_id).removeClass("selected");
     selectedSpace_id = $(this).attr('id');
     $(this).addClass("selected");
     $("#edit-space-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
