@@ -14,7 +14,7 @@
         $result2->closeCursor();
         unset($result2);
         
-        echo '<tr id="'.$value['ID_Space'].'">';
+        echo '<tr id="'.$value['ID_Space'].'" class="spaceeditor-line">';
         echo '<td>'.$value['Label'].'</td>';
         echo '<td>'.$value['Editor'].'</td>';
         echo '<td>'.$qty.'</td>';
