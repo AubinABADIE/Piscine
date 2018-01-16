@@ -11,8 +11,6 @@
     $result = $bdd->query('DELETE FROM contact WHERE ID_Contact = "'.$id.'"');
     unset($result);
 
-    foreach ($data as $value) {
-        header('Location: ../views/editors/show.php?id=' . $value['ID_Editor']);
-    }
+    header('Location: ../views/editors/show.php?id=' . $data[0]['ID_Editor']);
     exit();
 ?>

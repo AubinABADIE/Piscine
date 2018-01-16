@@ -131,7 +131,7 @@
                                             <h4>Logements reservés</h4>
                                         </div>
                                         <div class="card-section">
-                                            <table class="selectable" id="lodgment-table">
+                                            <table class="selectable" id="lodge-table">
                                                 <thead>
                                                     <th>Adresse</th>
                                                     <th>Capacité</th>
@@ -188,25 +188,34 @@
                                                     $result = $bdd->query('SELECT Quantity FROM reserved_place WHERE ID_Booking = "'.$id.'"');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
                                                     foreach ($data as $value) {
-                                                        $qty = $qty + $value['Quantity'];
+                                                        $qty += $value['Quantity'];
                                                     }
                                                     $result->closeCursor();
                                                     unset($result);
                                                 
-                                                    $result = $bdd->query('SELECT bi.Negociated_Amount FROM bill bi INNER JOIN booking b WHERE b.ID_Booking = "'.$id.'"');
+                                                    $result = $bdd->query('SELECT bi.* FROM bill bi INNER JOIN booking b ON (bi.ID_Booking = b.ID_Booking) WHERE b.ID_Booking = "'.$id.'"');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
-                                                    $amount = $qty * $data[0]['Negociated_Amount'];
+                                                    if (is_null($data[0]['Negociated_Amount'])) {
+                                                        $result2 = $bdd->query('SELECT * FROM festival');
+                                                        $data2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+                                                        $amount = $qty * $data2[0]['Unit_Price'];
+                                                        $result2->closeCursor();
+                                                        unset($result2);
+                                                    } else {
+                                                        $amount = $qty * $data[0]['Negociated_Amount'];
+                                                    }
                                                     $result->closeCursor();
                                                     unset($result);
+                                                    
+                                                    
                                                 
                                                     $result = $bdd->query('SELECT l.Night_Price, lo.Beds FROM lodgment l INNER JOIN lodge lo ON (l.ID_Lodgment = lo.ID_Lodgment) WHERE lo.ID_Booking = "'.$id.'"');
                                                     $data = $result->fetchAll(PDO::FETCH_ASSOC);
                                                     foreach ($data as $value) {
-                                                        $amount = $amount + ($value['Night_Price'] * $value['Beds']);
+                                                        $amount += $value['Night_Price'] * $value['Beds'];
                                                     }
                                                     $result->closeCursor();
                                                     unset($result);
-                                                
                                                 
                                                     echo $amount.' €';
                                                 ?>
@@ -249,7 +258,7 @@
                                             <h4>Emplacements reservés</h4>
                                         </div>
                                         <div class="card-section">
-                                            <table class="selectable" id="spaces-table">
+                                            <table class="selectable" id="reservedspaces-table">
                                                 <thead>
                                                     <th>Zone</th>
                                                     <th>Jeu</th>
@@ -277,10 +286,10 @@
                                                     ?>
                                                 </tbody>
                                             </table>
-                                            <div class="button-group" id="space-action-btn">
-                                                <a class="button" id="edit-space-btn">Modifier</a>
+                                            <div class="button-group" id="reservedspace-action-btn">
+                                                <a class="button" id="edit-reservedspace-btn">Modifier</a>
                                                 <a class="button">Ajouter</a>
-                                                <a class="button alert" id="delete-space-btn">Supprimer</a>
+                                                <a class="button alert" id="delete-reservedspace-btn">Supprimer</a>
                                             </div>
                                         </div>
                                     </div>

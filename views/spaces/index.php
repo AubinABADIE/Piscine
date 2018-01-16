@@ -155,7 +155,7 @@
                                                 <div class="button-group inline" id="space-action-btn">
                                                     <a class="button" id="edit-spacetype-btn">Modifier</a>
                                                     <a class="button" href="new.php">Ajouter</a>
-                                                    <a class="button alert" id="delete-space-btn">Supprimer</a>
+                                                    <a class="button alert" id="delete-spacetype-btn">Supprimer</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -198,7 +198,7 @@
                                                 <div class="button-group inline" id="space-action-btn">
                                                     <a class="button" id="edit-spaceeditor-btn">Modifier</a>
                                                     <a class="button" href="new.php">Ajouter</a>
-                                                    <a class="button alert" id="delete-space-btn">Supprimer</a>
+                                                    <a class="button alert" id="delete-spaceeditor-btn">Supprimer</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -218,5 +218,6 @@
 <script type="text/javascript" src="../../assets/javascript/foundation.js"></script>
 <script type="text/javascript" src="../../assets/javascript/layout.js"></script>
 <script type="text/javascript" src="../../assets/javascript/spaces.js"></script>
+<script type="text/javascript" src="../../assets/javascript/sessions.js"></script>
 </body>
 </html>

@@ -1,11 +1,27 @@
 var selectedSpace_id;
 
-$("#delete-space-btn").click(function () {
-    if (confirm("Confirmer la suppression ?")) {
+//Page reservation
+$("#delete-reservedspace-btn").click(function () {
+    if (confirm("Confirmer la suppression de la réservation de l'espace ?")) {
         window.location.href = "../../controlers/delete_reservedplace.php?id=" + $(this).attr('name')
     }
 });
 
+$("table.selectable#reservedspaces-table tbody tr").click(function () {
+    console.log(selectedSpace_id);
+    $("#" + selectedSpace_id).removeClass("selected");
+    selectedSpace_id = $(this).attr('id');
+    $(this).addClass("selected");
+    $("#edit-reservedspace-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
+    $("#delete-reservedspace-btn").attr("name", selectedSpace_id);
+});
+
+//Page espace
+$("#delete-spacetype-btn").click(function () {
+    if (confirm("Confirmer la suppression de l'espace ?")) {
+        window.location.href = "../../controlers/delete_spaces.php?id=" + $(this).attr('name')
+    }
+});
 
 $("table.selectable#spacetype-table tbody tr").click(function () {
     console.log(selectedSpace_id);
@@ -16,6 +32,12 @@ $("table.selectable#spacetype-table tbody tr").click(function () {
     $("#delete-spacetype-btn").attr("name", selectedSpace_id);
 });
 
+$("#delete-spaceeditor-btn").click(function () {
+    if (confirm("Confirmer la suppression de l'espace ?")) {
+        window.location.href = "../../controlers/delete_spaces.php?id=" + $(this).attr('name')
+    }
+});
+
 $("table.selectable#spaceeditor-table tbody tr").click(function () {
     console.log(selectedSpace_id);
     $("#" + selectedSpace_id + ".spaceeditor-line").removeClass("selected");
@@ -23,15 +45,6 @@ $("table.selectable#spaceeditor-table tbody tr").click(function () {
     $(this).addClass("selected");
     $("#edit-spaceeditor-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
     $("#delete-spaceeditor-btn").attr("name", selectedSpace_id);
-});
-
-$("table.selectable#spaces-table tbody tr").click(function () {
-    console.log(selectedSpace_id);
-    $("#" + selectedSpace_id).removeClass("selected");
-    selectedSpace_id = $(this).attr('id');
-    $(this).addClass("selected");
-    $("#edit-space-btn").attr("href", "../spaces/edit.php?id=" + selectedSpace_id);
-    $("#delete-space-btn").attr("name", selectedSpace_id);
 });
 
 

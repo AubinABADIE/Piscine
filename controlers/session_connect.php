@@ -16,8 +16,10 @@
 		else {
 			$row = $result->fetch();
 
-		if (strtolower($row['Password']) != strtolower(hash('sha256', $_POST['pwd']))) {
+		if ($row['Pseudo'])!=$_POST['id'] || strtolower($row['Password'])!=strtolower(hash('sha256', $_POST['pwd']))) {
 			$status = ERROR_INCORRECTPASSWORD;
+            header('Location: ../views/sessions/new.php');
+			exit();
 		} 
 		else {
 			$_SESSION['ID'] = $row['ID_User'];

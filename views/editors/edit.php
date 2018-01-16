@@ -137,9 +137,7 @@
                         <div class="grid-container full">
                             <div class="grid-x">
                                 <div class="cell auto">
-									<?php
-									echo '<form id="FormEditEditor" action="../../controlers/update_editors.php?id='.$_GET['id'].' method="post">'
-									?>
+									<form id="FormEditEditor" action="index.php" method="get"> 
                                         <div class="grid-x grid-margin-x">
                                             <?php
                                                 require ('../../controlers/connect_bdd.php');

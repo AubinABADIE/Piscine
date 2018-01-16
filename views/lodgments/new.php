@@ -115,20 +115,23 @@
 
                     <div class="cell auto content-cell">
 
-                        <form id="FormNewLodgment" action="index.php" method="get">
+                        <form id="FormNewLodgment" action="../../controlers/insert_lodgments.php" method="post">
                             <label>Adresse
-                                <input type="text" id="NewAdress" placeholder="Adresse" required>
+                                <input name="address" type="text" id="NewAdress" placeholder="Adresse" required>
                             </label>
                             <label>Ville
-                                <input type="text" id="NewCity" placeholder="Ville" required>
+                                <input name="town" type="text" id="NewCity" placeholder="Ville" required>
+                            </label>
+                            <label>Code postal
+                                <input name="postalcode" type="text" id="NewPC" placeholder="Code postal" required>
                             </label>
                             <label>Capacité (nombre de personnes max)
-                                <input type="number" id="NewCapacity" placeholder="Capacité" required>
+                                <input name="capacity" type="number" id="NewCapacity" min="1" placeholder="Capacité" required>
                             </label>
                             <label>Prix à la nuit
-                                <input type="number" id="NewNightPrice" placeholder="Prix" required>
+                                <input name="price" type="number" id="NewNightPrice" min="1" placeholder="Prix" required>
                             </label>
-                            <input type="submit" class="button" value="Enregistrer" href="index.php">
+                            <input type="submit" class="button" value="Enregistrer">
                         </form>
 
                     </div>

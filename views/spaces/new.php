@@ -116,7 +116,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell auto">
                                     <h5>Création d'une zone de type de jeu</h5>
-                                    <form id="FormNewSpaceType" action="index.php" method="get">
+                                    <form id="FormNewSpaceType" action="../../controlers/insert_spaces.php" method="post">
                                        <label>Libellé :
                                            <input name="Lib1" id="NewTypeName" type="text" placeholder="Libellé" required>
                                        </label>
@@ -128,7 +128,7 @@
                                         </fieldset>
 
                                        <label>Type de jeu :
-                                            <select id="NewType" required>
+                                            <select name="typeZone" id="NewType" required>
                                                 <option value="" disabled selected>Sélectionner un type</option>
                                                 <?php
                                                 require('../../controlers/connect_bdd.php');
@@ -146,7 +146,7 @@
                                             </select>
                                        </label>
                                        <label>Editeur associé :
-                                            <select id="NewEditor" required>
+                                            <select name="editorZone" id="NewEditor" required>
                                             <option value="" disabled selected>Sélectionner un éditeur</option>
                                                 <?php
                                                 require('../../controlers/connect_bdd.php');

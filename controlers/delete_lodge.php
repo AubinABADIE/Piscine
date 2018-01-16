@@ -11,8 +11,6 @@
     $result = $bdd->query('DELETE FROM lodge WHERE ID_Lodgment = "'.$id.'"');
     unset($result);
 
-    foreach ($data as $value) {
-        header('Location: ../views/reservations/index.php');
-    }
+    header('Location: ../views/reservations/index.php?id="'.$data[0]['ID_Booking']);
     exit();
 ?>
