@@ -15,13 +15,13 @@
 		} 
 		else {
 			$row = $result->fetch();
+        }
 
-		if ($row['Pseudo'])!=$_POST['id'] || strtolower($row['Password'])!=strtolower(hash('sha256', $_POST['pwd']))) {
+		if ($row['Pseudo'] != $_POST['id'] || strtolower($row['Password']) != strtolower(hash('sha256', $_POST['pwd']))) {
 			$status = ERROR_INCORRECTPASSWORD;
             header('Location: ../views/sessions/new.php');
 			exit();
-		} 
-		else {
+		} else {
 			$_SESSION['ID'] = $row['ID_User'];
 			$_SESSION['Nom'] = $row['Name'];
 			$_SESSION['Phone'] = $row['Phone'];
@@ -31,12 +31,11 @@
 			header('Location: ../views/editors/index.php');
 			exit();
 		}
-	}
-	$result->closeCursor();
-	unset($result);
+        
+        $result->closeCursor();
+        unset($result);
 
-	}
-	else{
+	} else {
 		echo '<p>Fatal Error</p>';
 	}
 
